@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS  读到家具碰撞框 | rects=18
+[check] PASS  读到 4 张座位 | seats=4
+[check] PASS  对照：旧的「座位→(320,200)→门口」直线会被判成穿模 | 会穿的座位=["s1", "s2", "s3", "s4"]
+[check] PASS  s1 离场路径从座位出发 | start=(137.0, 210.0)
+[check] PASS  s1 离场路径走到门口 | end=(320.0, 300.0)
+[check] PASS  s1 离座后不再穿过任何家具 | 撞到：[]
+[check] PASS  s1 出凳只碰自己那张长桌（prop_09_long_table_1_top） | own=prop_09_long_table_1_top hits=["prop_09_long_table_1_top"]
+[check] PASS  s2 离场路径从座位出发 | start=(272.0, 210.0)
+[check] PASS  s2 离场路径走到门口 | end=(320.0, 300.0)
+[check] PASS  s2 离座后不再穿过任何家具 | 撞到：[]
+[check] PASS  s2 出凳只碰自己那张长桌（prop_10_long_table_2_top） | own=prop_10_long_table_2_top hits=["prop_10_long_table_2_top"]
+[check] PASS  s3 离场路径从座位出发 | start=(137.0, 296.0)
+[check] PASS  s3 离场路径走到门口 | end=(320.0, 300.0)
+[check] PASS  s3 离座后不再穿过任何家具 | 撞到：[]
+[check] PASS  s3 出凳只碰自己那张长桌（prop_11_long_table_3_top） | own=prop_11_long_table_3_top hits=["prop_11_long_table_3_top"]
+[check] PASS  s4 离场路径从座位出发 | start=(272.0, 296.0)
+[check] PASS  s4 离场路径走到门口 | end=(320.0, 300.0)
+[check] PASS  s4 离座后不再穿过任何家具 | 撞到：[]
+[check] PASS  s4 出凳只碰自己那张长桌（prop_12_long_table_4_top） | own=prop_12_long_table_4_top hits=["prop_12_long_table_4_top"]
+[check] PASS  入座路径：4 张凳子 × 5 个槽位，只有踏进凳子那一步碰自己的长桌 | 问题：[]
+[check] PASS  从吧台排队位离场：5 个槽位都不穿家具、都能走到门口 | 问题：[]
+[check] PASS  集成：坐下被叫走后先回过道（不是直奔 320,200） | path[1]=(105.0, 210.0)
+[check] PASS  集成：离场状态为 LEAVING | state=4
+[check] PASS  集成：座位已释放 | occupied=0
+[check] PASS  集成：整条离场路径不穿家具 | 撞到：[]
+[seat_path] PASS=25 FAIL=0

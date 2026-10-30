@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS  HUD 左上角有存档提示条 | hud=UIRoot:<Control#80916514411>
+[check] PASS  提示条写着「[F5] 存档」 | [F5] 存档
+[check] PASS  提示条贴在任务书下面（8,62） | (8.0, 62.0)
+[check] PASS  能存（合法场景） | 
+[check] PASS  F5 打开存档面板 | panel=SavePanel:<Control#107055417319>
+[check] PASS  面板默认 save 模式 | save
+[SaveGame] 已存入槽 1（第 3 天 14:20）
+[check] PASS  存完面板自己关上 | modal=<null>
+[check] PASS  1 号槽写进去了 | 
+[check] PASS  meta 记住第 3 天 14:20 | { "slot": 1, "day": 3, "hour": 14, "minute": 20, "money": 180, "revenue": 120.0, "scene": "res://scenes/world.tscn", "saved_at": "2026-10-30 20:15:40" }
+[check] PASS  meta 记住铜币 | 180 vs 180
+[check] PASS  meta 记住场景 | res://scenes/world.tscn
+[check] PASS  「继续游戏」指针指向 1 号槽 | 1
+[check] PASS  2 号槽还是空的 | 
+[check] PASS  改过之后状态确实变了 | copper=0 day=9
+[SaveGame] 读取槽 1 → res://scenes/world.tscn
+[check] PASS  load_slot 返回成功 | 
+[SceneBootstrap] 读档落位 (240.0, 225.0)（第 3 天）
+[check] PASS  读档回到第 3 天 14:20 | day=3 14:20
+[check] PASS  读档恢复铜币 | 180 vs 180
+[check] PASS  读档恢复物品 | 4
+[check] PASS  读档恢复任务 | 
+[check] PASS  读档恢复营业额 | 120 vs 120
+[check] PASS  读档落回原地 | (240.0, 225.076) vs (240.0, 225.076)
+[check] PASS  读档后不带序章（stage=OPEN） | 6
+[check] PASS  第一次 E 不覆盖（等确认） | meta=120 now=197
+[SaveGame] 已存入槽 1（第 3 天 14:20）
+[check] PASS  第二次 E 才覆盖 | meta=197 now=197
+[check] PASS  切到开始界面 | res://scenes/title.tscn
+[check] PASS  有存档 → 默认停在「继续游戏」 | index=0
+[check] PASS  「继续游戏」已点亮 | 
+[check] PASS  「读取存档」打开的是 load 模式面板 | load
+[check] PASS  空档位不给读（面板还开着） | 
+[check] PASS  Esc 关掉读取面板 | 
+[verify_save] PASS=30 FAIL=0
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS data/npcs.json 载入 21 个角色且无错误 | defs=21 / errors=[]
+[check] PASS 20 张图集可加载且尺寸正确（顾客 240x600=5 行含坐姿，其余 240x480=4 行） | 缺图集 [] / 尺寸异常 []
+[check] PASS 默认不出场（enabled=false → 场景里 0 个 NPC） | npc=0 / enabled=false
+[check] PASS 打开开关后按数据摆出全部 NPC 且都在 Sorted（y_sort）容器里 | 实例 7 个 / 期望 7 个 / 父节点 Sorted
+[check] PASS 每个 NPC：4 方向 x 4 帧 / 脚底对齐原点 / light_mask=2 | 动画[] 对齐[] 光罩[]
+[check] PASS 初始朝向按数据生效（玩家不在范围内） | market_catherine facing=up anim=walk_up
+[check] PASS 玩家靠近时 NPC 转头看人 | knight_ringe anim=walk_left 期望=walk_left（玩家在left）
+[check] PASS NPC 跟昼夜环境色（夜 < 昼） | 昼 (1.0, 1.0, 1.0, 1.0)(1.00) / 夜 (0.64, 0.6, 0.66, 1.0)(0.61)
+[check] PASS NPC 挡路（玩家被脚底碰撞框停住） | 停在 y=266.0（NPC y=274.0，期望 ≈264.0）
+[check] PASS 走近浮出 [E] 交谈 提示 | prompt=[E] 交谈
+[check] PASS 按 E 弹出对话框并冻结玩家 | box=DialogueBox / frozen=true
+[check] PASS 对话框带正确的说话人与头像 | speaker=林格 / lines=2 / portrait=AtlasTexture
+[check] PASS 台词走完自动关框并解冻玩家 | 残留对话框=false / frozen=false
+[check] PASS 全部 20 角色切格与声明一致（每帧=cell，行数=图集高/格高，含 5 行坐姿图集） | 
+[check] PASS 台词按出场位置区分（凯瑟琳：集市摊主口吻 ≠ 酒馆顾客口吻） | 8 个位置已核对 / 集市 3 句、酒馆 2 句 
+[npc] PASS=15 FAIL=0

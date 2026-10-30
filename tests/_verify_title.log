@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS  底图是 1280×768 原生尺寸 | size=(1280.0, 768.0)
+[check] PASS  底图不缩放铺满画布 | scale=(1.0, 1.0) centered=false
+[check] PASS  标题写着 炉火镇 | labels=["炉火镇", "炉火镇", "H E A R T H V A L E", "一间酒馆，一镇长夜", "继续游戏", "暂无存档", "读取存档", "暂无存档", "开始游戏", "设置", "退出游戏", "W / S 选择      E / Enter 确认", "序章 · 开张头一日"]
+[check] PASS  菜单项「继续游戏」在 | labels=["炉火镇", "炉火镇", "H E A R T H V A L E", "一间酒馆，一镇长夜", "继续游戏", "暂无存档", "读取存档", "暂无存档", "开始游戏", "设置", "退出游戏", "W / S 选择      E / Enter 确认", "序章 · 开张头一日"]
+[check] PASS  菜单项「读取存档」在 | labels=["炉火镇", "炉火镇", "H E A R T H V A L E", "一间酒馆，一镇长夜", "继续游戏", "暂无存档", "读取存档", "暂无存档", "开始游戏", "设置", "退出游戏", "W / S 选择      E / Enter 确认", "序章 · 开张头一日"]
+[check] PASS  菜单项「开始游戏」在 | labels=["炉火镇", "炉火镇", "H E A R T H V A L E", "一间酒馆，一镇长夜", "继续游戏", "暂无存档", "读取存档", "暂无存档", "开始游戏", "设置", "退出游戏", "W / S 选择      E / Enter 确认", "序章 · 开张头一日"]
+[check] PASS  菜单项「设置」在 | labels=["炉火镇", "炉火镇", "H E A R T H V A L E", "一间酒馆，一镇长夜", "继续游戏", "暂无存档", "读取存档", "暂无存档", "开始游戏", "设置", "退出游戏", "W / S 选择      E / Enter 确认", "序章 · 开张头一日"]
+[check] PASS  菜单项「退出游戏」在 | labels=["炉火镇", "炉火镇", "H E A R T H V A L E", "一间酒馆，一镇长夜", "继续游戏", "暂无存档", "读取存档", "暂无存档", "开始游戏", "设置", "退出游戏", "W / S 选择      E / Enter 确认", "序章 · 开张头一日"]
+[check] PASS  底部有键位提示 | labels=["炉火镇", "炉火镇", "H E A R T H V A L E", "一间酒馆，一镇长夜", "继续游戏", "暂无存档", "读取存档", "暂无存档", "开始游戏", "设置", "退出游戏", "W / S 选择      E / Enter 确认", "序章 · 开张头一日"]
+[check] PASS  五项菜单（给存档留的位子也在） | size=5
+[check] PASS  「继续游戏」无存档 → 置灰 | enabled=false
+[check] PASS  「读取存档」无存档 → 置灰 | enabled=false
+[check] PASS  「开始游戏」始终可用 | enabled=true
+[check] PASS  灰行右侧标注「暂无存档」 | count=2
+[check] PASS  无存档时默认停在「开始游戏」（index=2） | index=2
+[check] PASS  按 S 下移到「设置」 | index=3
+[check] PASS  按 W 回到「开始游戏」 | index=2
+[check] PASS  再上移两次到「继续游戏」 | index=0
+[check] PASS  首项再按 W 绕到末项（退出游戏） | index=4
+[check] PASS  灰行「继续游戏」按 E 不切场景 | index=0
+[check] PASS  灰行按 E 也不弹面板 | modal=<null>
+[check] PASS  「设置」打开游戏内设置面板 | panel=SettingsPanel:<Control#65615693427>
+[check] PASS  设置面板盖住整屏（canvas_scale=2） | scale=2.0
+[check] PASS  Esc 关掉设置面板 | modal=<null>
+[check] PASS  「开始游戏」切到酒馆场景 | scene=res://scenes/world.tscn
+[verify_title] PASS=25 FAIL=0
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,372 @@
+{
+ "source": "assets/snow/v1/scene_day_1x.png",
+ "size": [
+  512,
+  512
+ ],
+ "props": [
+  {
+   "name": "blk_000",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    0,
+    512,
+    16
+   ]
+  },
+  {
+   "name": "blk_001",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    16,
+    512,
+    16
+   ]
+  },
+  {
+   "name": "blk_002",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    64,
+    32,
+    112,
+    16
+   ]
+  },
+  {
+   "name": "blk_003",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    192,
+    32,
+    240,
+    16
+   ]
+  },
+  {
+   "name": "blk_004",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    80,
+    48,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_005",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    208,
+    48,
+    112,
+    16
+   ]
+  },
+  {
+   "name": "blk_006",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    336,
+    48,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_007",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    80,
+    64,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_008",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    208,
+    64,
+    96,
+    16
+   ]
+  },
+  {
+   "name": "blk_009",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    336,
+    64,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_010",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    192,
+    80,
+    112,
+    16
+   ]
+  },
+  {
+   "name": "blk_011",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    352,
+    80,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_012",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    432,
+    80,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_013",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    96,
+    176,
+    16
+   ]
+  },
+  {
+   "name": "blk_014",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    192,
+    96,
+    160,
+    16
+   ]
+  },
+  {
+   "name": "blk_015",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    96,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_016",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    64,
+    112,
+    448,
+    16
+   ]
+  },
+  {
+   "name": "blk_017",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    432,
+    128,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_018",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    432,
+    144,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_019",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    160,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_020",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    432,
+    160,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_021",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    352,
+    192,
+    96,
+    16
+   ]
+  },
+  {
+   "name": "blk_022",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    208,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_023",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    384,
+    224,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_024",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    64,
+    240,
+    96,
+    16
+   ]
+  },
+  {
+   "name": "blk_025",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    80,
+    256,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_026",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    32,
+    272,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_027",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    416,
+    272,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_028",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    32,
+    288,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_029",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    416,
+    288,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_030",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    304,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_031",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    416,
+    304,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_032",
+   "label": "障碍",
+   "has_sprite": false,
+   "collision_rect": [
+    32,
+    320,
+    64,
+    16
+   ]
+  }
+ ]
+}

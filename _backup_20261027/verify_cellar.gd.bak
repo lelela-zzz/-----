@@ -1,0 +1,135 @@
+extends Node
+## 地窖验收：入口落点 / 锅就位 / 相机限位 / 上下楼双向传送 / 时间延续。
+##   "<godot.exe>" --headless --path . res://tests/verify_cellar.tscn --quit-after 6000
+## 判定看 [check] 行，结尾打印 [verify_cellar] FAIL=计数。
+
+const CELLAR := "res://scenes/cellar.tscn"
+const DOOR_TRIGGER := Rect2(105, 74, 38, 14)
+const STAIRS_TRIGGER := Rect2(94.5, 420, 77, 60)
+
+var failures: int = 0
+
+
+func _ready() -> void:
+	StoryDirector.force_disable = true
+	await get_tree().process_frame
+	var scene: Node = (load(CELLAR) as PackedScene).instantiate()
+	get_tree().root.add_child(scene)
+	get_tree().current_scene = scene
+	await _wait(12)
+
+	_check_entry()
+	_check_pot()
+	_check_camera()
+	await _check_stairs_to_world()
+	await _check_world_back_to_cellar()
+	await _check_time_carry()
+
+	print("[verify_cellar] done FAIL=", failures)
+	get_tree().quit()
+
+
+func _check_entry() -> void:
+	var player: Player = _player()
+	_report("地窖入口落点", player != null and player.global_position.distance_to(Vector2(185, 400)) < 1.0,
+			"场景=%s 落点=%s" % [_scene_name(), Vector2.INF if player == null else player.global_position])
+
+
+func _check_pot() -> void:
+	var pot: Node2D = _scene().get_node_or_null("Sorted/BrewingPot") as Node2D
+	var zone: Area2D = (pot.get_node_or_null("Zone") as Area2D) if pot != null else null
+	_report("锅就位且带交互区",
+			pot != null and pot.position == Vector2(300, 205) and zone != null,
+			"锅=%s 位置=%s 交互区=%s" % [pot != null, Vector2.INF if pot == null else pot.position, zone != null])
+
+
+func _check_camera() -> void:
+	var cam: PixelCamera = _player().get_node_or_null("Camera") as PixelCamera
+	var ok: bool = cam != null and cam.limit_right - cam.limit_left == 640 \
+			and cam.limit_bottom - cam.limit_top == 512
+	_report("相机限位=地窖地图 640x512", ok,
+			"限位=[%d,%d]-[%d,%d]" % [cam.limit_left, cam.limit_top, cam.limit_right, cam.limit_bottom] if cam else "无相机")
+
+
+func _check_stairs_to_world() -> void:
+	_set_time(14, 0)
+	_place(Vector2(133, 352))
+	Input.action_press("move_down")
+	var arrived: bool = await _await_scene("World", 150)
+	Input.action_release("move_down")
+	await _wait(6)
+	var pos: Vector2 = _player().global_position if arrived else Vector2.INF
+	var ok: bool = arrived and absf(pos.x - 124.0) < 8.0 and pos.y > 90.0 and pos.y < 115.0
+	_report("地窖→酒馆（楼梯）", ok, "场景=%s 落点=%s" % [_scene_name(), pos])
+
+
+func _check_world_back_to_cellar() -> void:
+	_place(Vector2(124, 112))
+	Input.action_press("move_up")
+	var arrived: bool = await _await_scene("Cellar", 150)
+	Input.action_release("move_up")
+	await _wait(6)
+	var pos: Vector2 = _player().global_position if arrived else Vector2.INF
+	var ok: bool = arrived and absf(pos.x - 185.0) < 8.0 and absf(pos.y - 400.0) < 8.0
+	_report("酒馆→地窖（左上角门）", ok, "场景=%s 落点=%s" % [_scene_name(), pos])
+
+
+func _check_time_carry() -> void:
+	var clock: GameClock = _scene().get_node_or_null("Clock") as GameClock
+	_report("跨场景时间延续", clock != null and clock.hour == 14,
+			"当前 %s" % ("无 Clock" if clock == null else "%02d:%02d" % [clock.hour, clock.minute]))
+
+
+# ---- helpers -------------------------------------------------------------
+
+
+func _scene() -> Node:
+	return get_tree().current_scene
+
+
+func _scene_name() -> String:
+	var s: Node = _scene()
+	return s.name if s != null else "<null>"
+
+
+func _player() -> Player:
+	var s: Node = _scene()
+	return (s.get_node_or_null("Sorted/Player") as Player) if s != null else null
+
+
+func _place(pos: Vector2) -> void:
+	var player: Player = _player()
+	if player == null:
+		return
+	player.velocity = Vector2.ZERO
+	player.global_position = pos
+	var cam: PixelCamera = player.get_node_or_null("Camera") as PixelCamera
+	if cam != null:
+		cam.snap_now()
+
+
+func _set_time(hour: int, minute: int) -> void:
+	var clock: GameClock = _scene().get_node_or_null("Clock") as GameClock
+	if clock != null:
+		clock.running = false
+		clock.set_time(hour, minute)
+
+
+func _await_scene(name: String, frames: int) -> bool:
+	for i in frames:
+		await _wait(1)
+		var s: Node = _scene()
+		if s != null and s.name == name:
+			return true
+	return false
+
+
+func _wait(frames: int) -> void:
+	for i in frames:
+		await get_tree().process_frame
+
+
+func _report(check_name: String, ok: bool, detail: String) -> void:
+	if not ok:
+		failures += 1
+	print("[check] %s %s | %s" % ["PASS" if ok else "FAIL", check_name, detail])

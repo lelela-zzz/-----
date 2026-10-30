@@ -1,0 +1,113 @@
+{
+  "$schema": "palette/1.0",
+  "project": "炉火镇",
+  "name": "Hearthvale Palette v1",
+  "version": "1.1",
+  "date": "2026-10-18",
+  "locked": true,
+  "world_version": "v2",
+  "note": "色值不变；v1.1 仅重新定义霜青用途以匹配 v2 世界观（战后和平 / 交界酒馆）",
+  "total_colors": 16,
+  "key_color": {
+    "hex": "#FF00FF",
+    "name": "magenta",
+    "note": "抠图 key 色，不参与色板，主体内禁用洋红及近洋红"
+  },
+  "groups": [
+    {
+      "id": "structure",
+      "name": "结构",
+      "role": "描边与阴影",
+      "colors": [
+        { "id": "outline", "hex": "#181818", "lightness": 9.4, "usage": "外轮廓、最深缝、瞳孔" },
+        { "id": "aged-shadow", "hex": "#202018", "lightness": 11.0, "usage": "室内暗部、家具底缝、阴影块" }
+      ]
+    },
+    {
+      "id": "wood",
+      "name": "暖木",
+      "role": "木料三阶",
+      "colors": [
+        { "id": "wood-dark", "hex": "#503818", "lightness": 20.4, "usage": "木料暗面、梁下、桌腿" },
+        { "id": "wood-mid", "hex": "#785028", "lightness": 31.4, "usage": "木料固有色（最常用）" },
+        { "id": "wood-light", "hex": "#906838", "lightness": 39.2, "usage": "木料受光面、地板亮条" }
+      ]
+    },
+    {
+      "id": "roof",
+      "name": "赤瓦",
+      "role": "屋面与受火砖石三阶",
+      "colors": [
+        { "id": "roof-dark", "hex": "#6A3024", "lightness": 27.8, "usage": "屋面暗部、瓦缝" },
+        { "id": "roof-mid", "hex": "#884030", "lightness": 36.1, "usage": "红陶瓦固有色" },
+        { "id": "roof-light", "hex": "#A85A40", "lightness": 45.5, "usage": "瓦脊受光、受火烤的砖石" }
+      ]
+    },
+    {
+      "id": "stone",
+      "name": "石灰",
+      "role": "石构三阶",
+      "colors": [
+        { "id": "stone-dark", "hex": "#585848", "lightness": 31.4, "usage": "石基暗面、粗糙岩体" },
+        { "id": "stone-mid", "hex": "#787868", "lightness": 43.9, "usage": "石料固有色、院墙" },
+        { "id": "stone-light", "hex": "#A09888", "lightness": 58.0, "usage": "石面受光、灰泥、骨与陶" }
+      ]
+    },
+    {
+      "id": "fire",
+      "name": "炉火",
+      "role": "唯一自发光来源",
+      "colors": [
+        { "id": "fire-mid", "hex": "#E8963C", "lightness": 57.3, "usage": "火光中调、窗内亮块、灯笼" },
+        { "id": "fire-core", "hex": "#F6D08A", "lightness": 75.3, "usage": "火心、高光、烛芯、月脂" }
+      ]
+    },
+    {
+      "id": "flora",
+      "name": "草木",
+      "role": "植被与农事",
+      "colors": [
+        { "id": "grass-dark", "hex": "#4A5A38", "lightness": 28.6, "usage": "植物暗部、苔、林地阴影" },
+        { "id": "grass-mid", "hex": "#6E7C46", "lightness": 38.0, "usage": "草地、叶、农作" }
+      ]
+    },
+    {
+      "id": "arcane",
+      "name": "魔族强调",
+      "role": "冷色强调，全画面占比 ≤5%；魔族侧的身份色",
+      "colors": [
+        { "id": "frost", "hex": "#7FA8A0", "lightness": 57.8, "usage": "仅限魔族工艺刻纹、魔法痕迹、夜色" }
+      ]
+    }
+  ],
+  "budget": {
+    "warm_wood_roof_stone_min": 0.8,
+    "fire_max": 0.15,
+    "frost_max": 0.05,
+    "outline_max": 0.06
+  },
+  "conflicts": [
+    { "a": "#906838", "b": "#787868", "reason": "同明度异色相，禁止直接相邻" },
+    { "a": "#4A5A38", "b": "#6A3024", "reason": "同明度异色相，禁止直接相邻" },
+    { "a": "#7FA8A0", "b": "#A09888", "reason": "同明度异色相，禁止直接相邻" }
+  ],
+  "forbidden": [
+    "isometric",
+    "45-degree tilt",
+    "3d perspective",
+    "antialiasing",
+    "gradient",
+    "noise",
+    "magenta in subject",
+    "outer glow",
+    "purple glow",
+    "gothic spire",
+    "east-asian architecture motifs",
+    "specular metal highlight",
+    "battlefield or ruins",
+    "weapon racks",
+    "monstrous hostile framing of demons"
+  ],
+  "style_anchor_file": "炉火镇-美术风格提案-2.md",
+  "style_anchor_version": "v2"
+}

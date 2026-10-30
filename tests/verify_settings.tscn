@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://tests/verify_settings.gd" id="1_v"]
+
+[node name="VerifySettings" type="Control"]
+offset_right = 640.0
+offset_bottom = 384.0
+script = ExtResource("1_v")

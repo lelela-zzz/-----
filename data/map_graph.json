@@ -1,0 +1,163 @@
+{
+  "version": 1,
+  "note": "地图传送拓扑唯一数据源。nodes=一张地图；edges=一扇传送门，且是**有向**的：from 图里名为 door 的那个节点踩上去 → 切到 to 图的 spawn 落点。指引系统用它 BFS 算跨图路线，M 地图面板也读它并按 unlock 过滤。**改了场景里的门必须同步这里**，tests/verify_map_graph.gd 会逐个实例化场景核对，不一致就红。",
+  "nodes": {
+    "world": {
+      "scene": "res://scenes/world.tscn",
+      "label": "银辉酒馆",
+      "desc": "你和萃歌的家底"
+    },
+    "tavern_exterior": {
+      "scene": "res://scenes/tavern_exterior.tscn",
+      "label": "酒馆门口",
+      "desc": "月痕河镇的街上"
+    },
+    "village": {
+      "scene": "res://scenes/village.tscn",
+      "label": "卢迪克集市",
+      "desc": "凯瑟琳的摊位就在南边"
+    },
+    "mine_entrance": {
+      "scene": "res://scenes/mine_entrance.tscn",
+      "label": "矿道入口",
+      "desc": "黑松山脉脚下的旧坑口"
+    },
+    "mine": {
+      "scene": "res://scenes/mine.tscn",
+      "label": "矿洞",
+      "desc": "潮湿的采掘巷道"
+    },
+    "snow_mountain": {
+      "scene": "res://scenes/snow_mountain.tscn",
+      "label": "雪山",
+      "desc": "科考队驻扎的雪山营地"
+    },
+    "spring": {
+      "scene": "res://scenes/spring.tscn",
+      "label": "泉水",
+      "desc": "魔物聚集的浑浊泉水"
+    }
+  },
+  "edges": [
+    {
+      "from": "world",
+      "door": "Doors/ExitSouth",
+      "to": "tavern_exterior",
+      "spawn": [
+        230,
+        363
+      ],
+      "minutes": 2
+    },
+    {
+      "from": "tavern_exterior",
+      "door": "Doors/TavernDoor",
+      "to": "world",
+      "spawn": [
+        319,
+        360
+      ],
+      "minutes": 2
+    },
+    {
+      "from": "tavern_exterior",
+      "door": "Doors/RoadWest",
+      "to": "village",
+      "spawn": [
+        440,
+        800
+      ],
+      "minutes": 8
+    },
+    {
+      "from": "village",
+      "door": "Doors/TavernDoor",
+      "to": "tavern_exterior",
+      "spawn": [
+        60,
+        462
+      ],
+      "minutes": 8
+    },
+    {
+      "from": "village",
+      "door": "Doors/MineEntrancePath",
+      "to": "mine_entrance",
+      "spawn": [
+        875,
+        40
+      ],
+      "minutes": 15
+    },
+    {
+      "from": "mine_entrance",
+      "door": "Doors/VillagePath",
+      "to": "village",
+      "spawn": [
+        447,
+        36
+      ],
+      "minutes": 15
+    },
+    {
+      "from": "mine_entrance",
+      "door": "Doors/MinePath",
+      "to": "mine",
+      "spawn": [
+        505,
+        100
+      ],
+      "minutes": 6
+    },
+    {
+      "from": "mine",
+      "door": "Doors/ToMineEntrance",
+      "to": "mine_entrance",
+      "spawn": [
+        860,
+        878
+      ],
+      "minutes": 6
+    },
+    {
+      "from": "mine_entrance",
+      "door": "Doors/SnowPath",
+      "to": "snow_mountain",
+      "spawn": [
+        250,
+        475
+      ],
+      "minutes": 20
+    },
+    {
+      "from": "snow_mountain",
+      "door": "Doors/MineReturn",
+      "to": "mine_entrance",
+      "spawn": [
+        500,
+        962
+      ],
+      "minutes": 20
+    },
+    {
+      "from": "snow_mountain",
+      "door": "Doors/SpringPath",
+      "to": "spring",
+      "spawn": [
+        692,
+        620
+      ],
+      "minutes": 10
+    },
+    {
+      "from": "spring",
+      "door": "Doors/SnowPath",
+      "to": "snow_mountain",
+      "spawn": [
+        250,
+        475
+      ],
+      "minutes": 10
+    }
+  ]
+}

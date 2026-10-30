@@ -1,0 +1,1527 @@
+{
+ "source": "assets/snow/v1/scene_day_1x.png",
+ "size": [
+  512,
+  512
+ ],
+ "props": [
+  {
+   "name": "blk_000",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    0,
+    512,
+    120
+   ]
+  },
+  {
+   "name": "blk_001",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    184,
+    120,
+    144,
+    8
+   ]
+  },
+  {
+   "name": "blk_002",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    336,
+    120,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_003",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    120,
+    176,
+    16
+   ]
+  },
+  {
+   "name": "blk_004",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    200,
+    128,
+    96,
+    8
+   ]
+  },
+  {
+   "name": "blk_005",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    360,
+    120,
+    152,
+    16
+   ]
+  },
+  {
+   "name": "blk_006",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    136,
+    136,
+    8
+   ]
+  },
+  {
+   "name": "blk_007",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    144,
+    136,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_008",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    192,
+    136,
+    120,
+    8
+   ]
+  },
+  {
+   "name": "blk_009",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    360,
+    136,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_010",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    392,
+    136,
+    120,
+    8
+   ]
+  },
+  {
+   "name": "blk_011",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    144,
+    88,
+    8
+   ]
+  },
+  {
+   "name": "blk_012",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    104,
+    144,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_013",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    184,
+    144,
+    144,
+    8
+   ]
+  },
+  {
+   "name": "blk_014",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    400,
+    144,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_015",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    416,
+    144,
+    96,
+    8
+   ]
+  },
+  {
+   "name": "blk_016",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    112,
+    152,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_017",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    184,
+    152,
+    152,
+    8
+   ]
+  },
+  {
+   "name": "blk_018",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    152,
+    96,
+    16
+   ]
+  },
+  {
+   "name": "blk_019",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    120,
+    160,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_020",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    184,
+    160,
+    160,
+    8
+   ]
+  },
+  {
+   "name": "blk_021",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    424,
+    152,
+    88,
+    16
+   ]
+  },
+  {
+   "name": "blk_022",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    168,
+    88,
+    8
+   ]
+  },
+  {
+   "name": "blk_023",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    176,
+    168,
+    168,
+    8
+   ]
+  },
+  {
+   "name": "blk_024",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    112,
+    168,
+    16,
+    16
+   ]
+  },
+  {
+   "name": "blk_025",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    176,
+    176,
+    176,
+    8
+   ]
+  },
+  {
+   "name": "blk_026",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    416,
+    168,
+    96,
+    16
+   ]
+  },
+  {
+   "name": "blk_027",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    176,
+    72,
+    16
+   ]
+  },
+  {
+   "name": "blk_028",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    168,
+    184,
+    184,
+    8
+   ]
+  },
+  {
+   "name": "blk_029",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    416,
+    184,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_030",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    456,
+    184,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_031",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    480,
+    184,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_032",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    96,
+    184,
+    24,
+    16
+   ]
+  },
+  {
+   "name": "blk_033",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    160,
+    192,
+    192,
+    8
+   ]
+  },
+  {
+   "name": "blk_034",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    496,
+    192,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_035",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    192,
+    56,
+    16
+   ]
+  },
+  {
+   "name": "blk_036",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    64,
+    192,
+    8,
+    16
+   ]
+  },
+  {
+   "name": "blk_037",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    104,
+    200,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_038",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    160,
+    200,
+    208,
+    8
+   ]
+  },
+  {
+   "name": "blk_039",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    408,
+    192,
+    32,
+    16
+   ]
+  },
+  {
+   "name": "blk_040",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    480,
+    200,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_041",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    168,
+    208,
+    200,
+    8
+   ]
+  },
+  {
+   "name": "blk_042",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    392,
+    208,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_043",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    480,
+    208,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_044",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    64,
+    208,
+    16,
+    16
+   ]
+  },
+  {
+   "name": "blk_045",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    168,
+    216,
+    192,
+    8
+   ]
+  },
+  {
+   "name": "blk_046",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    384,
+    216,
+    56,
+    8
+   ]
+  },
+  {
+   "name": "blk_047",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    208,
+    48,
+    24
+   ]
+  },
+  {
+   "name": "blk_048",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    72,
+    224,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_049",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    168,
+    224,
+    176,
+    8
+   ]
+  },
+  {
+   "name": "blk_050",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    376,
+    224,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_051",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    232,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_052",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    72,
+    232,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_053",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    104,
+    232,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_054",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    120,
+    232,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_055",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    136,
+    232,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_056",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    184,
+    232,
+    152,
+    8
+   ]
+  },
+  {
+   "name": "blk_057",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    376,
+    232,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_058",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    240,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_059",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    56,
+    240,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_060",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    96,
+    240,
+    64,
+    8
+   ]
+  },
+  {
+   "name": "blk_061",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    200,
+    240,
+    128,
+    8
+   ]
+  },
+  {
+   "name": "blk_062",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    240,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_063",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    48,
+    248,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_064",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    104,
+    248,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_065",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    120,
+    248,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_066",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    208,
+    248,
+    96,
+    8
+   ]
+  },
+  {
+   "name": "blk_067",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    248,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_068",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    248,
+    24,
+    16
+   ]
+  },
+  {
+   "name": "blk_069",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    56,
+    256,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_070",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    96,
+    256,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_071",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    224,
+    256,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_072",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    256,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_073",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    24,
+    264,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_074",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    240,
+    264,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_075",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    264,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_076",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    24,
+    272,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_077",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    88,
+    264,
+    24,
+    16
+   ]
+  },
+  {
+   "name": "blk_078",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    240,
+    272,
+    64,
+    8
+   ]
+  },
+  {
+   "name": "blk_079",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    280,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_080",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    48,
+    280,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_081",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    240,
+    280,
+    72,
+    8
+   ]
+  },
+  {
+   "name": "blk_082",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    360,
+    272,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_083",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    288,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_084",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    256,
+    288,
+    72,
+    8
+   ]
+  },
+  {
+   "name": "blk_085",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    360,
+    288,
+    56,
+    8
+   ]
+  },
+  {
+   "name": "blk_086",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    40,
+    296,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_087",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    296,
+    296,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_088",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    360,
+    296,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_089",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    304,
+    304,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_090",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    304,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_091",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    312,
+    312,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_092",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    320,
+    320,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_093",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    312,
+    48,
+    16
+   ]
+  },
+  {
+   "name": "blk_094",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    336,
+    328,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_095",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    360,
+    328,
+    56,
+    8
+   ]
+  },
+  {
+   "name": "blk_096",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    408,
+    336,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_097",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    240,
+    376,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_098",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    264,
+    376,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_099",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    240,
+    384,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_100",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    336,
+    384,
+    64,
+    8
+   ]
+  },
+  {
+   "name": "blk_101",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    232,
+    392,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_102",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    352,
+    392,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_103",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    224,
+    400,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_104",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    216,
+    408,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_105",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    360,
+    400,
+    80,
+    16
+   ]
+  },
+  {
+   "name": "blk_106",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    400,
+    16,
+    24
+   ]
+  },
+  {
+   "name": "blk_107",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    216,
+    416,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_108",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    248,
+    416,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_109",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    416,
+    72,
+    8
+   ]
+  },
+  {
+   "name": "blk_110",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    16,
+    424,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_111",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    192,
+    424,
+    80,
+    8
+   ]
+  },
+  {
+   "name": "blk_112",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    432,
+    56,
+    8
+   ]
+  },
+  {
+   "name": "blk_113",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    200,
+    432,
+    64,
+    8
+   ]
+  },
+  {
+   "name": "blk_114",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    376,
+    424,
+    72,
+    16
+   ]
+  },
+  {
+   "name": "blk_115",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    168,
+    440,
+    88,
+    8
+   ]
+  },
+  {
+   "name": "blk_116",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    152,
+    448,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_117",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    176,
+    448,
+    56,
+    8
+   ]
+  },
+  {
+   "name": "blk_118",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    376,
+    440,
+    64,
+    16
+   ]
+  },
+  {
+   "name": "blk_119",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    440,
+    72,
+    24
+   ]
+  },
+  {
+   "name": "blk_120",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    152,
+    456,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_121",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    208,
+    456,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_122",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    368,
+    456,
+    64,
+    8
+   ]
+  },
+  {
+   "name": "blk_123",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    160,
+    464,
+    40,
+    8
+   ]
+  },
+  {
+   "name": "blk_124",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    352,
+    464,
+    72,
+    8
+   ]
+  },
+  {
+   "name": "blk_125",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    464,
+    88,
+    16
+   ]
+  },
+  {
+   "name": "blk_126",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    104,
+    472,
+    8,
+    8
+   ]
+  },
+  {
+   "name": "blk_127",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    168,
+    472,
+    32,
+    8
+   ]
+  },
+  {
+   "name": "blk_128",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    344,
+    472,
+    56,
+    8
+   ]
+  },
+  {
+   "name": "blk_129",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    480,
+    80,
+    8
+   ]
+  },
+  {
+   "name": "blk_130",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    96,
+    480,
+    16,
+    8
+   ]
+  },
+  {
+   "name": "blk_131",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    176,
+    480,
+    24,
+    8
+   ]
+  },
+  {
+   "name": "blk_132",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    344,
+    480,
+    48,
+    8
+   ]
+  },
+  {
+   "name": "blk_133",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    488,
+    120,
+    8
+   ]
+  },
+  {
+   "name": "blk_134",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    328,
+    488,
+    56,
+    8
+   ]
+  },
+  {
+   "name": "blk_135",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    320,
+    496,
+    64,
+    8
+   ]
+  },
+  {
+   "name": "blk_136",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    496,
+    112,
+    16
+   ]
+  },
+  {
+   "name": "blk_137",
+   "label": "岩壁",
+   "has_sprite": false,
+   "collision_rect": [
+    312,
+    504,
+    72,
+    8
+   ]
+  }
+ ]
+}

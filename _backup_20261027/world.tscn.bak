@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://bpy1npg2e1k8"]
+
+[ext_resource type="Texture2D" uid="uid://du81l406q4w0t" path="res://assets/house/v4/scene_day_v16_2x.png" id="1_bg"]
+[ext_resource type="Texture2D" uid="uid://ce0tcfrbtug60" path="res://assets/lighting/light_warm_radial_1x.png" id="2_radial"]
+[ext_resource type="Script" uid="uid://8tesrvwl2yd1" path="res://scripts/room_collision.gd" id="3_room"]
+[ext_resource type="Script" uid="uid://cx4nqnx6yx7no" path="res://scripts/lighting_director.gd" id="4_lighting"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="5_player"]
+[ext_resource type="Script" uid="uid://dc0dl8kpbt2la" path="res://scripts/game_clock.gd" id="6_clock"]
+[ext_resource type="Script" uid="uid://da5efq8tid8ss" path="res://scripts/clock_hud.gd" id="7_hud"]
+[ext_resource type="Script" uid="uid://d33hipdaart7i" path="res://scripts/prop_layer.gd" id="8_props"]
+[ext_resource type="Script" uid="uid://vapkx7we51pq" path="res://scripts/scene_bootstrap.gd" id="9_boot"]
+[ext_resource type="Script" uid="uid://mggx4ldodjp2" path="res://scripts/door_area.gd" id="10_door"]
+[ext_resource type="Script" uid="uid://dmrbl4yxfpyvo" path="res://scripts/npc_spawner.gd" id="12_npcspawn"]
+[ext_resource type="Script" uid="uid://dlwuygbs5xq2d" path="res://scripts/customer_spawner.gd" id="13_custspawn"]
+[ext_resource type="Script" path="res://scripts/fixed_camera.gd" id="14_cam"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(42, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cellar"]
+size = Vector2(38, 15)
+
+[node name="World" type="Node2D" unique_id=1981749990]
+script = ExtResource("9_boot")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(320, 192)
+script = ExtResource("14_cam")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=69689174]
+z_index = -10
+texture = ExtResource("1_bg")
+centered = false
+scale = Vector2(0.5, 0.5)
+
+[node name="Static" type="StaticBody2D" parent="." unique_id=1280232267]
+script = ExtResource("3_room")
+
+[node name="Sorted" type="Node2D" parent="." unique_id=472084270]
+y_sort_enabled = true
+script = ExtResource("8_props")
+props_path = "res://assets/house/v4/objects/props.json"
+textures_dir = "res://assets/house/v4/objects2x/"
+texture_scale = 0.5
+
+[node name="Player" parent="Sorted" unique_id=380868594 instance=ExtResource("5_player")]
+position = Vector2(320, 270)
+
+[node name="Lighting" type="Node" parent="." unique_id=361079343]
+script = ExtResource("4_lighting")
+
+[node name="HearthLight" type="PointLight2D" parent="Lighting" unique_id=1391932392]
+position = Vector2(327, 86)
+color = Color(1, 0.78, 0.52, 1)
+energy = 0.45
+range_item_cull_mask = 2
+texture = ExtResource("2_radial")
+texture_scale = 2.4
+
+[node name="Clock" type="Node" parent="." unique_id=12070319]
+script = ExtResource("6_clock")
+
+[node name="Doors" type="Node2D" parent="." unique_id=983419974]
+
+[node name="ExitSouth" type="Area2D" parent="Doors" unique_id=1699691297]
+script = ExtResource("10_door")
+target_scene = "res://scenes/tavern_exterior.tscn"
+spawn_position = Vector2(295, 466)
+
+[node name="Shape" type="CollisionShape2D" parent="Doors/ExitSouth" unique_id=2010336903]
+position = Vector2(319, 371)
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="Cellar" type="Area2D" parent="Doors" unique_id=1247623390]
+script = ExtResource("10_door")
+target_scene = "res://scenes/cellar.tscn"
+spawn_position = Vector2(185, 400)
+
+[node name="Shape" type="CollisionShape2D" parent="Doors/Cellar" unique_id=1498280857]
+position = Vector2(128, 74)
+shape = SubResource("RectangleShape2D_cellar")
+
+[node name="NPCs" type="Node2D" parent="." unique_id=1307897590]
+script = ExtResource("12_npcspawn")
+enabled = false
+
+[node name="Customers" type="Node2D" parent="." unique_id=1101184635]
+script = ExtResource("13_custspawn")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1167392484]
+layer = 10
+
+[node name="UIRoot" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 384.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+
+[node name="ClockPanel" type="Control" parent="HUD/UIRoot" unique_id=1745601412]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 88.0
+script = ExtResource("7_hud")
+
+[node name="Digits" type="Label" parent="HUD/UIRoot/ClockPanel" unique_id=1318363906]
+layout_mode = 0
+offset_top = 66.0
+offset_right = 64.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.96, 0.9, 0.78, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.08, 0.06, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "08"
+horizontal_alignment = 1
+
+[connection signal="time_changed" from="Clock" to="Lighting" method="set_clock_time"]

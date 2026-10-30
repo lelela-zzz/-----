@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://j1g0uni42g53"]
+
+[ext_resource type="Script" path="res://tests/questscroll_shot.gd" id="1_qs"]
+[node name="Root" type="Node"]
+script = ExtResource("1_qs")

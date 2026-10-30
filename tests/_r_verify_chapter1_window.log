@@ -1,0 +1,37 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[chapter1_test] 测试从『接取委托』开始：与集市凯瑟琳交谈 → 选『接取任务』（F1 可隐藏面板）
+[check] PASS 启动在集市 | res://scenes/village.tscn
+[check] PASS 启动时未接取委托 | snow_started=false
+[check] PASS 启动时章节未启动 | active=false
+[check] PASS 凯瑟琳在集市中 | Npc_market_catherine:<Node2D#94287955930>
+[check] PASS 传送门未被禁用 | door=TavernDoor:<Area2D#68669146720>
+[check] PASS Story 未被 force_disable（地图/对话可用） | force_disable=false
+[check] PASS 等待交谈模式开启 | wait_for_talk=true
+[check] PASS 按 M 打开地图 | MapPanel:<Control#97744062433>
+[check] PASS 与凯瑟琳交谈打开对话 | DialogueBox:<Control#99992209506>
+[check] PASS 弹出集市管理处菜单 | ChoicePanel:<Control#101116282934>
+[check] PASS 已正式接取委托 | snow_started=true
+[check] PASS 接取后第一幕=哈特菲利亚 | ch1_tavern_hartfilia
+[chapter1_test] 已前往：酒馆门口（本幕可在此推进）
+[check] PASS 到达酒馆外（tavern_exterior） | res://scenes/tavern_exterior.tscn
+[check] PASS 哈特菲利亚已在酒馆外登场 | Npc_beat_explorer_lucy:<Node2D#109521667909>
+[check] PASS 此时尚未自动弹对话（等玩家交谈） | awaiting=true modal=<null>
+[check] PASS 与哈特菲利亚交谈后出对话 | StoryDialogue:<Control#111232944156>
+[chapter1_test] 已前往：酒馆（本幕可在此推进）
+[check] PASS 到酒馆后第二幕=奇斯 | ch1_chiss_rune
+[check] PASS 奇斯已在酒馆登场 | Npc_beat_broker_chiss:<Node2D#146817418853>
+[check] PASS 与奇斯交谈后出对话 | StoryDialogue:<Control#149384333149>
+[check] PASS 俄莉斯已在酒馆登场 | Npc_beat_thief_eris:<Node2D#151900915745>
+[check] PASS 与俄莉斯交谈后出对话 | StoryDialogue:<Control#153310201410>
+[chapter1_test] 已前往：集市（本幕可在此推进）
+[chapter1_test] 已前往：矿道入口（本幕可在此推进）
+[chapter1_test] 已前往：矿井（本幕可在此推进）
+[chapter1_test] 已前往：酒馆（本幕可在此推进）
+[check] PASS 整章可跑完 | done=true idx=13 beat=
+[check] PASS 跑完后只有一个主角 | players=1
+[chapter1_test] 已重置：回到集市，与凯瑟琳对话重新接取委托
+[check] PASS 重置后回到待接取 | snow_started=false active=false
+[check] PASS 重置后在集市且有凯瑟琳 | res://scenes/village.tscn
+[check] PASS 重置后只有一个主角 | players=1
+[verify] PASS=26 FAIL=0

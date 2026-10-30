@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="848" height="568" viewBox="0 0 848 568" font-family="monospace">
+<rect x="0" y="0" width="848" height="568" fill="#F7F4EC"/>
+<text x="24" y="20" font-size="16" font-weight="bold">炉火镇 · 酒馆布局 v4.1（20×12, tile 32）— AI 生成底稿</text>
+<rect x="24" y="48" width="800" height="80" fill="#D9D2C5" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="28" y="62" font-size="10" fill="#3a342b">后墙(小门/窗/壁炉/背柜)</text>
+<rect x="64" y="128" width="600" height="80" fill="#EFE9DC" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="68" y="142" font-size="10" fill="#3a342b">后走廊(主角活动区)</text>
+<rect x="64" y="208" width="400" height="40" fill="#A0522D" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="68" y="222" font-size="10" fill="#3a342b">吧台·接左墙 col1</text>
+<rect x="544" y="208" width="120" height="40" fill="#C77B3E" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="548" y="222" font-size="10" fill="#3a342b">酒桶×3</text>
+<rect x="64" y="248" width="720" height="80" fill="#F2EEDD" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="68" y="262" font-size="10" fill="#3a342b">横通道(沿台点单)</text>
+<rect x="64" y="328" width="320" height="200" fill="#CBE7C9" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="68" y="342" font-size="10" fill="#3a342b">左·长桌区(4长桌·双排凳)</text>
+<rect x="464" y="328" width="200" height="160" fill="#CFE3F7" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="468" y="342" font-size="10" fill="#3a342b">右·散座区(7小桌)</text>
+<rect x="384" y="328" width="80" height="200" fill="#FFFFFF" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="388" y="342" font-size="10" fill="#3a342b">竖通道→主门</text>
+<rect x="744" y="408" width="80" height="120" fill="#90CAF9" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="748" y="422" font-size="10" fill="#3a342b">楼梯·接地段(上楼)</text>
+<rect x="664" y="368" width="160" height="40" fill="#64B5F6" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="668" y="382" font-size="10" fill="#3a342b">楼梯·转角平台</text>
+<rect x="664" y="328" width="120" height="40" fill="#42A5F5" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="668" y="342" font-size="10" fill="#3a342b">楼梯·向左段(转)</text>
+<rect x="384" y="488" width="80" height="40" fill="#EF9A9A" stroke="#5b5247" stroke-width="1.5" opacity="0.92"/>
+<text x="388" y="502" font-size="10" fill="#3a342b">主门</text>
+<rect x="66" y="370" width="116" height="36" fill="#7BA86F" stroke="#3a342b" stroke-width="1"/>
+<text x="124.0" y="392.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">T</text>
+<rect x="66" y="450" width="116" height="36" fill="#7BA86F" stroke="#3a342b" stroke-width="1"/>
+<text x="124.0" y="472.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">T</text>
+<rect x="226" y="370" width="116" height="36" fill="#7BA86F" stroke="#3a342b" stroke-width="1"/>
+<text x="284.0" y="392.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">T</text>
+<rect x="226" y="450" width="116" height="36" fill="#7BA86F" stroke="#3a342b" stroke-width="1"/>
+<text x="284.0" y="472.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">T</text>
+<rect x="66" y="330" width="116" height="36" fill="#9BB38C" stroke="#3a342b" stroke-width="1"/>
+<text x="124.0" y="352.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">B</text>
+<rect x="226" y="330" width="116" height="36" fill="#9BB38C" stroke="#3a342b" stroke-width="1"/>
+<text x="284.0" y="352.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">B</text>
+<rect x="66" y="410" width="116" height="36" fill="#9BB38C" stroke="#3a342b" stroke-width="1"/>
+<text x="124.0" y="432.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">B</text>
+<rect x="226" y="410" width="116" height="36" fill="#9BB38C" stroke="#3a342b" stroke-width="1"/>
+<text x="284.0" y="432.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">B</text>
+<rect x="66" y="490" width="116" height="36" fill="#9BB38C" stroke="#3a342b" stroke-width="1"/>
+<text x="124.0" y="512.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">B</text>
+<rect x="226" y="490" width="116" height="36" fill="#9BB38C" stroke="#3a342b" stroke-width="1"/>
+<text x="284.0" y="512.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">B</text>
+<rect x="466" y="330" width="36" height="36" fill="#6E8FCB" stroke="#3a342b" stroke-width="1"/>
+<text x="484.0" y="352.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">t</text>
+<rect x="546" y="330" width="36" height="36" fill="#6E8FCB" stroke="#3a342b" stroke-width="1"/>
+<text x="564.0" y="352.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">t</text>
+<rect x="626" y="330" width="36" height="36" fill="#6E8FCB" stroke="#3a342b" stroke-width="1"/>
+<text x="644.0" y="352.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">t</text>
+<rect x="466" y="410" width="36" height="36" fill="#6E8FCB" stroke="#3a342b" stroke-width="1"/>
+<text x="484.0" y="432.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">t</text>
+<rect x="546" y="410" width="36" height="36" fill="#6E8FCB" stroke="#3a342b" stroke-width="1"/>
+<text x="564.0" y="432.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">t</text>
+<rect x="626" y="410" width="36" height="36" fill="#6E8FCB" stroke="#3a342b" stroke-width="1"/>
+<text x="644.0" y="432.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">t</text>
+<rect x="506" y="370" width="36" height="36" fill="#6E8FCB" stroke="#3a342b" stroke-width="1"/>
+<text x="524.0" y="392.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">t</text>
+<rect x="506" y="330" width="36" height="36" fill="#A9C2E8" stroke="#3a342b" stroke-width="1"/>
+<text x="524.0" y="352.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">c</text>
+<rect x="586" y="330" width="36" height="36" fill="#A9C2E8" stroke="#3a342b" stroke-width="1"/>
+<text x="604.0" y="352.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">c</text>
+<rect x="506" y="410" width="36" height="36" fill="#A9C2E8" stroke="#3a342b" stroke-width="1"/>
+<text x="524.0" y="432.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">c</text>
+<rect x="586" y="410" width="36" height="36" fill="#A9C2E8" stroke="#3a342b" stroke-width="1"/>
+<text x="604.0" y="432.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">c</text>
+<rect x="506" y="450" width="36" height="36" fill="#A9C2E8" stroke="#3a342b" stroke-width="1"/>
+<text x="524.0" y="472.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">c</text>
+<rect x="586" y="450" width="36" height="36" fill="#A9C2E8" stroke="#3a342b" stroke-width="1"/>
+<text x="604.0" y="472.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">c</text>
+<rect x="546" y="450" width="36" height="36" fill="#A9C2E8" stroke="#3a342b" stroke-width="1"/>
+<text x="564.0" y="472.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">c</text>
+<rect x="546" y="210" width="36" height="36" fill="#C77B3E" stroke="#3a342b" stroke-width="1"/>
+<text x="564.0" y="232.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">O</text>
+<rect x="586" y="210" width="36" height="36" fill="#C77B3E" stroke="#3a342b" stroke-width="1"/>
+<text x="604.0" y="232.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">O</text>
+<rect x="626" y="210" width="36" height="36" fill="#C77B3E" stroke="#3a342b" stroke-width="1"/>
+<text x="644.0" y="232.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">O</text>
+<rect x="666" y="450" width="36" height="36" fill="#B89B6A" stroke="#3a342b" stroke-width="1"/>
+<text x="684.0" y="472.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">X</text>
+<rect x="706" y="450" width="36" height="36" fill="#B89B6A" stroke="#3a342b" stroke-width="1"/>
+<text x="724.0" y="472.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">X</text>
+<rect x="666" y="490" width="36" height="36" fill="#B89B6A" stroke="#3a342b" stroke-width="1"/>
+<text x="684.0" y="512.0" font-size="11" font-weight="bold" text-anchor="middle" fill="#1d1a15">S</text>
+<text x="64" y="208" font-size="11" font-weight="bold" fill="#C0392B">★吧台接左墙</text>
+<text x="64" y="358" font-size="11" font-weight="bold" fill="#C0392B">★长桌区·双排凳</text>
+<text x="464" y="328" font-size="11" font-weight="bold" fill="#C0392B">★散座·7小桌</text>
+<text x="744" y="438" font-size="11" font-weight="bold" fill="#C0392B">★楼梯·接地</text>
+<text x="664" y="328" font-size="11" font-weight="bold" fill="#C0392B">★楼梯·转角</text>
+</svg>

@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 矿井碰撞箱读得到 | rects=259
+[check] PASS 摆出 7 只史莱姆 | n=7
+[check] PASS 出生时整只都在地面上（身子没埋进岩壁） | 
+[check] PASS 出生时不重叠 | min=58.4 (需≥26.0)
+[check] PASS 精灵已缩小到 0.07 | scale=0.070
+[check] PASS 存活态视觉高度约 57px | h=57.4
+[check] PASS 每只都分到了站位 | n=7
+[check] PASS 爱德华确实摆进了矿井 | 
+[check] PASS 主角与爱德华并肩站在一起 | 间距 48px（需≤70）
+[check] PASS 全程整只都没埋进岩壁 | 越界帧 0/600 
+[check] PASS 全程没有互相重叠 | 最近中心距 54.8px / 需≥26.0 / 越界帧 0
+[check] PASS 史莱姆确实走向自己的站位 | 位移>15px 的 6/7 只，总位移 274px
+[check] PASS 每只都走到了自己的站位 | 最大偏差 2.0px 
+[check] PASS 围成一圈（到圈心距离都差不多） | 半径 90~95 px
+[check] PASS 包围时彼此散得开 | 落位后最近中心距 72.0px（需≥55）
+[check] PASS 落位后整只都站在地面上 | 
+[check] PASS 贴得近时会互相推开 | 最近 54.8px vs 直径 26.0px
+[check] PASS 姜酒后全部变成尸体 | dead=7/7
+[mine_slime] PASS=18 FAIL=0

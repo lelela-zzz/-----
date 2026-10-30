@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 默认：窗口化 / 自适应 / 整数档 | scale=0.0 fullscreen=false fill=false
+[check] PASS 默认比例 = 屏幕放得下的最大档 | 1.25 vs 1.25
+[check] PASS 窗口尺寸 = 1280×768 × 比例 | (1600, 960)
+[check] PASS 档位从 100% 起 | [1.0, 1.25]
+[check] PASS 档位到「屏幕放得下」为止（不列越屏选项） | [1.0, 1.25] / fit=1.25
+[check] PASS 每档都放得进可用区 | 可用区 (1920, 1080)
+[check] PASS 越屏档位自动夹回最大档 | 要 200% → 实际 125% / 尺寸 (1600, 960)
+[check] PASS 负数比例夹到 0（自适应） | 0.0
+[check] PASS 固定 100% = 1280×768 | (1280, 768)
+[check] PASS 档位文案带百分比与像素尺寸 | 100%（1280×768）
+[check] PASS 自适应档文案标明「自适应」 | 自适应 · 125%（1600×960）
+[check] PASS 改动立刻写盘 | err=0
+[check] PASS 盘上记下了比例 / 全屏 / 铺满 | scale=1.25 fullscreen=true fill=true
+[check] PASS 下次启动读回同样的设置 | scale=1.25 fullscreen=true fill=true
+[check] PASS 100%（整数倍）用整数缩放，像素最锐 | integer
+[check] PASS 半档（如 150%）改用非整数插值 | 1.25 / fractional
+[check] PASS 全屏 + 铺满 = 非整数插值 | fractional
+[check] PASS 面板列出三项设置 | ["设置", "改动立即生效并保存", "显示模式", "窗口化", "窗口大小", "自适应 · 125%（1600×960）", "全屏缩放", "— 窗口化恒整数倍", "音乐音量", "70%", "[W/S] 选   [A/D] 改   [Esc] 返回"]
+[check] PASS 带操作提示 | ["设置", "改动立即生效并保存", "显示模式", "窗口化", "窗口大小", "自适应 · 125%（1600×960）", "全屏缩放", "— 窗口化恒整数倍", "音乐音量", "70%", "[W/S] 选   [A/D] 改   [Esc] 返回"]
+[check] PASS 初始选中第一行 | 0
+[check] PASS 窗口化状态显示「窗口化」 | ["设置", "改动立即生效并保存", "显示模式", "窗口化", "窗口大小", "自适应 · 125%（1600×960）", "全屏缩放", "— 窗口化恒整数倍", "音乐音量", "70%", "[W/S] 选   [A/D] 改   [Esc] 返回"]
+[check] PASS S 下移到第二行 | 1
+[check] PASS A/D 能真实改显示比例 | 要 1.25 / 实际 1.25
+[check] PASS 第一行 A/D 切换成全屏 | scale=1.25 fullscreen=true fill=false
+[check] PASS 全屏后「窗口大小」标为不适用 | ["设置", "改动立即生效并保存", "显示模式", "全屏", "窗口大小", "— 全屏下不适用", "全屏缩放", "整数倍（像素最锐）", "音乐音量", "70%", "[W/S] 选   [A/D] 改   [Esc] 返回"]
+[check] PASS 全屏后「全屏缩放」可改并显示当前值 | ["设置", "改动立即生效并保存", "显示模式", "全屏", "窗口大小", "— 全屏下不适用", "全屏缩放", "整数倍（像素最锐）", "音乐音量", "70%", "[W/S] 选   [A/D] 改   [Esc] 返回"]
+[check] PASS 全屏时窗口大小改不动（置灰行不响应） | 1.25 → 1.25
+[check] PASS 全屏缩放切到铺满后立刻生效 | true / fractional
+[check] PASS 切铺满后文案跟着变 | ["设置", "改动立即生效并保存", "显示模式", "全屏", "窗口大小", "— 全屏下不适用", "全屏缩放", "铺满（像素轻微不均）", "音乐音量", "70%", "[W/S] 选   [A/D] 改   [Esc] 返回"]
+[check] PASS 所有数值文案都在框内 | 最右「全屏」到 x=386（上限 386）
+[check] PASS 再切回窗口化：窗口大小恢复可改（不再标不适用） | scale=1.25 fullscreen=false fill=true
+[settings] PASS=31 FAIL=0

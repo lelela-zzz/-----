@@ -1,0 +1,42 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 第一章数据 13 幕 | beats=13
+[check] PASS 每幕都有 id/place/entries，且 id 唯一 | 
+[check] PASS place 都是已知场景或 travel | 
+[check] PASS 13 幕 next 链首尾相连（末幕 next=null） | 
+[check] PASS 接委托前导演不启动 | active=false
+[check] PASS begin() 后章节启动 | active=true
+[check] PASS begin() 后发 ch1_frost 任务并自动追踪 | has=true tracked=ch1_frost
+[check] PASS begin() 后从第 2 幕开始（第 1 幕凯瑟琳委托由 Story 播过） | beat=ch1_tavern_hartfilia
+[check] PASS 支线系统此刻是活的（pending 查得到） | active=true pending=true day=2 chiss_played=false
+[check] PASS 章节进行中不摆支线访客 | specs=[]
+[check] PASS 章节进行中支线不抢 E 交互 | played=false
+[check] PASS 酒馆外自动播第 2 幕（哈特菲利亚） | beat=ch1_tavern_hartfilia panel=true
+[check] PASS 进酒馆后接第 3 幕（奇斯给绯色符文） | beat=ch1_chiss_rune panel=true
+[check] PASS 关掉后接第 4 幕（俄莉斯准许用符文） | beat=ch1_eris_permission panel=true
+[check] PASS 没有暖身姜酒时卡在酿造幕（不空放台词） | beat=ch1_brew_antifreeze panel=false
+[check] PASS 库存出现暖身姜酒后，酿造幕播放 | beat=ch1_brew_antifreeze panel=true
+[check] PASS 酿完后下一幕=去集市（凯瑟琳求救），且只在集市播 | beat=ch1_catherine_injured panel=false
+[check] PASS 任务目的地看着集市凯瑟琳 | dest={ "scene": "res://scenes/village.tscn", "node": "Sorted/Npc_market_catherine", "pos": [300.0, 782.0] }
+[check] PASS 进集市播第 6 幕（凯瑟琳） | beat=ch1_catherine_injured panel=true
+[check] PASS 接着播第 7 幕（绯村恢复） | beat=ch1_himura_recover panel=true
+[check] PASS 第 8 幕 travel 直接结算：解锁「矿道入口」 | unlocked=true
+[check] PASS travel 幕的任务步也打钩（前往矿道入口） | steps=["✓回银辉酒馆，听哈特菲利亚说明委托", "✓用符文酿造抗寒的暖身姜酒", "✓带抗寒姜酒去集市找凯瑟琳", "✓前往黑松山脉·矿道入口", "○在矿道入口与西蒙交谈", "○深入矿井，支援钢之炼金术士", "○回银辉酒馆休息"]
+[check] PASS 解锁后下一幕=矿道入口的西蒙 | beat=ch1_mine_entrance_simon
+[check] PASS M 地图出现「黑松山脉·矿道入口」 | ["world", "village", "tavern_exterior", "mine_entrance"]
+[check] PASS 矿道入口一幕把同场人物都摆出来（西蒙 + 哈特菲利亚） | simon=true lucy=true
+[check] PASS 进矿道入口播第 10 幕（西蒙） | beat=ch1_mine_entrance_simon panel=true
+[check] PASS 接着播第 11 幕（哈特菲利亚交给 taurus） | beat=ch1_hartfilia_taurus panel=true
+[check] PASS 第 12 幕 travel 被跳过 → 下一幕=矿井里的爱德华 | beat=ch1_mine_edward
+[check] PASS 进矿井播第 13 幕（钢之炼金术士） | beat=ch1_mine_edward panel=true
+[check] PASS 回酒馆播末幕（沉睡的粉发少女） | beat=ch1_return_tavern panel=true
+[check] PASS 走完 13 幕 → 任务完成 | complete=true
+[check] PASS 走完 13 幕 → 导演收尾（is_active=false） | active=false
+[check] PASS 收尾后不再追踪第一章 | tracked=
+[check] PASS 被本章覆盖的支线标记为已播（哈特菲利亚/奇斯） | hartfilia=true chiss=true
+[check] PASS 收尾后支线访客恢复登场 | specs=1
+[chapter1] PASS=35 FAIL=0
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

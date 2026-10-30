@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[verify] 门前景精灵存在:true
+[verify] 门 base 贴图:res://assets/house/v4/objects2x/door_foreground_dawn.png
+[verify] 门 base modulate.a:0.5
+[verify] 门 fade 贴图:res://assets/house/v4/objects2x/door_foreground.png
+[verify] 门是 Sorted 直接子节点(参与 y 排序):true
+[verify] PropBodies 碰撞框数量:18
+[verify] 门 sort_y > 378 (能在角色上方):true (sort_y=380.0)
+[verify] 总判定:PASS

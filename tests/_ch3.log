@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 第三章数据 10 幕 | beats=10
+[check] PASS 每幕都有 id/place/entries，且 id 唯一 | 
+[check] PASS place 都是已知场景或 travel | 
+[check] PASS 10 幕 next 链首尾相连（末幕 next=null） | 
+[check] PASS 每个说话人都在场（拜登=玩家除外） | 
+[check] PASS 未启动前导演不启动 | active=false
+[check] PASS begin() 后章节启动 | active=true
+[check] PASS begin() 后发 ch3_dragon_king 任务并自动追踪 | has=true tracked=ch3_dragon_king
+[check] PASS 第一幕=奇斯送密函 | beat=ch3_tavern_chiss
+[check] PASS 酒馆播第 1 幕（奇斯：贤者之石与超古代生物） | beat=ch3_tavern_chiss panel=true
+[check] PASS 第 1 幕摆出奇斯 | chiss=true
+[check] PASS 接第 2 幕（西蒙：带我去你们的矿井） | beat=ch3_tavern_simon panel=true
+[check] PASS 下一幕=矿道入口（等玩家走去） | beat=ch3_mine_entrance
+[check] PASS 矿道入口播第 3 幕（西蒙：来这边） | beat=ch3_mine_entrance panel=true
+[check] PASS 下一幕=矿井（等玩家下矿） | beat=ch3_mine_slime
+[check] PASS 矿井播第 4 幕（史莱姆 → 裂隙传送门） | beat=ch3_mine_slime panel=true
+[check] PASS travel 结束后仍留在矿井（等玩家踩裂隙门） | scene=res://scenes/mine.tscn
+[check] PASS 裂隙门已打开（Chapter3Story.is_rift_open） | open=true
+[check] PASS 矿井里有裂隙门 Doors/LairGate，且已启用监听 | gate=true monitoring=true
+[check] PASS 裂隙门通向龙巢 | target=res://scenes/dragon_lair.tscn
+[check] PASS 龙巢播第 6 幕（与爱德华会合） | beat=ch3_lair_edward panel=true
+[check] PASS 这一幕摆出爱德华与卡兹 | edward=true kaz=true
+[check] PASS 接第 7 幕（龙醒 / 林格登场） | beat=ch3_lair_awaken panel=true
+[check] PASS 这一幕摆出林格 | ringe=true
+[check] PASS 接第 8 幕（林格举圣剑） | beat=ch3_lair_holy panel=true
+[check] PASS 白幕后接第 9 幕（醒来 / 与龙的皇帝告别） | beat=ch3_lair_after panel=true
+[check] PASS 这一幕摆出龙的皇帝（特蕾西亚） | theresia=true
+[check] PASS 下一幕=回酒馆收尾 | beat=ch3_tavern_epilogue
+[check] PASS 酒馆播末幕（尾声 / 孩子取名） | beat=ch3_tavern_epilogue panel=true
+[check] PASS 走完 10 幕 → 任务完成 | complete=true
+[check] PASS 走完 10 幕 → 导演收尾 | active=false
+[check] PASS 终章标记 game_finished | finished=true
+[check] PASS 收尾后不再追踪第三章 | tracked=
+[chapter3] PASS=33 FAIL=0

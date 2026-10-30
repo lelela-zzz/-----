@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 支线数据 10 段、字段齐全、id 不重复、都有 min_day | arcs=10 / 
+[check] PASS 序章未完成时支线系统关闭（active=false、无待播） | active=false
+[check] PASS 章节未激活时，被 gate 的支线（奇斯）不待播 | chiss_pending=true active=false
+[check] PASS OPEN 后 SideStory 激活 | stage=6
+[check] PASS 第 1 天（开张当天）不出支线：没有待播、也不摆访客 | day=1 unlocked=false pending=false specs=0 chiss=false
+[check] PASS 跨到第 2 天 → 支线开闸 | day=2 unlocked=true
+[check] PASS 序章后酒馆里只摆一位支线访客（奇斯），另外两位不来挤 | chiss=true eris=false himura=false
+[check] PASS 一次只摆一位：spawn_specs 只返回 1 条 | specs=1
+[check] PASS 与奇斯交谈弹出多说话人剧情面板 | panel=true
+[check] PASS 剧情面板拿到了付款人（卖酒才能收钱） | payer=Npc_side_broker_chiss:<Node2D#95999231914>
+[check] PASS 支线 chiss_brewing_machine 播完且记档 | played=true
+[check] PASS 奇斯聊完退场、俄莉斯接班（店里始终只有一位访客） | chiss=false eris=true
+[check] PASS 哈特菲利亚线弹出剧情面板 | panel=true
+[check] PASS 支线 hartfilia_snow_intro 播完且记档 | played=true
+[check] PASS 哈特菲利亚线播完 → 发「黑松山脉·雪山」任务 | has_q=true
+[check] PASS 哈特菲利亚线播完 → 解锁雪山地图 flag | unlocked=true
+[check] PASS M 地图出现「黑松山脉·雪山」占位行 | rows=4
+[check] PASS 支线只播一次（已播后不再 pending） | chiss_pending=false
+[sidestory] PASS=18 FAIL=0

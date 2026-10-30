@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS world → village 跑路 10 分钟（2+8） | 10
+[check] PASS village → world 跑路 10 分钟 | 10
+[check] PASS 同图 = 0 分钟（不用跑，直接瞬移） | 0
+[check] PASS 未知去处 = -1（调用方自己兜底） | -1
+[check] PASS 跨图耗时随跳数增长（world→mine > world→village） | 31 > 10
+[check] PASS 测试时钟起点 07:30 | 07:30
+[check] PASS 遮罩里有「跑路中」 | 跑路中 | 
+[check] PASS 遮罩跑路期间占着 modal_ui（别让别的面板弹出来） | 
+[check] PASS 跑完 10 分钟后时钟到 07:40（时间真的被消耗） | 07:40
+[check] PASS 遮罩播完自己销毁（不残留） | valid=false
+[travel] PASS=10 FAIL=0

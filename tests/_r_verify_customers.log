@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 初期顾客 = 雪山线 3 人 + 凯瑟琳，且数据无错误 | roster=["dwarf_war_edward", "miner_simon", "market_catherine", "explorer_lucy"] / 缺=[] / errors=[]
+[check] PASS 只有这四位进顾客池，其余角色不受影响 | 顾客池 4 条 / 含绯村=false
+[check] PASS 进店折线的每个拐点都在空地上 | 撞进碰撞的点：[]
+[check] PASS 顾客从酒馆内门口出现 | 起点 (320.0, 300.0) / 状态 0（0=WALKING）
+[check] PASS 走到吧台前的队列槽位并停下 | 停在 (110.0, 140.0)（槽位 (110.0, 140.0)）/ 状态 1（1=QUEUED）
+[check] PASS 排队时面向吧台（朝上待机） | anim=walk_up playing=false
+[check] PASS 站在顾客与老板娘中间时，E 仍归顾客（顾客距离更远） | 顾客距=33.5 老板娘距=21.5 / 顾客提示=true 老板娘提示=false
+[check] PASS 走到老板娘身边时她照常出 [E] 交谈 | 顾客提示=false 老板娘提示=true / 文案=[E] 交谈
+[check] PASS 走近出现 [E] 卖酒 提示 | prompt=[E] 卖酒 visible=true
+[check] PASS 按 E 打开卖酒面板并冻结玩家 | panel=true / frozen=true
+[check] PASS 面板只列出手上的酒（原料不出现） | 列表 = ["wine_warm_ginger"]
+[check] PASS 卖 1 瓶：库存 -1、铜币 +原价、顾客记账 | 库存 1 / 铜 60→88 / 已购 1
+[check] PASS 偏好接口：空=原价 / 加价 / 压价 / 只收酒 四条都通 | 原价 28 / 1.6x → 45(love) / 0.5x →true / 拒原料=true
+[check] PASS 卖完酒后去凳子坐下（SITTING） | 状态 3 / 落座=true / 占座=1 / 动画=sit
+[check] PASS 坐够后离场、槽位回收、座位释放 | 已释放=true / 在场 0 / 空槽 5 / 占座 0
+[check] PASS 买过酒的人今天不再被随机放进来 | 今天被选中的=["dwarf_war_edward", "miner_simon", "market_catherine"] / 再随机=null(被规则拦)
+[check] PASS 过夜后（day 改变）买过酒的人恢复资格 | 跨天后随机到=explorer_lucy
+[check] PASS 顾客上限 = 3（4 位并排会在吧台前连成一道人墙） | max_customers=3
+[check] PASS 三位顾客能同时在场（一人一个槽位） | 在场 3 / 目标 x=[110.0, 145.0, 180.0]
+[check] PASS 排队不叠人（槽位间距 ≥ 角色宽 30px） | x=[110.0, 145.0, 180.0]
+[check] PASS 满员后不再放人进来 | spawn_random=拒绝 / 在场 3
+[check] PASS 坐姿方向按椅子侧别（左椅→朝右/右椅→朝左，只用侧面帧 col1/col2） | 
+[check] PASS 坐姿行四格全为真侧面，无占位矩形（正/背两格已由侧面覆盖） | 
+[customers] PASS=23 FAIL=0

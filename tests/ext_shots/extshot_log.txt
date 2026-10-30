@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+[check] PASS 镜头左上限位 | 中心 = (320.0, 192.0)（期望 320,192）
+[check] PASS 镜头右下限位 | 中心 = (338.0, 466.0)（期望 338,466）
+[check] PASS 地图西界阻挡 | 停在 x = 13.1（期望 ≈13）
+[check] PASS 酒馆外墙阻挡 | 停在 y = 443.1（期望 ≈443）
+[check] PASS 遮挡顺序：柱后→柱盖人 / 屋前→人盖屋 | 柱后采样 (0.4157, 0.2902, 0.2039, 1.0)（r>b? true）/ 屋前采样 (0.5725, 0.6196, 0.7059, 1.0)（b>g? true）
+[check] PASS 外观→酒馆传送 | 场景 = World / 落点 = (319.0, 358.1389)
+[check] PASS 酒馆→外观传送 | 场景 = TavernExterior / 落点 = (295.0, 466.8611)
+[check] PASS 外观→村传送 | 场景 = Village / 落点 = (640.1111, 700.0)
+[extshot] done FAIL=0

@@ -1,0 +1,612 @@
+{
+  "$schema": "palette/3.0",
+  "project": "炉火镇",
+  "name": "Hearthvale Palette v3 · 核心+地形分层",
+  "version": "3.1",
+  "date": "2026-10-18",
+  "architecture": "core + terrain",
+  "key_color": {
+    "hex": "#FF00FF",
+    "note": "抠图 key 色，不参与色板；主体内禁用洋红及近洋红"
+  },
+  "core": {
+    "declared": 32,
+    "defined": 31,
+    "reserved": 1,
+    "note": "跨地形通用：角色 / UI / 可携带器物 / 通用特效。角色资产量不随地形数增长。",
+    "groups": [
+      {
+        "id": "structure",
+        "name": "结构",
+        "role": "描边与统一暗部",
+        "colors": [
+          {
+            "slot": 1,
+            "id": "outline",
+            "name": "描边黑",
+            "hex": "#181818",
+            "lightness": 9.4,
+            "hue": 0,
+            "usage": "所有资产外轮廓"
+          },
+          {
+            "slot": 2,
+            "id": "aged-shadow",
+            "name": "陈年阴影",
+            "hex": "#202018",
+            "lightness": 11.0,
+            "hue": 60,
+            "usage": "统一暗部、底缝"
+          },
+          {
+            "slot": 3,
+            "id": "dark-brown",
+            "name": "深褐",
+            "hex": "#3A2A22",
+            "lightness": 18.0,
+            "hue": 20,
+            "usage": "眼睛、发须、皮革暗部"
+          }
+        ]
+      },
+      {
+        "id": "human",
+        "name": "人族肤色",
+        "role": "暖陶土三阶",
+        "colors": [
+          {
+            "slot": 4,
+            "id": "human-light",
+            "name": "人肤亮",
+            "hex": "#C98A64",
+            "lightness": 59.0,
+            "hue": 23,
+            "usage": "受光面"
+          },
+          {
+            "slot": 5,
+            "id": "human-mid",
+            "name": "人肤中",
+            "hex": "#A0674A",
+            "lightness": 45.9,
+            "hue": 20,
+            "usage": "固有色"
+          },
+          {
+            "slot": 6,
+            "id": "human-dark",
+            "name": "人肤暗",
+            "hex": "#7A4530",
+            "lightness": 33.3,
+            "hue": 17,
+            "usage": "颌下、颈、手背"
+          }
+        ]
+      },
+      {
+        "id": "elf",
+        "name": "精灵肤色",
+        "role": "冷白三阶",
+        "colors": [
+          {
+            "slot": 7,
+            "id": "elf-light",
+            "name": "灵肤亮",
+            "hex": "#DCD8D0",
+            "lightness": 83.9,
+            "hue": 40,
+            "usage": "受光面"
+          },
+          {
+            "slot": 8,
+            "id": "elf-mid",
+            "name": "灵肤中",
+            "hex": "#B4B2AA",
+            "lightness": 68.6,
+            "hue": 48,
+            "usage": "固有色"
+          },
+          {
+            "slot": 9,
+            "id": "elf-dark",
+            "name": "灵肤暗",
+            "hex": "#85857F",
+            "lightness": 51.0,
+            "hue": 60,
+            "usage": "暗部"
+          }
+        ]
+      },
+      {
+        "id": "dwarf",
+        "name": "矮人肤色",
+        "role": "红润三阶",
+        "colors": [
+          {
+            "slot": 10,
+            "id": "dwarf-light",
+            "name": "矮肤亮",
+            "hex": "#C0755C",
+            "lightness": 55.7,
+            "hue": 15,
+            "usage": "受光面"
+          },
+          {
+            "slot": 11,
+            "id": "dwarf-mid",
+            "name": "矮肤中",
+            "hex": "#9A5743",
+            "lightness": 43.3,
+            "hue": 14,
+            "usage": "固有色"
+          },
+          {
+            "slot": 12,
+            "id": "dwarf-dark",
+            "name": "矮肤暗",
+            "hex": "#6E3C2E",
+            "lightness": 30.6,
+            "hue": 13,
+            "usage": "暗部"
+          }
+        ]
+      },
+      {
+        "id": "orc",
+        "name": "兽人肤色",
+        "role": "灰绿褐三阶",
+        "colors": [
+          {
+            "slot": 13,
+            "id": "orc-light",
+            "name": "兽肤亮",
+            "hex": "#9C9C74",
+            "lightness": 53.3,
+            "hue": 60,
+            "usage": "受光面"
+          },
+          {
+            "slot": 14,
+            "id": "orc-mid",
+            "name": "兽肤中",
+            "hex": "#76765A",
+            "lightness": 40.8,
+            "hue": 60,
+            "usage": "固有色"
+          },
+          {
+            "slot": 15,
+            "id": "orc-dark",
+            "name": "兽肤暗",
+            "hex": "#53533D",
+            "lightness": 28.2,
+            "hue": 60,
+            "usage": "暗部"
+          }
+        ]
+      },
+      {
+        "id": "demon",
+        "name": "魔族肤色",
+        "role": "灰紫三阶",
+        "colors": [
+          {
+            "slot": 16,
+            "id": "demon-light",
+            "name": "魔肤亮",
+            "hex": "#9C8AA8",
+            "lightness": 60.0,
+            "hue": 276,
+            "usage": "受光面"
+          },
+          {
+            "slot": 17,
+            "id": "demon-mid",
+            "name": "魔肤中",
+            "hex": "#79648A",
+            "lightness": 46.7,
+            "hue": 273,
+            "usage": "固有色"
+          },
+          {
+            "slot": 18,
+            "id": "demon-dark",
+            "name": "魔肤暗",
+            "hex": "#55445F",
+            "lightness": 32.0,
+            "hue": 278,
+            "usage": "暗部"
+          }
+        ]
+      },
+      {
+        "id": "cloth",
+        "name": "织物",
+        "role": "亚麻与皮革",
+        "colors": [
+          {
+            "slot": 19,
+            "id": "linen-light",
+            "name": "亚麻亮",
+            "hex": "#C8C2B4",
+            "lightness": 74.5,
+            "hue": 42,
+            "usage": "衬衫、围裙带、桌布"
+          },
+          {
+            "slot": 20,
+            "id": "linen-dark",
+            "name": "亚麻暗",
+            "hex": "#8A8578",
+            "lightness": 50.6,
+            "hue": 43,
+            "usage": "布料褶"
+          },
+          {
+            "slot": 21,
+            "id": "leather-light",
+            "name": "皮革亮",
+            "hex": "#8A6440",
+            "lightness": 39.6,
+            "hue": 29,
+            "usage": "围裙、腰带、靴"
+          },
+          {
+            "slot": 22,
+            "id": "leather-dark",
+            "name": "皮革暗",
+            "hex": "#5A3F26",
+            "lightness": 25.1,
+            "hue": 29,
+            "usage": "皮革暗部"
+          }
+        ]
+      },
+      {
+        "id": "metal",
+        "name": "金属",
+        "role": "铁与锡",
+        "colors": [
+          {
+            "slot": 23,
+            "id": "metal-light",
+            "name": "金属亮",
+            "hex": "#C9CED6",
+            "lightness": 81.4,
+            "hue": 217,
+            "usage": "铁件高光、杯口、铃铛"
+          },
+          {
+            "slot": 24,
+            "id": "metal-dark",
+            "name": "金属暗",
+            "hex": "#7A8290",
+            "lightness": 52.2,
+            "hue": 218,
+            "usage": "铁件暗面、锁、铰链"
+          }
+        ]
+      },
+      {
+        "id": "light",
+        "name": "光与火",
+        "role": "唯一自发光",
+        "colors": [
+          {
+            "slot": 25,
+            "id": "fire-mid",
+            "name": "炉火橙",
+            "hex": "#E8963C",
+            "lightness": 57.3,
+            "hue": 31,
+            "usage": "火光、灯笼、火把"
+          },
+          {
+            "slot": 26,
+            "id": "fire-core",
+            "name": "火心黄",
+            "hex": "#F6D08A",
+            "lightness": 75.3,
+            "hue": 39,
+            "usage": "火心、高光、烛芯"
+          }
+        ]
+      },
+      {
+        "id": "arcane",
+        "name": "特殊",
+        "role": "魔法与极值",
+        "colors": [
+          {
+            "slot": 27,
+            "id": "frost",
+            "name": "霜青",
+            "hex": "#7FA8A0",
+            "lightness": 57.8,
+            "hue": 168,
+            "usage": "魔族工艺刻纹、魔法痕迹"
+          },
+          {
+            "slot": 28,
+            "id": "pure-white",
+            "name": "纯白",
+            "hex": "#F2F2EE",
+            "lightness": 94.1,
+            "hue": 60,
+            "usage": "高光、雪中角色、UI 底"
+          }
+        ]
+      },
+      {
+        "id": "ui",
+        "name": "界面",
+        "role": "反馈色",
+        "colors": [
+          {
+            "slot": 29,
+            "id": "danger",
+            "name": "危险红",
+            "hex": "#A8342A",
+            "lightness": 41.2,
+            "hue": 5,
+            "usage": "HP、警告、不可用"
+          },
+          {
+            "slot": 30,
+            "id": "gold",
+            "name": "钱金",
+            "hex": "#C9A227",
+            "lightness": 47.1,
+            "hue": 46,
+            "usage": "货币、稀有品质"
+          },
+          {
+            "slot": 31,
+            "id": "success",
+            "name": "成功绿",
+            "hex": "#4E8A5A",
+            "lightness": 42.4,
+            "hue": 132,
+            "usage": "正反馈、增益"
+          }
+        ]
+      }
+    ]
+  },
+  "terrain": {
+    "layer_size": 16,
+    "note": "每地形独立 16 色，只用于该地形的世界材质；地形之间不共享，靠核心层保证角色一致性。",
+    "palettes": [
+      {
+        "id": "temperate",
+        "name": "温带 · 酒馆及周边",
+        "status": "locked",
+        "count": 16,
+        "groups": [
+          {
+            "id": "wood",
+            "name": "木",
+            "role": "三阶",
+            "colors": [
+              {
+                "slot": 1,
+                "id": "wood-dark",
+                "name": "深木",
+                "hex": "#503818",
+                "lightness": 20.4,
+                "hue": 34,
+                "usage": "木料暗面、梁下"
+              },
+              {
+                "slot": 2,
+                "id": "wood-mid",
+                "name": "中木",
+                "hex": "#785028",
+                "lightness": 31.4,
+                "hue": 30,
+                "usage": "木料固有色"
+              },
+              {
+                "slot": 3,
+                "id": "wood-light",
+                "name": "浅木",
+                "hex": "#906838",
+                "lightness": 39.2,
+                "hue": 33,
+                "usage": "木料受光面、地板亮条"
+              }
+            ]
+          },
+          {
+            "id": "roof",
+            "name": "赤瓦",
+            "role": "三阶",
+            "colors": [
+              {
+                "slot": 4,
+                "id": "roof-dark",
+                "name": "暗瓦",
+                "hex": "#6A3024",
+                "lightness": 27.8,
+                "hue": 10,
+                "usage": "屋面暗部、瓦缝；魔族屋顶主色"
+              },
+              {
+                "slot": 5,
+                "id": "roof-mid",
+                "name": "正瓦",
+                "hex": "#884030",
+                "lightness": 36.1,
+                "hue": 11,
+                "usage": "红陶瓦固有色"
+              },
+              {
+                "slot": 6,
+                "id": "roof-light",
+                "name": "亮瓦",
+                "hex": "#A85A40",
+                "lightness": 45.5,
+                "hue": 15,
+                "usage": "瓦脊受光、受火烤砖石"
+              }
+            ]
+          },
+          {
+            "id": "stone",
+            "name": "石",
+            "role": "三阶",
+            "colors": [
+              {
+                "slot": 7,
+                "id": "stone-dark",
+                "name": "深石",
+                "hex": "#585848",
+                "lightness": 31.4,
+                "hue": 60,
+                "usage": "石基暗面；魔族墙体主色"
+              },
+              {
+                "slot": 8,
+                "id": "stone-mid",
+                "name": "中石",
+                "hex": "#787868",
+                "lightness": 43.9,
+                "hue": 60,
+                "usage": "石料固有色、院墙"
+              },
+              {
+                "slot": 9,
+                "id": "stone-light",
+                "name": "浅石",
+                "hex": "#A09888",
+                "lightness": 58.0,
+                "hue": 40,
+                "usage": "石面受光、灰泥勾缝"
+              }
+            ]
+          },
+          {
+            "id": "flora",
+            "name": "草",
+            "role": "两阶",
+            "colors": [
+              {
+                "slot": 10,
+                "id": "grass-dark",
+                "name": "深草",
+                "hex": "#4A5A38",
+                "lightness": 28.6,
+                "hue": 88,
+                "usage": "植物暗部、苔"
+              },
+              {
+                "slot": 11,
+                "id": "grass-mid",
+                "name": "草绿",
+                "hex": "#6E7C46",
+                "lightness": 38.0,
+                "hue": 76,
+                "usage": "草地、叶、农作"
+              }
+            ]
+          },
+          {
+            "id": "earth",
+            "name": "土",
+            "role": "两阶",
+            "colors": [
+              {
+                "slot": 12,
+                "id": "earth-dark",
+                "name": "土暗",
+                "hex": "#6A5638",
+                "lightness": 31.8,
+                "hue": 36,
+                "usage": "泥地、夯土墙暗部（原 #5E4C33 与深草同明度冲突，已上调）"
+              },
+              {
+                "slot": 13,
+                "id": "earth-light",
+                "name": "土亮",
+                "hex": "#8A7550",
+                "lightness": 42.7,
+                "hue": 38,
+                "usage": "土路、陶坯"
+              }
+            ]
+          },
+          {
+            "id": "misc",
+            "name": "杂项",
+            "role": "点缀",
+            "colors": [
+              {
+                "slot": 14,
+                "id": "straw",
+                "name": "稻草",
+                "hex": "#B99A62",
+                "lightness": 55.5,
+                "hue": 39,
+                "usage": "麦秸、面包、草席"
+              },
+              {
+                "slot": 15,
+                "id": "moss",
+                "name": "苔深",
+                "hex": "#3A4A2E",
+                "lightness": 23.5,
+                "hue": 94,
+                "usage": "苔痕、藤、深灌木"
+              },
+              {
+                "slot": 16,
+                "id": "plaster",
+                "name": "灰泥",
+                "hex": "#C4BEB0",
+                "lightness": 72.9,
+                "hue": 42,
+                "usage": "白灰墙、石膏、亚麻棚布"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "forest",
+        "name": "森林",
+        "status": "pending",
+        "groups": []
+      },
+      {
+        "id": "snow",
+        "name": "雪山",
+        "status": "pending",
+        "groups": []
+      },
+      {
+        "id": "mine",
+        "name": "矿洞",
+        "status": "pending",
+        "groups": []
+      }
+    ]
+  },
+  "frame_budget": {
+    "core_in_frame": "按在场种族计，2-3 族约 9-15 色",
+    "terrain": 16,
+    "target_max": 36,
+    "note": "核心 32 是资产库容量，不是单帧预算"
+  },
+  "dup_check": {
+    "total": 47,
+    "unique": 47,
+    "passed": true
+  },
+  "changelog": [
+    {
+      "version": "3.1",
+      "date": "2026-10-18",
+      "change": "土暗 #5E4C33 → #6A5638，消除与深草的同明度冲突（地面材质直接相邻，必须改色而非靠描边）"
+    }
+  ]
+}

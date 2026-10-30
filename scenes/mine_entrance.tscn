@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/mine_entrance/v1/scene_day_2x.png" id="1_bg"]
+[ext_resource type="Script" path="res://scripts/scene_bootstrap.gd" id="2_boot"]
+[ext_resource type="Script" path="res://scripts/map_bounds.gd" id="3_bounds"]
+[ext_resource type="Script" path="res://scripts/prop_layer.gd" id="4_props"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="5_player"]
+[ext_resource type="Script" path="res://scripts/pixel_camera.gd" id="6_cam"]
+[ext_resource type="Script" path="res://scripts/lighting_director.gd" id="7_lighting"]
+[ext_resource type="Script" path="res://scripts/game_clock.gd" id="8_clock"]
+[ext_resource type="Script" path="res://scripts/clock_hud.gd" id="9_hud"]
+[ext_resource type="Script" path="res://scripts/door_area.gd" id="10_door"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_path"]
+size = Vector2(70, 28)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_minepath"]
+size = Vector2(72, 26)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_snowpath"]
+size = Vector2(70, 28)
+
+[node name="MineEntrance" type="Node2D"]
+script = ExtResource("2_boot")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+centered = false
+texture = ExtResource("1_bg")
+scale = Vector2(0.5, 0.5)
+
+[node name="Static" type="StaticBody2D" parent="."]
+script = ExtResource("3_bounds")
+walkable = Rect2(8, 8, 1008, 1008)
+
+[node name="Sorted" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("4_props")
+props_path = "res://assets/mine_entrance/v1/objects/props.json"
+textures_dir = "res://assets/mine_entrance/v1/objects/"
+lighting_path = NodePath("../Lighting")
+
+[node name="Player" parent="Sorted" instance=ExtResource("5_player")]
+position = Vector2(875, 40)
+
+[node name="Camera" type="Camera2D" parent="Sorted/Player"]
+script = ExtResource("6_cam")
+map_rect = Rect2(0, 0, 1024, 1024)
+
+[node name="Lighting" type="Node" parent="."]
+script = ExtResource("7_lighting")
+background_path = NodePath("../Background")
+ambient_target_path = NodePath("../Sorted/Player")
+bg_overrides = PackedStringArray("res://assets/mine_entrance/v1/scene_day_2x.png", "res://assets/mine_entrance/v1/scene_day_2x.png", "res://assets/mine_entrance/v1/scene_day_2x.png", "res://assets/mine_entrance/v1/scene_day_2x.png")
+phase = 1
+follow_clock = false
+debug_keys = false
+
+[node name="Clock" type="Node" parent="."]
+script = ExtResource("8_clock")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="VillagePath" type="Area2D" parent="Doors"]
+script = ExtResource("10_door")
+target_scene = "res://scenes/village.tscn"
+spawn_position = Vector2(447, 36)
+
+[node name="Shape" type="CollisionShape2D" parent="Doors/VillagePath"]
+position = Vector2(875, 14)
+shape = SubResource("RectangleShape2D_path")
+
+[node name="MinePath" type="Area2D" parent="Doors"]
+script = ExtResource("10_door")
+target_scene = "res://scenes/mine.tscn"
+spawn_position = Vector2(505, 100)
+
+[node name="Shape" type="CollisionShape2D" parent="Doors/MinePath"]
+position = Vector2(860, 850)
+shape = SubResource("RectangleShape2D_minepath")
+
+[node name="SnowPath" type="Area2D" parent="Doors"]
+script = ExtResource("10_door")
+target_scene = "res://scenes/snow_mountain.tscn"
+spawn_position = Vector2(250, 475)
+
+[node name="Shape" type="CollisionShape2D" parent="Doors/SnowPath"]
+position = Vector2(452, 1004)
+shape = SubResource("RectangleShape2D_snowpath")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="UIRoot" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 384.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+
+[node name="ClockPanel" type="Control" parent="HUD/UIRoot"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 88.0
+script = ExtResource("9_hud")
+clock_path = NodePath("../../../Clock")
+
+[node name="Digits" type="Label" parent="HUD/UIRoot/ClockPanel"]
+offset_top = 66.0
+offset_right = 64.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.96, 0.9, 0.78, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.08, 0.06, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "08"
+horizontal_alignment = 1
+
+[connection signal="time_changed" from="Clock" to="Lighting" method="set_clock_time"]

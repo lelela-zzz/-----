@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_npc"]
+[ext_resource type="Script" path="res://scripts/character_animator.gd" id="2_anim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_feet"]
+size = Vector2(16, 8)
+
+[node name="Npc" type="Node2D"]
+script = ExtResource("1_npc")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+centered = false
+light_mask = 2
+script = ExtResource("2_anim")
+
+[node name="Body" type="StaticBody2D" parent="."]
+
+[node name="Feet" type="CollisionShape2D" parent="Body"]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_feet")

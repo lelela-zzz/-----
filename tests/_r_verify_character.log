@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[char] player:true | Body 是动画角色:true | 有 update_anim:true
+[char] 动画列表:["walk_down", "walk_left", "walk_right", "walk_up"]
+   walk_down 帧数=4
+   walk_left 帧数=4
+   walk_right 帧数=4
+   walk_up 帧数=4
+[char] 待机定格(暂停+帧0):true
+[char] 总判定:PASS

@@ -1,0 +1,657 @@
+{
+ "version": 1,
+ "note": "第一章「雾凇无虞」剧情数据。来源：第一章.docx。每一幕 = {id, next, place, trigger, entries[], dest?, brew?, unlock?, gained?, companion?}。驱动者是 autoload ChapterStory（scripts/chapter_story.gd）：place 幕=玩家进入该场景自动播、brew 幕=库存出现指定酒才播、travel 幕=不播台词直接结算副作用（解锁地图去处等）并跳过。第 0 幕（凯瑟琳委托）由 Story._start_snow_logistics 自己播，ChapterStory 从第 1 幕开始。trigger 只是策划注释，代码不读。验收：tests/verify_chapter1.gd。",
+ "chapter": "snow_logistics",
+ "title": "第一章 · 雾凇无虞",
+ "unlock": {
+  "type": "revenue",
+  "threshold": 150,
+  "next_day": true,
+  "note": "序章开张后单次营业最高进账 >= 150，次日凯瑟琳弹委托，玩家在集市「接取任务」后本章开始。"
+ },
+ "beats": [
+  {
+   "id": "ch1_catherine_offer",
+   "place": "village",
+   "trigger": "玩家在卢迪克集市与凯瑟琳对话 → 选「接取任务」（snow_offered 且未 started）",
+   "dest": {
+    "scene": "res://scenes/village.tscn",
+    "node": "Sorted/Npc_market_catherine",
+    "pos": [
+     300,
+     782
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "凯瑟琳",
+     "role": "集市管理员",
+     "text": "向着荣光与湮灭。欢迎来到集市管理处。"
+    },
+    {
+     "speaker": "凯瑟琳",
+     "role": "集市管理员",
+     "text": "拜登先生，这里有您的委托。哈特菲利亚女士需要一些抗寒的酒品。"
+    },
+    {
+     "speaker": "凯瑟琳",
+     "role": "集市管理员",
+     "text": "我想你应该可以提供合适的物资。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "哈特菲利亚女士的科考队，工作进展看来并不顺利。我觉得可行，凯瑟琳，我回去准备一下。"
+    }
+   ],
+   "next": "ch1_tavern_hartfilia"
+  },
+  {
+   "id": "ch1_tavern_hartfilia",
+   "place": "tavern_exterior",
+   "trigger": "接取委托后回银辉酒馆，哈特菲利亚已在此等候；按 T 与哈特菲利亚对话",
+   "dest": {
+    "scene": "res://scenes/tavern_exterior.tscn",
+    "node": "Sorted/Npc_beat_explorer_lucy",
+    "pos": [
+     280,
+     420
+    ]
+   },
+   "npc": "explorer_lucy",
+   "spawn": [
+    280,
+    420
+   ],
+   "facing": "down",
+   "entries": [
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（回到酒馆，你发现哈特菲利亚等候良久。）"
+    },
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "你好，拜登先生，你应该了解过近年来黑松山脉的极寒异象。"
+    },
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "队员们携带普通的御寒物资和衣物，无法抵御山脉的严寒，甚至许多人因为体温过低而丧命。"
+    },
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "我这次来，是为了您的店里有着旧王朝的炼金装置，或许可以派上用场。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "我手里确实有一个魔法酿酒机，但据我所知，它其实并没有抵御这种严寒的能力……或者，你让我考虑一下吧。"
+    },
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "拜登先生，感谢理解。期待您的好消息。"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（屏幕一黑，哈特菲利亚离开了。）"
+    }
+   ],
+   "next": "ch1_chiss_rune"
+  },
+  {
+   "id": "ch1_chiss_rune",
+   "place": "world",
+   "trigger": "哈特菲利亚离开后进店，奇斯在场；按 T 与奇斯对话",
+   "dest": {
+    "scene": "res://scenes/world.tscn",
+    "node": "Sorted/Npc_beat_broker_chiss",
+    "pos": [
+     455,
+     160
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "奇斯",
+     "role": "情报贩子",
+     "text": "哦，拜登先生。你是否在思考有关符文和那台酿酒机的事？"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（这位情报商人出示了一些刻蚀着雪色特殊文字的石块，你发觉它们与魔法酿酒机上的符文有许多相似之处。）"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "（这……难道是盗贼小姐所说的神器吗？怪不得俄莉斯一直在找他，奇斯确实和神器有关。）"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "你又是如何知道科考队需要不一般的御寒物资，和那位魔导士有求于我的酿酒机？"
+    },
+    {
+     "speaker": "奇斯",
+     "role": "情报贩子",
+     "text": "靠商人敏锐的嗅觉，对吧。只不过你追求安稳日子，把它抛弃了。"
+    },
+    {
+     "speaker": "奇斯",
+     "role": "情报贩子",
+     "text": "我只是受人所托，把它交给你。出门在外，总是会遇到一些好事的。我该走了，你知道我不想见谁。贵安。"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（你得到了绯色痕迹的符文，它似乎有抵抗寒冷的效果。）"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（你看到了匆忙赶来的盗贼小姐。）"
+    }
+   ],
+   "gained": [
+    "绯色痕迹的符文"
+   ],
+   "npc": "broker_chiss",
+   "spawn": [
+    455,
+    160
+   ],
+   "facing": "down",
+   "next": "ch1_eris_permission"
+  },
+  {
+   "id": "ch1_eris_permission",
+   "place": "world",
+   "trigger": "奇斯离开后，俄莉斯赶到；按 T 与俄莉斯对话",
+   "dest": {
+    "scene": "res://scenes/world.tscn",
+    "node": "Sorted/Npc_beat_thief_eris",
+    "pos": [
+     478,
+     230
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "俄莉斯",
+     "role": "厄里斯神",
+     "text": "可恶，又让奇斯这家伙跑了……哦，拜登先生。拿到符文了吗？"
+    },
+    {
+     "speaker": "俄莉斯",
+     "role": "厄里斯神",
+     "text": "我提起过，符文是不能存在于世的神器。没有符文的炼金装置，或许只是极为高效的酿酒桶；而加以符文驱动，便可引发神迹，产生不可思议的效果。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "确实。我确实注意到了，酿酒机上的凹槽与这块绯色符文的轮廓能够吻合。女神大人，能否容许我使用这块符文？"
+    },
+    {
+     "speaker": "俄莉斯",
+     "role": "厄里斯神",
+     "text": "当然。有很多人需要符文的力量，这是神器被制造出来的意义。"
+    }
+   ],
+   "npc": "thief_eris",
+   "spawn": [
+    478,
+    230
+   ],
+   "facing": "left",
+   "next": "ch1_brew_antifreeze"
+  },
+  {
+   "id": "ch1_brew_antifreeze",
+   "place": "world",
+   "trigger": "得到俄莉斯准许后，按 F 与魔法酿酒机（锅）交互，制作具有抗寒效果的暖身姜酒",
+   "dest": {
+    "scene": "res://scenes/world.tscn",
+    "node": "Sorted/BrewingPot",
+    "pos": [
+     278,
+     -193
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "",
+     "role": "",
+     "text": "得到了俄莉斯的准许，使用魔法酿酒机，制作具有抗寒效果的暖身姜酒。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "驱动符文制作出的姜酒，确实不一般。或许真的可以派上用场。"
+    }
+   ],
+   "brew": {
+    "wine": "wine_warm_ginger",
+    "runes": "crimson",
+    "batch": "half_crate"
+   },
+   "next": "ch1_catherine_injured"
+  },
+  {
+   "id": "ch1_catherine_injured",
+   "place": "village",
+   "trigger": "带着抗寒姜酒，按 M 前往卢迪克集市，与凯瑟琳对话",
+   "dest": {
+    "scene": "res://scenes/village.tscn",
+    "node": "Sorted/Npc_market_catherine",
+    "pos": [
+     300,
+     782
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "凯瑟琳",
+     "role": "集市管理员",
+     "text": "向着荣光与湮灭。欢迎来到集市管理处。"
+    },
+    {
+     "speaker": "凯瑟琳",
+     "role": "集市管理员",
+     "text": "拜登先生，这里有一位严重失温的剑士，目前在哈特菲利亚女士的「horologium」里面。而且集市中相关御寒物资不足，我们处于举步维艰的状态。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "（正被「horologium」保护的失温剑士，正是几天前来店里喝酒的浪客剑心。你或许可以试试符文工艺制作的酒的效果。）"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "我带来了一批由特别工艺制作的酒，可以让这位剑士暖暖身子。"
+    }
+   ],
+   "next": "ch1_himura_recover",
+   "npc": "market_catherine",
+   "extras": [
+    {
+     "npc": "ronin_himura",
+     "spawn": [
+      360,
+      770
+     ],
+     "facing": "left"
+    },
+    {
+     "npc": "explorer_lucy",
+     "spawn": [
+      420,
+      770
+     ],
+     "facing": "left"
+    }
+   ]
+  },
+  {
+   "id": "ch1_himura_recover",
+   "place": "village",
+   "trigger": "绯村喝下抗寒暖身姜酒",
+   "dest": {
+    "scene": "res://scenes/village.tscn",
+    "node": "Sorted/Npc_beat_ronin_himura",
+    "pos": [
+     360,
+     770
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（绯村喝下抗寒的暖身姜酒，很快就恢复了活力，哈特菲利亚注意到了这正是符文的力量。）"
+    },
+    {
+     "speaker": "绯村",
+     "role": "流浪剑士",
+     "text": "十分感谢阁下的馈赠。鄙人受邀跟随科考队探索矿井，却意外中伤，实属鄙人能力不足。"
+    },
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "拜登先生，大概情况你也已经了解了。出于某些原因，我邀请您一同前往矿井，您能找到想要的东西的。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "（哈特菲利亚女士所说的正是符文，你觉得这是一个重要的线索。）我正有此意，哈特菲利亚女士。我的能力有限，但定会发挥所长。"
+    },
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "感谢您的爽快答应。如果你准备好了的话，我们就走吧。"
+    }
+   ],
+   "next": "ch1_to_mine",
+   "npc": "ronin_himura",
+   "spawn": [
+    360,
+    770
+   ],
+   "facing": "left",
+   "extras": [
+    {
+     "npc": "explorer_lucy",
+     "spawn": [
+      420,
+      770
+     ],
+     "facing": "left"
+    }
+   ]
+  },
+  {
+   "id": "ch1_to_mine",
+   "place": "travel",
+   "trigger": "按 M 打开地图，选择「黑松山脉-矿道入口」并前往",
+   "dest": {
+    "scene": "res://scenes/mine_entrance.tscn",
+    "node": "Sorted/Npc_beat_miner_simon",
+    "pos": [
+     876,
+     150
+    ]
+   },
+   "unlock": {
+    "flag": "mine_entrance",
+    "toast": "解锁地图：黑松山脉·矿道入口"
+   },
+   "entries": [
+    {
+     "speaker": "",
+     "role": "",
+     "text": "前往黑松山脉，参与科考队工作。"
+    }
+   ],
+   "next": "ch1_mine_entrance_simon"
+  },
+  {
+   "id": "ch1_mine_entrance_simon",
+   "place": "mine_entrance",
+   "trigger": "到达矿道入口，与西蒙对话（按 T）",
+   "dest": {
+    "scene": "res://scenes/mine_entrance.tscn",
+    "node": "Sorted/Npc_beat_miner_simon",
+    "pos": [
+     876,
+     150
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "（你发现了刚从矿井入口出来的西蒙，在旁横七竖八躺下科考队的人员和佣兵。）西蒙，怎么样，找回你的「螺岩」了吗？你看起来很疲惫，情况也很糟糕。"
+    },
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "看来不需要向你介绍他了。西蒙对地下的东西很有研究，他在矿井下面给予了我们不少帮助。"
+    },
+    {
+     "speaker": "西蒙",
+     "role": "矿工少年",
+     "text": "拜登先生，很高兴还能遇见你。我刚才在矿井中遇到了很可怕的魔物，我没有找到「螺岩」来驾驶「GUNMEN」，实在难以一战……"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "来点暖身姜酒，西蒙。可怕的魔物吗……这或许是黑松山脉产生异象的源头。"
+    },
+    {
+     "speaker": "西蒙",
+     "role": "矿工少年",
+     "text": "（西蒙接过一壶姜酒，似乎因为其散发的呛人气味，硬着头皮像吃药似的咕噜一口喝了下去，结果这酒意外只是味道浓郁，酒劲并不强烈。）这姜酒和我以前喝的都不同，我非常喜欢。真希望大哥也能尝尝这酒啊……说回正题，还有很多队员和佣兵因为这个魔物而冻伤，现在还有一个国家炼金术师在牵制那个魔物。"
+    }
+   ],
+   "next": "ch1_hartfilia_taurus",
+   "npc": "miner_simon",
+   "spawn": [
+    876,
+    150
+   ],
+   "facing": "down",
+   "extras": [
+    {
+     "npc": "explorer_lucy",
+     "spawn": [
+      838,
+      178
+     ],
+     "facing": "right"
+    }
+   ]
+  },
+  {
+   "id": "ch1_hartfilia_taurus",
+   "place": "mine_entrance",
+   "trigger": "西蒙说完，哈特菲利亚开启星门召唤 taurus",
+   "entries": [
+    {
+     "speaker": "哈特菲利亚",
+     "role": "FAIRY TAIL 魔导士",
+     "text": "拜登先生，「taurus」交给你。他应该是会愿意离开我去帮助你们的，我需要留在这里照顾队员。拜登先生，我相信你与丰收的契约，这是来自星灵魔导士的直觉。"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（哈特菲利亚开启了星门，一头身形高大的黑白花斑奶牛跨步走了出来。他身着的角斗士装束因动作幅度过大，转眼间便沾满了雪泥。他驻足许久，环顾四周。）"
+    },
+    {
+     "speaker": "西蒙",
+     "role": "矿工少年",
+     "text": "拜登老板，我们该走了。有了「taurus」和一些后援，我想应该可以为国家炼金术士提供一些帮助。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "各位，保重。等待我们的凯旋。"
+    }
+   ],
+   "companion": "taurus",
+   "next": "ch1_taurus_march",
+   "npc": "miner_simon",
+   "spawn": [
+    876,
+    150
+   ],
+   "facing": "down",
+   "extras": [
+    {
+     "npc": "explorer_lucy",
+     "spawn": [
+      838,
+      178
+     ],
+     "facing": "right"
+    }
+   ],
+   "dest": {
+    "scene": "res://scenes/mine_entrance.tscn",
+    "node": "Sorted/Npc_beat_miner_simon",
+    "pos": [
+     876,
+     150
+    ]
+   }
+  },
+  {
+   "id": "ch1_taurus_march",
+   "place": "travel",
+   "trigger": "按 F 进入矿井，前往爱德华所在处",
+   "dest": {
+    "scene": "res://scenes/mine.tscn",
+    "node": "Sorted/Npc_beat_dwarf_war_edward",
+    "pos": [
+     486,
+     520
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "",
+     "role": "",
+     "text": "与西蒙和「taurus」一同前往矿井，支援国家炼金术士。"
+    }
+   ],
+   "next": "ch1_mine_edward"
+  },
+  {
+   "id": "ch1_mine_edward",
+   "place": "mine",
+   "trigger": "到达矿井深处，爱德华在此牵制魔物",
+   "dest": {
+    "scene": "res://scenes/mine.tscn",
+    "node": "Sorted/Npc_beat_dwarf_war_edward",
+    "pos": [
+     486,
+     520
+    ]
+   },
+   "entries": [
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（行至矿井深处，空气中除了弥漫着铁锈与湿土的气息，还裹挟着砭骨的寒意，其源于遍布道路黑压压一片的史莱姆。爱德华一刻不停地解构、炼成脚下的战场。）"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "这些魔物不只是史莱姆这种弱小无害的魔物吧。难道是因为传闻中消失在黑松山脉的龙的皇帝吗？"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（你因不经意间过于靠近爱德华的战场，史莱姆从缝隙中喷涌而出时溅出散发腐蚀性毒雾的黏液，「taurus」猛地扑向你，随身抖落的一瓶由符文炼制的姜酒。）"
+    },
+    {
+     "speaker": "西蒙",
+     "role": "矿工少年",
+     "text": "拜登先生，史莱姆是一种极其危险的魔物……爱德华先生，注意地上残留的姜酒，它消除了一整片的史莱姆。"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（爱德华的义肢猛然拍向那摊姜酒，炼成阵的微光激荡起稀薄的酒浆，「taurus」顺势将你携带的所有姜酒尽数泼洒过去，所有澄黄液体在掌间翻涌，裹住了成片的史莱姆。）"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "史莱姆，消失了。不愧是国家炼金术士，令人瞠目的无术式炼成技艺和临场判断的敏锐……"
+    },
+    {
+     "speaker": "爱德华",
+     "role": "钢之炼金术士",
+     "text": "不用讲这些客套话，拜登先生。你的酒，杀死了史莱姆——杀死了被「贤者之石」增幅的生物。也就是说，你的酒消弭了人的灵魂。姜酒不是人造物吧，我的「真理之门」不足以判断这一点……"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "（你对国家炼金术士的判断感到格外惊讶，无意继续隐瞒魔法酿酒机的真相，当即拿出了驱动姜酒酿造的绯色符文。）魔法酿造机确实是神造物。我受女神所托需要找到四个符文，它是不得为人所用的神器。可它与象征着罪恶的石头有关吗……"
+    },
+    {
+     "speaker": "爱德华",
+     "role": "钢之炼金术士",
+     "text": "（爱德华俯身拾起一块暗红的贤者之石碎片，刚将它凑近符文，这块碎片便在顷刻间崩碎，石中封存的、未被超度的亡魂随之脱离束缚，缓缓释放出来。）这些遭受炼成的人类，就此安息了吗？那些炼金术士的欲望和自私，让黎民百姓承受了如此无妄之灾。我必须找到制造这些贤者之石的罪人……拜登先生，我希望你能协助我。后续探索黑松山脉时，符文将发挥举足轻重的作用。作为等价交换，我也可以在你的酒馆建设上，提供力所能及的援助。"
+    }
+   ],
+   "next": "ch1_return_tavern",
+   "npc": "dwarf_war_edward",
+   "spawn": [
+    486,
+    520
+   ],
+   "facing": "down",
+   "extras": [
+    {
+     "npc": "miner_simon",
+     "spawn": [
+      430,
+      520
+     ],
+     "facing": "right"
+    }
+   ]
+  },
+  {
+   "id": "ch1_return_tavern",
+   "place": "world",
+   "trigger": "按 M 前往银辉酒馆并进入",
+   "dest": {
+    "scene": "res://scenes/world.tscn",
+    "node": "Sorted/Npc_beat_tavern_cuige",
+    "pos": [
+     295,
+     160
+    ]
+   },
+   "npc": "tavern_cuige",
+   "spawn": [
+    295,
+    160
+   ],
+   "facing": "right",
+   "extras": [
+    {
+     "npc": "reception_icarus",
+     "spawn": [
+      268,
+      112
+     ],
+     "facing": "down",
+     "no_interact": true
+    }
+   ],
+   "entries": [
+    {
+     "speaker": "",
+     "role": "",
+     "text": "你在黑松山脉经历了太多，是时候回到酒馆休息一下了。"
+    },
+    {
+     "speaker": "萃歌",
+     "role": "酒馆老板娘",
+     "text": "拜登，咱已经一天没有看到你了。凯瑟琳和咱说了，你去支援了雪山的科考队。咱也不问你过多的事了。开店之前咱们经历了这么多事情，你也要多多依赖咱啊。"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（你偶然间留意到，酒馆墙边倚着位粉发少女正沉沉酣睡，夕阳光透过纸窗斜斜照入，为她那褪成浅樱白的发梢镀上一层淡淡的蜜桃暖光。）"
+    },
+    {
+     "speaker": "萃歌",
+     "role": "酒馆老板娘",
+     "text": "哦，她啊，这个女孩是我今天在酒馆外面捡到的。据说，她是从天上掉下来的。"
+    },
+    {
+     "speaker": "拜登",
+     "role": "银辉酒馆老板",
+     "text": "你说，她是天降之物……"
+    },
+    {
+     "speaker": "",
+     "role": "",
+     "text": "（第一章，完）"
+    }
+   ],
+   "unlock": {
+    "flag": "pink_haired_girl",
+    "toast": "酒馆里多了一位沉睡的粉发少女……"
+   },
+   "next": null
+  }
+ ]
+}

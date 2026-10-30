@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 矿道入口有通往矿井的门 | 目标=res://scenes/mine.tscn
+[check] PASS 矿道入口 → 矿井 | 场景=Mine 落点=(505.0, 100.0)
+[check] PASS 矿井底图 2048²（2x 渲染） | 底图=(2048.0, 2048.0)
+[check] PASS 矿井岩壁碰撞已生成（>100 条） | 碰撞体 259 条
+[check] PASS 相机限位=矿井地图 1024² | 限位=[0,0]-[1024,1024]
+[check] PASS 矿井 → 矿道入口 | 场景=MineEntrance 落点=(860.0, 878.0)
+[check] PASS 跨场景时间延续 | 当前 10:00
+[verify_mine] done FAIL=0

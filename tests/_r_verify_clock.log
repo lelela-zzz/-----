@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS  初始数字为 07（时钟已认领）
+[check] PASS  改为 14:30 后数字变 14
+[check] PASS  改为 23:00 后数字变 23
+[check] PASS  ClockHUD 已连接 time_changed 信号
+PASS=4 FAIL=0

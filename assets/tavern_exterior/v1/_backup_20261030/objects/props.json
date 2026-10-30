@@ -1,0 +1,28 @@
+{
+ "source": "assets/tavern_exterior/v1/scene_day_1x.png",
+ "size": [
+  658,
+  658
+ ],
+ "props": [
+  {
+   "name": "t00_tavern",
+   "label": "炉火镇酒馆·正面",
+   "has_sprite": true,
+   "collision_rect": [
+    96,
+    0,
+    394,
+    437
+   ],
+   "file": "res://assets/tavern_exterior/v1/objects/t00_tavern.png",
+   "sprite_rect": [
+    84,
+    8,
+    431,
+    429
+   ],
+   "sort_y": 436
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS  序章未完：拒绝挂招牌 | reason=酒馆还没开张（序章未完）
+[check] PASS  06:00 太早：拒绝挂招牌 | reason=太早了，天亮些再挂招牌吧。
+[check] PASS  19:00 天黑：拒绝挂招牌 | reason=天都黑了，明天白天再挂招牌吧。
+[check] PASS  13:00 白天：允许挂招牌 | reason=
+[check] PASS  开张后：business_open 且 tavern_open | open=true tavern=true
+[check] PASS  开张后：spawner 进入营业状态 | running=true
+[check] PASS  开场 rush 打了当天标记 | rush_day=1 / day=1
+[check] PASS  客流倍率：早市 0.4 / 晚市 1.4 | early=0.40 peak=1.40
+[check] PASS  打烊后：闸门关闭 | open=false running=false
+[check] PASS  结算：本次进账记到了 session（50） | session=50.0
+[check] PASS  结算：session 已清零、最高单次已刷新 | session=0.0 best=50.0
+[check] PASS  结算：不再扣运营开支（铜币 = 原额 + 进账） | copper 60 → 110 / 营业 1 小时
+[check] PASS  打烊弹出今日小结面板 | panel=true scene=res://scenes/world.tscn modal=[DayReportPanel(res://scripts/ui/day_report_panel.gd) ]
+[check] PASS  22 点后客流倍率 0 | f=0.00
+[check] PASS  22:00 系统强制关张 | open=false hour=22
+[check] PASS  23:00 进入第二天并从 07:30 起 | day 1 → 2 / 07:30
+[check] PASS  次日 07:30 可再次开张 | open=true
+[check] PASS  离开酒馆自动打烊 | open=false
+[business_window] PASS=18 FAIL=0

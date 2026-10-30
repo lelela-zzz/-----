@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 首次开张：开场 rush 放人（≥2） | active=2 / rush_count=2 / rush_day=1
+[check] PASS 再次进门：开场 rush 不重播（客流仍为 0） | active=0
+[check] PASS rush 标记已置位（static，每天一次） | rush_day=1
+[rush_once] PASS=3 FAIL=0

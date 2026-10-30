@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 从传送门按上能走进盘龙圈心（y≤540） | y=537.6（用了 92 物理帧）
+[check] PASS 没有穿出圈心（x 仍在 384~544 内） | x=480.0
+[check] PASS 圈心北侧被龙身挡住（y 不越过 405） | y=428.1
+[lair_walk] PASS=3 FAIL=0

@@ -1,0 +1,76 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS map_graph.json 通过自检 | 
+[check] PASS 图里至少有两张地图（不然谈不上跨图） | 7 张
+[check] PASS 节点 world 有场景文件 | res://scenes/world.tscn
+[check] PASS 节点 world 有显示名 | 银辉酒馆
+[check] PASS 节点 tavern_exterior 有场景文件 | res://scenes/tavern_exterior.tscn
+[check] PASS 节点 tavern_exterior 有显示名 | 酒馆门口
+[check] PASS 节点 village 有场景文件 | res://scenes/village.tscn
+[check] PASS 节点 village 有显示名 | 卢迪克集市
+[check] PASS 节点 mine_entrance 有场景文件 | res://scenes/mine_entrance.tscn
+[check] PASS 节点 mine_entrance 有显示名 | 矿道入口
+[check] PASS 节点 mine 有场景文件 | res://scenes/mine.tscn
+[check] PASS 节点 mine 有显示名 | 矿洞
+[check] PASS 节点 snow_mountain 有场景文件 | res://scenes/snow_mountain.tscn
+[check] PASS 节点 snow_mountain 有显示名 | 雪山
+[check] PASS 节点 spring 有场景文件 | res://scenes/spring.tscn
+[check] PASS 节点 spring 有显示名 | 泉水
+[check] PASS 边 world->tavern_exterior 的端点都在 nodes 里 | door=Doors/ExitSouth
+[check] PASS 边 world->tavern_exterior 有正数耗时（跑路要花时间） | minutes=2.0
+[check] PASS 门 world/Doors/ExitSouth 指向 tavern_exterior | 实际=res://scenes/tavern_exterior.tscn 期望=res://scenes/tavern_exterior.tscn
+[check] PASS 门 world/Doors/ExitSouth 的落点一致 | 实际=(230.0, 363.0) 期望=(230.0, 363.0)
+[check] PASS 边 tavern_exterior->world 的端点都在 nodes 里 | door=Doors/TavernDoor
+[check] PASS 边 tavern_exterior->world 有正数耗时（跑路要花时间） | minutes=2.0
+[check] PASS 门 tavern_exterior/Doors/TavernDoor 指向 world | 实际=res://scenes/world.tscn 期望=res://scenes/world.tscn
+[check] PASS 门 tavern_exterior/Doors/TavernDoor 的落点一致 | 实际=(319.0, 360.0) 期望=(319.0, 360.0)
+[check] PASS 边 tavern_exterior->village 的端点都在 nodes 里 | door=Doors/RoadWest
+[check] PASS 边 tavern_exterior->village 有正数耗时（跑路要花时间） | minutes=8.0
+[check] PASS 门 tavern_exterior/Doors/RoadWest 指向 village | 实际=res://scenes/village.tscn 期望=res://scenes/village.tscn
+[check] PASS 门 tavern_exterior/Doors/RoadWest 的落点一致 | 实际=(440.0, 800.0) 期望=(440.0, 800.0)
+[check] PASS 边 village->tavern_exterior 的端点都在 nodes 里 | door=Doors/TavernDoor
+[check] PASS 边 village->tavern_exterior 有正数耗时（跑路要花时间） | minutes=8.0
+[check] PASS 门 village/Doors/TavernDoor 指向 tavern_exterior | 实际=res://scenes/tavern_exterior.tscn 期望=res://scenes/tavern_exterior.tscn
+[check] PASS 门 village/Doors/TavernDoor 的落点一致 | 实际=(60.0, 462.0) 期望=(60.0, 462.0)
+[check] PASS 边 village->mine_entrance 的端点都在 nodes 里 | door=Doors/MineEntrancePath
+[check] PASS 边 village->mine_entrance 有正数耗时（跑路要花时间） | minutes=15.0
+[check] PASS 门 village/Doors/MineEntrancePath 指向 mine_entrance | 实际=res://scenes/mine_entrance.tscn 期望=res://scenes/mine_entrance.tscn
+[check] PASS 门 village/Doors/MineEntrancePath 的落点一致 | 实际=(875.0, 40.0) 期望=(875.0, 40.0)
+[check] PASS 边 mine_entrance->village 的端点都在 nodes 里 | door=Doors/VillagePath
+[check] PASS 边 mine_entrance->village 有正数耗时（跑路要花时间） | minutes=15.0
+[check] PASS 门 mine_entrance/Doors/VillagePath 指向 village | 实际=res://scenes/village.tscn 期望=res://scenes/village.tscn
+[check] PASS 门 mine_entrance/Doors/VillagePath 的落点一致 | 实际=(447.0, 36.0) 期望=(447.0, 36.0)
+[check] PASS 边 mine_entrance->mine 的端点都在 nodes 里 | door=Doors/MinePath
+[check] PASS 边 mine_entrance->mine 有正数耗时（跑路要花时间） | minutes=6.0
+[check] PASS 门 mine_entrance/Doors/MinePath 指向 mine | 实际=res://scenes/mine.tscn 期望=res://scenes/mine.tscn
+[check] PASS 门 mine_entrance/Doors/MinePath 的落点一致 | 实际=(505.0, 100.0) 期望=(505.0, 100.0)
+[check] PASS 边 mine->mine_entrance 的端点都在 nodes 里 | door=Doors/ToMineEntrance
+[check] PASS 边 mine->mine_entrance 有正数耗时（跑路要花时间） | minutes=6.0
+[check] PASS 门 mine/Doors/ToMineEntrance 指向 mine_entrance | 实际=res://scenes/mine_entrance.tscn 期望=res://scenes/mine_entrance.tscn
+[check] PASS 门 mine/Doors/ToMineEntrance 的落点一致 | 实际=(860.0, 878.0) 期望=(860.0, 878.0)
+[check] PASS 边 mine_entrance->snow_mountain 的端点都在 nodes 里 | door=Doors/SnowPath
+[check] PASS 边 mine_entrance->snow_mountain 有正数耗时（跑路要花时间） | minutes=20.0
+[check] PASS 门 mine_entrance/Doors/SnowPath 指向 snow_mountain | 实际=res://scenes/snow_mountain.tscn 期望=res://scenes/snow_mountain.tscn
+[check] PASS 门 mine_entrance/Doors/SnowPath 的落点一致 | 实际=(250.0, 475.0) 期望=(250.0, 475.0)
+[check] PASS 边 snow_mountain->mine_entrance 的端点都在 nodes 里 | door=Doors/MineReturn
+[check] PASS 边 snow_mountain->mine_entrance 有正数耗时（跑路要花时间） | minutes=20.0
+[check] PASS 门 snow_mountain/Doors/MineReturn 指向 mine_entrance | 实际=res://scenes/mine_entrance.tscn 期望=res://scenes/mine_entrance.tscn
+[check] PASS 门 snow_mountain/Doors/MineReturn 的落点一致 | 实际=(500.0, 962.0) 期望=(500.0, 962.0)
+[check] PASS 边 snow_mountain->spring 的端点都在 nodes 里 | door=Doors/SpringPath
+[check] PASS 边 snow_mountain->spring 有正数耗时（跑路要花时间） | minutes=10.0
+[check] PASS 门 snow_mountain/Doors/SpringPath 指向 spring | 实际=res://scenes/spring.tscn 期望=res://scenes/spring.tscn
+[check] PASS 门 snow_mountain/Doors/SpringPath 的落点一致 | 实际=(692.0, 620.0) 期望=(692.0, 620.0)
+[check] PASS 边 spring->snow_mountain 的端点都在 nodes 里 | door=Doors/SnowPath
+[check] PASS 边 spring->snow_mountain 有正数耗时（跑路要花时间） | minutes=10.0
+[check] PASS 门 spring/Doors/SnowPath 指向 snow_mountain | 实际=res://scenes/snow_mountain.tscn 期望=res://scenes/snow_mountain.tscn
+[check] PASS 门 spring/Doors/SnowPath 的落点一致 | 实际=(250.0, 475.0) 期望=(250.0, 475.0)
+[check] PASS 至少校验了 5 条边 | 12 条
+[check] PASS 起点=终点 → 空路线（直接指目的地） | 
+[check] PASS world → tavern_exterior = 1 跳 | 1 跳
+[check] PASS world → village = 2 跳（要绕门口） | 2 跳
+[check] PASS world → mine = 4 跳 | 4 跳
+[check] PASS mine → world = 4 跳（village 改走 tavern_exterior 绕门口） | 4 跳
+[check] PASS 不存在的图 → 空路线（不崩） | 
+[check] PASS 第一跳 from = world | world
+[check] PASS 第一跳 door = ExitSouth | Doors/ExitSouth
+[map_graph] PASS=73 FAIL=0

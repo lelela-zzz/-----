@@ -1,0 +1,567 @@
+{
+  "npcs": [
+    {
+      "id": "tavern_cuige",
+      "name": "萃歌",
+      "title": "酒馆老板娘",
+      "sheet": "res://assets/actors/npc/酒馆老板娘_萃歌.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "开张头一天，手脚都麻利点。",
+        "材料不够就去集市找凯瑟琳，她给你留了货。"
+      ],
+      "placement": [
+        {
+          "scene": "world",
+          "pos": [
+            295,
+            160
+          ],
+          "facing": "right",
+          "wander": 0.0,
+          "patrol_route": [
+            [
+              295,
+              160
+            ],
+            [
+              480,
+              160
+            ],
+            [
+              480,
+              250
+            ],
+            [
+              295,
+              250
+            ]
+          ],
+          "ghost": true
+        }
+      ]
+    },
+    {
+      "id": "knight_ringe",
+      "name": "林格",
+      "title": "人类骑士",
+      "sheet": "res://assets/actors/npc/人类骑士_林格.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "这镇子夜里很安静，火一直有人看着。",
+        "你要出门就把斗篷系紧，风从山口来。"
+      ],
+      "placement": [
+        {
+          "scene": "world",
+          "pos": [
+            352,
+            274
+          ],
+          "facing": "down",
+          "wander": 0.0
+        }
+      ]
+    },
+    {
+      "id": "elf_emt",
+      "name": "EMT",
+      "title": "半妖精",
+      "sheet": "res://assets/actors/npc/半妖精_EMT.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "我第一次来这里，菜单上写的都是我没听过的东西。",
+        "……可以先给我一杯热的吗？"
+      ],
+      "placement": []
+    },
+    {
+      "id": "lich_wiz",
+      "name": "维兹",
+      "title": "巫妖",
+      "sheet": "res://assets/actors/npc/巫妖_维兹.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "别怕，我只是路过。骨头不咬人，酒才咬人。",
+        "……玩笑。给我一杯淡的就好。"
+      ],
+      "placement": []
+    },
+    {
+      "id": "broker_chiss",
+      "name": "奇斯",
+      "title": "情报贩子",
+      "sheet": "res://assets/actors/npc/情报贩子_奇斯.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "消息和酒一样，新鲜的才卖得上价。",
+        "你今天想知道点什么？先说好，我只卖给识货的。"
+      ],
+      "placement": []
+    },
+    {
+      "id": "spring_nymph",
+      "name": "宁芙",
+      "title": "泉水精灵",
+      "sheet": "res://assets/actors/npc/泉水精灵_宁芙.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "水缸里那口泉水，是我从山上带来的。",
+        "喝之前先闻一闻，它会告诉你今天好不好。"
+      ],
+      "placement": []
+    },
+    {
+      "id": "ronin_himura",
+      "name": "绯村",
+      "title": "流浪剑士",
+      "sheet": "res://assets/actors/npc/流浪剑士_绯村.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "剑挂在墙上就别去碰，坐下吧。",
+        "这火比路边的柴堆暖，我多待一会儿。"
+      ],
+      "placement": []
+    },
+    {
+      "id": "thief_eris",
+      "name": "俄莉斯",
+      "title": "厄里斯神",
+      "sheet": "res://assets/actors/npc/盗贼少年_俄莉斯.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "我什么都没拿！……真的。",
+        "你那杯放桌边会洒，我帮你往里挪一点。"
+      ],
+      "placement": []
+    },
+    {
+      "id": "dwarf_cook_kaito",
+      "name": "凯多",
+      "title": "矮人厨师",
+      "sheet": "res://assets/actors/npc/矮人厨师_凯多.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "锅里的汤再炖一刻钟，别催。",
+        "矮人做菜讲究火候，跟打铁一个道理。"
+      ],
+      "placement": [
+        {
+          "scene": "world",
+          "pos": [
+            300,
+            236
+          ],
+          "facing": "up",
+          "wander": 0.0
+        }
+      ]
+    },
+    {
+      "id": "dwarf_war_edward",
+      "name": "爱德华",
+      "title": "矮人战士",
+      "sheet": "res://assets/actors/npc/矮人战士_爱德华.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "盔甲擦过了，酒别溅上来。",
+        "……好吧，溅上也不算大事。"
+      ],
+      "placement": [],
+      "customer": {
+        "budget": 90,
+        "greet": [
+          "听说你这儿的酒有能耐。",
+          "矮人喝酒不兴小口抿。"
+        ],
+        "bought": [
+          "好酒。盔甲都擦亮了三分。",
+          "我记住了，回头带朋友来。"
+        ],
+        "leave": [
+          "我回集市那边了。"
+        ],
+        "wine_pref": {}
+      }
+    },
+    {
+      "id": "dwarf_hand_kaijin",
+      "name": "凯金",
+      "title": "矮人杂工",
+      "sheet": "res://assets/actors/npc/矮人杂工_凯金.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "地窖的木箱我搬完了，腿都软了。",
+        "老板，能不能先记我账上一杯？"
+      ],
+      "placement": []
+    },
+    {
+      "id": "dwarf_serv_kain",
+      "name": "凯恩",
+      "title": "矮人杂役",
+      "sheet": "res://assets/actors/npc/矮人杂役_凯恩.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "桌角那块有点晃，我垫了纸片。",
+        "要是又晃了，喊我一声就行。"
+      ],
+      "placement": []
+    },
+    {
+      "id": "miner_simon",
+      "name": "西蒙",
+      "title": "矿工少年",
+      "sheet": "res://assets/actors/npc/矿工少年_西蒙.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "矿洞里今天很干，出来一身灰。",
+        "先洗把脸再喝，不然一杯就上头。"
+      ],
+      "placement": [],
+      "customer": {
+        "budget": 70,
+        "greet": [
+          "拜登老板，来点烈的。",
+          "矿洞里潮，喝淡的没劲。"
+        ],
+        "bought": [
+          "够劲！这才叫酒。",
+          "下趟我给你带矿上出的好料。"
+        ],
+        "leave": [
+          "走了，别送。"
+        ],
+        "wine_pref": {}
+      }
+    },
+    {
+      "id": "bartender_iori",
+      "name": "伊织",
+      "title": "调酒专家",
+      "sheet": "res://assets/actors/npc/调酒专家_伊织.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "配方在架上第二排，别翻乱。",
+        "新酿的还在发酵，急不得——好酒都这样。"
+      ],
+      "placement": [
+        {
+          "scene": "world",
+          "pos": [
+            466,
+            150
+          ],
+          "facing": "down",
+          "wander": 0.0
+        }
+      ]
+    },
+    {
+      "id": "brewer_greym",
+      "name": "灰毛小姐",
+      "title": "酿酒专家",
+      "sheet": "res://assets/actors/npc/酿酒专家_灰毛小姐.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "这批麦芽发得漂亮，闻着有点甜。",
+        "再过两天开缸，你先欠我一杯。"
+      ],
+      "placement": [
+        {
+          "scene": "world",
+          "pos": [
+            556,
+            158
+          ],
+          "facing": "left",
+          "wander": 16.0
+        }
+      ]
+    },
+    {
+      "id": "fisher_sasaki",
+      "name": "佐佐木",
+      "title": "钓鱼佬",
+      "sheet": "res://assets/actors/npc/钓鱼佬_佐佐木.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "今天河里没咬钩，就钓上来一尾小的。",
+        "小的留着做汤，大的明天再来。"
+      ],
+      "placement": [
+        {
+          "scene": "world",
+          "pos": [
+            560,
+            242
+          ],
+          "facing": "left",
+          "wander": 14.0
+        }
+      ]
+    },
+    {
+      "id": "market_catherine",
+      "name": "凯瑟琳",
+      "title": "集市管理员",
+      "sheet": "res://assets/actors/npc/集市管理员_凯瑟琳.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "集市收了摊我才得空进来。",
+        "要买料明早来，我给你留好的。"
+      ],
+      "placement": [
+        {
+          "scene": "world",
+          "pos": [
+            600,
+            296
+          ],
+          "facing": "up",
+          "wander": 0.0
+        },
+        {
+          "scene": "village",
+          "pos": [
+            300,
+            782
+          ],
+          "facing": "down",
+          "wander": 0.0,
+          "lines": [
+            "拜登？来得正好，今早的货刚摆开。",
+            "生姜、野莓、麦子、草药都在架上，要哪样自己挑。",
+            "……别一回扛太多，山路滑。"
+          ]
+        }
+      ],
+      "customer": {
+        "budget": 60,
+        "greet": [
+          "收摊了，来你这儿歇一脚。",
+          "给我来一杯不烈的。"
+        ],
+        "bought": [
+          "正好，解乏。",
+          "明天集市有新鲜的，记得来。"
+        ],
+        "leave": [
+          "我该回去了，账明天再算。"
+        ],
+        "wine_pref": {}
+      }
+    },
+    {
+      "id": "explorer_lucy",
+      "name": "哈特菲利亚",
+      "title": "FAIRY TAIL 魔导士",
+      "sheet": "res://assets/actors/npc/雪山探险家_哈特菲利亚.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "山上雪线又往下压了一截。",
+        "脚上这双靴子，走过三个冬天了。"
+      ],
+      "placement": [],
+      "customer": {
+        "budget": 80,
+        "greet": [
+          "拜登老板，我想要一壶能扛住山上寒气的酒。",
+          "队员们在雪线下面等着，越快越好。"
+        ],
+        "bought": [
+          "就是这个味道……暖到骨头里了。",
+          "我记下了，下次还找你。"
+        ],
+        "leave": [
+          "我先回营地了，路上小心。"
+        ],
+        "wine_pref": {}
+      }
+    },
+    {
+      "id": "reception_icarus",
+      "name": "伊卡洛斯",
+      "title": "魔法接待员",
+      "sheet": "res://assets/actors/npc/魔法接待员_伊卡洛斯.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "登记簿在柜台上，名字写清楚就行。",
+        "……你写字真好看。"
+      ],
+      "placement": []
+    },
+    {
+      "id": "dragon_theresia",
+      "name": "特蕾西亚",
+      "title": "龙人",
+      "sheet": "res://assets/actors/npc/龙人_特蕾西亚.png",
+      "cell": [
+        60,
+        120
+      ],
+      "foot": [
+        30,
+        120
+      ],
+      "scale": 0.5,
+      "lines": [
+        "别盯着角看，会不好意思。",
+        "屋子里暖和，我把尾巴收一收。"
+      ],
+      "placement": []
+    }
+  ]
+}

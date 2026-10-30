@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 雪山底图 1024²（2x 渲染，512 原生） | 底图=(1024.0, 1024.0)
+[check] FAIL 雪山岩壁碰撞已生成（>100 条） | 碰撞体 33 条
+[check] PASS 相机限位=雪山地图 512² | 限位=[0,0]-[512,512]
+[check] PASS 出生点在可走区 | 出生=(500.0, 965.0)
+[check] PASS 泉水是障碍（水面不可走） | 泉水=(520.0, 380.0)
+[check] PASS 营地可踏入 | 营地=(300.0, 800.0)
+[check] PASS 从出生点能沿小径走上山（非困在死角） | 上移 387 px
+[check] PASS 木桥位置可站立 | 桥=(770.0, 710.0)
+[check] PASS 站在桥上能沿桥移动（横向） | 左移 214 px
+[check] PASS 过桥后落在对岸实地（不是掉进水里） | 落点=(1074,710) 落在障碍=false
+[verify_snow] done FAIL=1

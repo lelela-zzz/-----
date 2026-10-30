@@ -1,0 +1,52 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[brew] ── 状态机 ──
+   [check] 三口锅初始全空: PASS
+   [check] 没材料时开不了锅: PASS
+   [check] 材料齐了能开锅: PASS
+   [check] 开锅落在 0 号槽: PASS
+   [check] 投料即扣（焦麦 6→4）: PASS
+   [check] 投料即扣（雪山泉 3→2）: PASS
+   [check] 槽位进入发酵: PASS
+   [check] 走一半还不能收: PASS
+   [check] 进度约 0.5: PASS
+   [check] 满 30 分钟转可取: PASS
+   [check] 可取数 = 1: PASS
+   [check] 进度到 1: PASS
+   [check] 收酒拿到焦麦烈啤: PASS
+   [check] 酒进了库存: PASS
+   [check] 收完槽位清空: PASS
+[brew] ── 五条配方逐一跑通 ──
+   [check] 配方 r_burnt_ale 能开锅: PASS
+   [check] 配方 r_burnt_ale 出酒正确: PASS
+   [check] 配方 r_warm_ginger 能开锅: PASS
+   [check] 配方 r_warm_ginger 出酒正确: PASS
+   [check] 配方 r_rice_brew 能开锅: PASS
+   [check] 配方 r_rice_brew 出酒正确: PASS
+   [check] 配方 r_friend_malt_tea 能开锅: PASS
+   [check] 配方 r_friend_malt_tea 出酒正确: PASS
+   [check] 配方 r_river_ale 能开锅: PASS
+   [check] 配方 r_river_ale 出酒正确: PASS
+[brew] ── 满载 ──
+   [check] 三槽满后开不了第四锅: PASS
+   [check] 三锅同时可取: PASS
+   [check] 第 1 锅能收: PASS
+   [check] 第 2 锅能收: PASS
+   [check] 第 3 锅能收: PASS
+[brew] ── 时间换算 ──
+   [check] 一条配方 = 15 现实秒: PASS
+[brew] ── 接入酒馆（地窖已并进 world.tscn 上半层）──
+   [check] 地窖里有锅: PASS
+   [check] 锅在地窖灯正下方 (278,-193): PASS
+   [check] 锅有碰撞体: PASS
+   [check] 锅有交互区: PASS
+   [check] 锅的交互区挂了酿造面板: PASS
+   [check] 锅的 8 张时段贴图齐全: PASS
+   [check] 时钟已进 game_clock 组: PASS
+   [check] 时钟在酒馆场景里: PASS
+   [check] 玩家已进 player 组: PASS
+   [check] 冻结后停止 physics 处理: PASS
+   [check] 解冻后恢复 physics 处理: PASS
+   [check] interact 动作已映射 E: PASS
+[brew] 结论：PASS 43 / FAIL 0
+[brew] 总判定: PASS

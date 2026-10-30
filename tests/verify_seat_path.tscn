@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ci0vp3n4uqbd5"]
+[ext_resource type="Script" path="res://tests/verify_seat_path.gd" id="1_seat"]
+[node name="Root" type="Node"]
+script = ExtResource("1_seat")

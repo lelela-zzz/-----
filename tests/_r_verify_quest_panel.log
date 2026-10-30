@@ -1,0 +1,33 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS pending() 列出两个未完成任务 | 2
+[check] PASS 部分完成：该段仍在 pending 里 | 2
+[check] PASS 整段做完：这一段从 pending 里消失 | 剩 1 段
+[check] PASS 三段全部列出 | 10 行
+[check] PASS 第一段顶在内容区顶部 | y=96.0
+[check] PASS 第二段紧跟在第一段下方 | 166.0 > 96.0
+[check] PASS 计数型步骤带进度 | 任务清单 | ◆ 去集市进一批酿酒材料 | 开张头一天，材料得备足。 | · 走出酒馆，前往卢迪克集市 | · 和集市管理员凯瑟琳搭上话 | ◆ 采购酿酒材料 | · 生姜 0/4 | · 月影莓 0/6 | ◆ 试试魔法酿造机 | · 酿一瓶暖身姜酒 | 
+[check] PASS 已完成步骤标 ✓ 且仍在段内 | 任务清单 | ◆ 去集市进一批酿酒材料 | 开张头一天，材料得备足。 | ✓ 走出酒馆，前往卢迪克集市 | · 和集市管理员凯瑟琳搭上话 | ◆ 采购酿酒材料 | · 生姜 0/4 | · 月影莓 0/6 | ◆ 试试魔法酿造机 | · 酿一瓶暖身姜酒 | 
+[check] PASS 整段完成后该段被移除（同一面板实例即时刷新） | A 仍在
+[check] PASS 下一段自动顶到最上面 | y=96.0
+[check] PASS 移除后不再渲染旧段的步骤 | 旧步骤仍在
+[check] PASS 所有行都在框内（不溢出） | 最低行 y=168.0 「· 酿一瓶暖身姜酒」（框底 336）
+[check] PASS 内容放得下时无需滚动 | inner=114.0 scroll=242.0
+[check] PASS 内容超出框高 → 开启竖向滚动 | v_mode=1
+[check] PASS 横向滚动被禁用（只上下滑） | h_mode=0
+[check] PASS 内层内容高于可视区 → 确实可滚 | inner=604.0 scroll=242.0
+[check] PASS 滚动条存在且范围 > 一页 | max=604.0 page=242.0
+[check] PASS 可滚动：偏移能被推到 >0（滚轮/拖动通道可用） | before=0.0 after=50.0
+[check] PASS 全部完成时给出完成提示 | 任务清单 | 所有任务都完成了。 | 
+[check] PASS 初始未追踪任何任务 | tracked=
+[check] PASS 每段都有一枚追踪按钮（3 段 = 3 枚） | 3 枚
+[check] PASS 未追踪时标题用 ◆ 火心色 | 任务清单 | ◆ 去集市进一批酿酒材料 | 开张头一天，材料得备足。 | · 走出酒馆 | ◆ 采购酿酒材料 | · 生姜 0/4 | ◆ 试试魔法酿造机 | · 酿一瓶暖身姜酒 | 
+[check] PASS 能定位到任务B的追踪按钮 | y=152.0
+[check] PASS 点追踪后 QuestLog.tracked_id = b | tracked=b
+[check] PASS 被追踪段标题加 ★ | 任务清单 | ◆ 去集市进一批酿酒材料 | 开张头一天，材料得备足。 | · 走出酒馆 | ★ 采购酿酒材料 | · 生姜 0/4 | ◆ 试试魔法酿造机 | · 酿一瓶暖身姜酒 | 
+[check] PASS 被追踪段标题染金色 | color=(0.7882, 0.6353, 0.1529, 1.0)
+[check] PASS 被追踪段的按钮文案变『取消追踪』 | 追踪 | 取消追踪 | 追踪 | 
+[check] PASS 未被追踪段按钮仍是『追踪』 | 追踪 | 取消追踪 | 追踪 | 
+[check] PASS 点别的任务 → 顶替旧追踪（仍只追一个） | tracked=c
+[check] PASS 再点自己 → 取消追踪 | tracked=
+[quest_panel] PASS=30 FAIL=0

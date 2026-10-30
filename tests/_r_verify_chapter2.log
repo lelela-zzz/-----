@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 第二章数据 16 幕 | beats=16
+[check] PASS 每幕都有 id/place/entries，且 id 唯一 | 
+[check] PASS place 都是已知场景或 travel | 
+[check] PASS 16 幕 next 链首尾相连（末幕 next=null） | 
+[check] PASS 未启动前导演不启动 | active=false
+[check] PASS begin() 后章节启动 | active=true
+[check] PASS begin() 后发 ch2_moon 任务并自动追踪 | has=true tracked=ch2_moon
+[check] PASS 第一幕=俄莉斯委托 | beat=ch2_tavern_eris
+[check] PASS 酒馆播第 1 幕（俄莉斯委托找魔导石） | beat=ch2_tavern_eris panel=true
+[check] PASS 接第 2 幕（EMT 带来缥色符文） | beat=ch2_tavern_emt panel=true
+[check] PASS 接第 3 幕（俄莉斯教用符文炼生命之水） | beat=ch2_eris_lifewater panel=true
+[check] PASS 接第 4 幕（炼成生命之水） | beat=ch2_brew_lifewater panel=true
+[check] PASS travel 跳过 → 下一幕=雪山与 EMT 会合 | beat=ch2_snow_meet_emt
+[check] PASS 雪山播第 6 幕（与 EMT 会合） | beat=ch2_snow_meet_emt panel=true
+[check] PASS 接第 7 幕（雪崩 / 绯村土龙闪） | beat=ch2_snow_avalanche panel=true
+[check] PASS travel 结算：解锁「泉水」 | unlocked=true
+[check] PASS travel 幕任务步打钩（前往泉水） | steps=["✓听俄莉斯说明委托（寻找魔导石）", "✓与来自雪山的 EMT 会合", "✓用缥色符文炼制生命之水", "✓酿造具有净化效果的生命之水", "✓前往黑松山脉·雪山", "✓在雪山与 EMT 会合", "✓穿过雪崩后的山道", "✓前往雪山深处的泉水", "○在泉水边与维兹交谈", "○用生命之水净化泉水", "○在净化后的泉水中取出魔导石", "○在灰空间里与宁芙、林格相遇", "○在泉边醒来", "○带着魔导石回到银辉酒馆", "○回银辉酒馆安置伊蕾娜与伊卡洛斯", "○迎接前来应聘的伊织"]
+[check] PASS 解锁后下一幕=泉水维兹 | beat=ch2_spring_wiz
+[check] PASS 泉水播第 9 幕（维兹） | beat=ch2_spring_wiz panel=true
+[check] PASS 接第 10 幕（净化泉水） | beat=ch2_spring_purify panel=true
+[check] PASS 接第 11 幕（取出两块魔导石） | beat=ch2_spring_take_stone panel=true
+[check] PASS 接第 12 幕（宁芙 / 林格现身） | beat=ch2_void_nymph panel=true
+[check] PASS 接第 13 幕（泉边醒来，给 EMT 魔导石） | beat=ch2_spring_wake panel=true
+[check] PASS travel 跳过 → 下一幕=回城伊蕾娜 | beat=ch2_tavern_elaina
+[check] PASS 酒馆播第 15 幕（伊蕾娜入伙 / 伊卡洛斯苏醒） | beat=ch2_tavern_elaina panel=true
+[check] PASS 这一幕把伊蕾娜和伊卡洛斯都摆出来 | elaina=true icarus=true
+[check] PASS wait_day：同一天内伊织不登场、无面板 | panel=false iori=false
+[check] PASS 跨天后接末幕（伊织应聘调酒师） | beat=ch2_tavern_iori panel=true
+[check] PASS 走完 16 幕 → 任务完成 | complete=true
+[check] PASS 走完 16 幕 → 导演收尾 | active=false
+[check] PASS 收尾后不再追踪第二章 | tracked=
+[chapter2] PASS=31 FAIL=0

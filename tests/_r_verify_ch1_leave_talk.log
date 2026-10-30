@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 从第 3 幕起（奇斯要绯色符文） | beat=ch1_chiss_rune
+[check] PASS 进酒馆：只摆人、不自动开口 | awaiting=true modal=false
+[check] PASS 奇斯已登场 | 
+[check] PASS 离开后不再卡在等交谈（awaiting 归零） | awaiting=false
+[check] PASS 离开不算完成，幕序号没推进 | beat=ch1_chiss_rune idx=2
+[check] PASS 没交谈就不打钩 | steps=["○回银辉酒馆，听哈特菲利亚说明委托", "○用符文酿造抗寒的暖身姜酒", "○带抗寒姜酒去集市找凯瑟琳", "○前往黑松山脉·矿道入口", "○在矿道入口与西蒙交谈", "○深入矿井，支援钢之炼金术士", "○回银辉酒馆休息"]
+[check] PASS 回到酒馆：奇斯重新登场 | awaiting=true npc=true
+[check] PASS 这次交谈能正常播本幕 | panel=true beat=ch1_chiss_rune
+[check] PASS 谈完推进到下一幕（俄莉斯） | beat=ch1_eris_permission
+[leave_talk] PASS=9 FAIL=0

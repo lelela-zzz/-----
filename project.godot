@@ -1,0 +1,79 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="炉火镇"
+config/description="像素风酒馆模拟经营 · 基础模块（移动 / 背景 / 光照）"
+run/main_scene="res://scenes/title.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[autoload]
+
+ItemDB="*res://scripts/item_db.gd"
+Inventory="*res://scripts/inventory.gd"
+BrewingService="*res://scripts/brewing_service.gd"
+QuestLog="*res://scripts/quest_log.gd"
+MapGraph="*res://scripts/map_graph.gd"
+QuestGuide="*res://scripts/quest_guide.gd"
+Story="*res://scripts/story.gd"
+SideStory="*res://scripts/side_story.gd"
+ChapterStory="*res://scripts/chapter_story.gd"
+Chapter2Story="*res://scripts/chapter2_story.gd"
+Chapter3Story="*res://scripts/chapter3_story.gd"
+SeatRegistry="*res://scripts/seat_registry.gd"
+WindowScale="*res://scripts/window_scale.gd"
+Revenue="*res://scripts/revenue.gd"
+Regulars="*res://scripts/regulars.gd"
+Music="*res://scripts/music_director.gd"
+SaveGame="*res://scripts/save_game.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=768
+window/size/window_width_override=1280
+window/size/window_height_override=768
+window/stretch/mode="viewport"
+
+[input]
+
+move_left={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":65,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+move_right={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":68,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+move_up={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":87,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+move_down={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":83,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+interact={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":69,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.08, 0.07, 0.07, 1)
+2d/snap/snap_2d_transforms_to_pixel=true

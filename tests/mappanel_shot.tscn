@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://mappanelshot01"]
+
+[ext_resource type="Script" path="res://tests/mappanel_shot.gd" id="1_ms"]
+[node name="Root" type="Node"]
+script = ExtResource("1_ms")

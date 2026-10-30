@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS  营业额阈值 v1 = 150
+[check] PASS  章节未激活：奇斯/哈特菲利亚/厄里斯 不 pending
+[check] PASS  营业额差 1 铜时未达标
+[check] PASS  营业额累计 >= 阈值
+[check] PASS  跨天后凯瑟琳弹出委托提示（snow_offered=true）
+[check] PASS  接取后章节激活
+[check] PASS  接取后 snow_started=true
+[check] PASS  接取后第一章导演启动（ChapterStory.is_active）
+[check] PASS  接取后发第一章任务（ch1_frost，取代旧的 side_snow_logistics）
+[check] PASS  章节激活后雪山支线放行（哈特菲利亚 pending）
+PASS=10 FAIL=0

@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS HUD 下有 UIRoot 画布容器 | UIRoot=true
+[check] PASS UIRoot 是 640×384 且按 render_scale 整体放大 | size=(640.0, 384.0) scale=(2.0, 2.0) 期望 scale=(2.0, 2.0)
+[check] PASS UI 注入点解析到 UIRoot（不是 CanvasLayer） | 解析到 UIRoot
+[check] PASS 按 E 弹出对话框 | box=true
+[check] PASS 对话框挂在 HUD/UIRoot 里（不是 CanvasLayer） | 父节点=UIRoot
+[check] PASS 对话框自身锁成 640×384 画布、1× 缩放（由 UIRoot 放大） | size=(640.0, 384.0) canvas_scale=1.00
+[check] PASS 对话条贴底铺满（16, 264, 608, 108） | rect=(16.0, 264.0) size=(608.0, 108.0)
+[check] PASS 对话条底边距 = 12px（不贴到屏幕最底） | 底边 y=372.0
+[check] PASS 塞进 CanvasLayer 时自动换算成等比铺满 | viewport=(1280.0, 768.0) / canvas_scale=2.00 期望=2.00 / size=(640.0, 384.0)
+[check] PASS 缩放后正好落在可用区域内（不越界、不贴角） | 画布=(1280.0, 768.0) 位置=(0.0, 0.0) 区域=(1280.0, 768.0)
+[dlg_layout] PASS=10 FAIL=0

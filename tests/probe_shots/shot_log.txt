@@ -1,0 +1,26 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
+
+ERROR: ClockHUD：找不到 GameClock（clock_path = ../../Clock）
+   at: push_error (core/variant/variant_utility.cpp:1023)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/clock_hud.gd:36)
+       [1] _ready (res://tests/shot.gd:25)
+[WindowScale] 窗口 1920×1152（150%，fractional）
+[check] move_right 绑定数 = 1
+[check] PASS 家具层生成（精灵+碰撞框） | Sorted 子节点 42 个 / 碰撞框 18 个
+[check] PASS 单键右移 | 位移 = (59.9447, 0.0)
+[check] PASS 双键同按仍只走单轴 | 位移 = (48.94464, 0.0)
+[check] PASS 下边界阻挡（脚部判定） | 停在 y = 305.92（期望 ≈306）
+[check] PASS 出口传送框接线 | target = res://scenes/tavern_exterior.tscn / spawn = (295.0, 466.0)
+[check] PASS 家具阻挡（酒桶） | 停在 y = 141.08（期望 ≈141）
+[check] PASS 遮挡顺序：人在桌后→桌盖人；人在桌前→人盖桌 | 桌后 (0.5294, 0.3608, 0.2157, 1.0)≈基线 (0.5294, 0.3608, 0.2157, 1.0)(true) / 桌前 (0.3529, 0.2863, 0.2353, 1.0)≠基线 (0.4706, 0.3373, 0.2275, 1.0)(true)
+[check] PASS 吧台前通道可横穿 | 从 x=300 向西走到 x=95.1
+[check] PASS 桌间纵向通道可穿行 | 从 y=300 向北走到 y=138.1（吧台碰撞下沿 132 + 脚框 6 = 138）
+[check] PASS 左侧通道贯通（无隐形墙） | 从 y=140 走到 y=305.9（旧版会被 03 的隐形框卡在 ~194）
+[check] PASS 停吧台前沿 | 停在 y = 138.1（期望 ≈138 = 碰撞下沿 132 + 脚框 6）
+[check] PASS 角色响应炉火光 | 夜间环境色 (0.64, 0.6, 0.66, 1.0) / 火边 0.233 vs 远角 0.169（7x7 平均）
+[check] PASS 时钟 30 秒 = 1 小时 | 08 点 → 09 点
+[check] PASS 日出是渐变中间态 | 5 点权重 0.50 / 环境绿 0.76（正午 1.00）
+[check] PASS 稳定平台无残留过渡 | 12 点权重 0.00 / 环境绿 1.00
+shots: [".gdignore", "01_day_spawn.png", "02_moved.png", "03_bounds.png", "04_blocked_by_barrels.png", "05_dusk.png", "06_night.png", "07_night_at_hearth.png", "07_night_at_hearth_v.png", "08_night_far_corner.png", "08_night_far_corner_v.png", "09_clock_0830.png", "10_clock_21.png", "11_gradient_sunrise_mid.png", "12_gradient_noon.png", "13_occlusion_behind_bar.png", "13_occlusion_behind_table.png", "13_sunrise_gradient_strip.png", "14_occlusion_front_bar.png", "14_occlusion_front_table.png", "15_aisle_in_front_of_bar.png", "15b_aisle_mid.png", "16_aisle_between_tables.png", "17_left_strip_passable.png", "18_bar_front_stop.png", "19_door_threshold.png", "cuige_left_bar.png", "cust_01_queue.png", "cust_02_prompt.png", "cust_03_sell.png", "npc_01_tavern_day.png", "npc_02_prompt.png", "npc_03_dialogue.png", "npc_04_night.png", "open_crowd.png", "seat_01_all.png"]

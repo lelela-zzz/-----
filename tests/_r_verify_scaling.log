@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[scale] ── 列表窗口 ──
+   [check] 8 条 / 一屏 5 条：初始窗口在头部: PASS
+   [check] 选到第 5 条仍在首屏: PASS
+   [check] 越过末行自动滚一格: PASS
+   [check] 滚动后该条落在第 5 行: PASS
+   [check] 滚过之后上下都还有内容（8 条时窗口在中段）: PASS
+   [check] 顶到底时夹紧不越界: PASS
+   [check] 滚到底时窗口贴合末尾: PASS
+   [check] 需要滚动时给出行号提示: PASS
+   [check] 条目比一屏少时不显示滚动提示: PASS
+   [check] 回绕模式：末条再往下回到第一条: PASS
+   [check] 回绕模式：第一条再往上回到末条: PASS
+   [check] 两列模式：选中第 11 条时窗口起点仍是偶数: PASS
+   [check] 两列模式：可见区间完整覆盖 10 格: PASS
+   [check] 两列模式给出区间文案: PASS
+[scale] ── 料位自动排布 ──
+   [check] 1 味料：数量对、不越界、不重叠: PASS
+   [check] 2 味料：数量对、不越界、不重叠: PASS
+   [check] 3 味料：数量对、不越界、不重叠: PASS
+   [check] 4 味料：数量对、不越界、不重叠: PASS
+   [check] 5 味料：数量对、不越界、不重叠: PASS
+   [check] 6 味料：数量对、不越界、不重叠: PASS
+   [check] 8 味料：数量对、不越界、不重叠: PASS
+   [check] 8 味长名字料：降级到只画图标也不出界: PASS
+[scale] ── 采集点（未来地图的取料口）──
+   [check] 采集池按地点自动从数据里取（3 种）: PASS
+   [check] 提示词默认是「采集」: PASS
+   [check] 第一次采集给出池中第一味料: PASS
+   [check] 进库存了: PASS
+   [check] 采集后进入冷却: PASS
+   [check] 冷却期内再采给不出来: PASS
+   [check] 冷却结束后按池子顺序轮转（第二味）: PASS
+   [check] 第三味料: PASS
+   [check] 转回第一味（池子循环）: PASS
+   [check] 没有对应产地的地点采不出东西: PASS
+[scale] ── 数据与图形规格 ──
+   [check] ItemDB 无校验错误: PASS
+   [check] 图标全部合规格（正方形 + 32 的整数倍）: PASS
+   [check] 现有配方里有三味料的（说明确实需要自适应）: PASS
+   [check] 每个物品图标都能加载且尺寸合规: PASS
+   [check] 配方行池放得进正文（下沿 256 ≤ 262）: PASS
+   [check] 料位池够用（每行 6 个 ≥ 现有最多 3 味）: PASS
+   [check] 配方能扩到 12 条（现 12 条）: PASS
+   [check] 12 条时首尾回绕正常: PASS
+   [check] 任意一条被选中时都在可见窗口内: PASS
+   [check] 测试配方已回收: PASS
+[scale] 结论：PASS 42 / FAIL 0
+[scale] 总判定: PASS

@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 村庄北出口存在 | 目标=res://scenes/snow_mountain.tscn
+[check] PASS 村庄北出口 → 雪山 | 场景=SnowMountain 落点=(875.0, 40.0)
+[check] PASS 雪山底图 2048²（2x 渲染） | 底图=(2048.0, 2048.0)
+[check] PASS 岩壁碰撞已生成（>300 条） | 碰撞体 459 条
+[check] PASS 相机限位=雪山地图 1024² | 限位=[0,0]-[1024,1024]
+[check] PASS 雪山北口 → 村庄 | 场景=Village 落点=(447.0, 36.0)
+[check] PASS 跨场景时间延续 | 当前 09:30
+[verify_snow] done FAIL=0

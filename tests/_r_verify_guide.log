@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 有追踪但任务没有 dest → 不显示箭头 | valid=false
+[check] PASS 没有追踪任务 → 不显示箭头 | valid=false
+[check] PASS 在酒馆里 → 指南门 ExitSouth | got=(319.0, 371.0) want=(319.0, 371.0) valid=true
+[check] PASS 在酒馆门口 → 指左边路口 RoadWest | got=(5.0, 466.0) want=(5.0, 466.0) valid=true
+[check] PASS 到了目标图 → kind 变成 dest（指目的地本身） | kind=dest
+[check] PASS 目的地 = 凯瑟琳节点实时位置（绑节点优先） | waypoint=(300.0, 782.0) npc=(300.0, 782.0)
+[check] PASS 从村庄出发（已在目标图）→ kind=dest | kind=dest
+[check] PASS 从村庄出发 → 不需要跨图（0 跳） | 0 跳
+[check] PASS 目标图不在地图图里 → 不显示箭头、不崩 | valid=false
+[check] PASS 追踪中且跨图 → 有箭头 | valid=true
+[check] PASS 任务完成 → 自动取消追踪 | tracked=
+[check] PASS 任务完成 → 箭头消失 | valid=false
+[check] PASS 地图面板只列已解锁去处（雪山未解锁 → 3 项） | 3 项：["world", "village", "tavern_exterior"]
+[check] PASS 已解锁列表里不含雪山 | ["world", "village", "tavern_exterior"]
+[check] PASS Story._ensure_tracker() 会把罗盘箭头挂到 HUD/UIRoot | 
+[guide] PASS=15 FAIL=0

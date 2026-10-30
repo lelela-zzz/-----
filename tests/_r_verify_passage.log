@@ -1,0 +1,70 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 酒馆里没有通往地窖的传送门（Doors/Cellar 已删除） | 节点=<Object#null>
+[check] PASS cellar.tscn 已经从工程里删掉（地窖不再是独立场景） | exists=false
+[check] PASS 只留下街面那道门（ExitSouth） | ExitSouth=ExitSouth:<Area2D#68451042898>
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/house/v4/scene_dawn_v16_2x.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_textures (res://tests/verify_passage.gd:91)
+       [1] _ready (res://tests/verify_passage.gd:48)
+       [2] _wait (res://tests/verify_passage.gd:445)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/house/v4/scene_day_v16_2x.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_textures (res://tests/verify_passage.gd:91)
+       [1] _ready (res://tests/verify_passage.gd:48)
+       [2] _wait (res://tests/verify_passage.gd:445)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/house/v4/scene_dusk_v16_2x.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_textures (res://tests/verify_passage.gd:91)
+       [1] _ready (res://tests/verify_passage.gd:48)
+       [2] _wait (res://tests/verify_passage.gd:445)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/house/v4/scene_night_v16_2x.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_textures (res://tests/verify_passage.gd:91)
+       [1] _ready (res://tests/verify_passage.gd:48)
+       [2] _wait (res://tests/verify_passage.gd:445)
+[check] PASS 四张时段底图在门洞位置都透明（夜里也不会被补上） | dawn/day/dusk/night 全部 a=0
+[check] PASS 门以外的墙一个像素都没动（左侧 x=80） | x=80 处 a=1
+[check] PASS 门**上方**的墙（门楣 y=16）还立着，没跟着门一起消失 | y=16 处 a=1
+[check] PASS 门板虚化层正好盖住门洞（82×110 裁片，落在 106,28） | 节点=CellarDoor:<Sprite2D#67897394683> 尺寸=(82.0, 110.0) offset=(106.0, 28.0) scale=(0.5, 0.5)
+WARNING: Loaded resource as image file, this will not work on export: 'res://assets/house/v4/door_panel_day_v16.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] _check_door_layer (res://tests/verify_passage.gd:236)
+       [1] _ready (res://tests/verify_passage.gd:49)
+       [2] _wait (res://tests/verify_passage.gd:445)
+[check] PASS 门板裁片里有门（不是空白贴片） | 尺寸=(82, 110) 门板处 alpha=1.00
+[check] PASS 裁片尺寸 = 门洞尺寸（裁小了盖不住、裁大了会盖墙） | 裁片=(82, 110) 门洞=(82, 110)
+[check] PASS 四个时段各有一张门板裁片（夜里不会盖白天的门） | dawn/day/dusk/night
+[check] PASS 地窖底图贴在酒馆上方（右侧补 22px，662×512，offset -22,-398） | 底图=(662.0, 512.0) offset=(-22.0, -398.0)
+[check] PASS 地窖底图右缘铺到地图右边界、不留纯黑缝 | 右缘止于 x=640 末列色=(0.11,0.10,0.11)
+[check] PASS 地窖底图先画、酒馆底图后画（门洞才透得出来） | index bg=0 tavern=1
+[check] PASS 相机限位覆盖上下两间房（y -398..384） | 限位=[0,-398]-[640,384]
+[check] PASS 酒馆北墙在门洞处断开（人能走过去） | 门洞中线 (126,44) 命中墙=false
+[check] PASS 门洞两侧的墙还在 | x=90 命中=true / x=170 命中=true
+[check] PASS 地窖有自己的北墙/东西墙 | 北=true 西=true 东=true
+[check] PASS 地窖的木箱/酒桶碰撞还在 | 碰撞块=7
+[check] PASS 地窖有自己那盏吊灯（只照角色 light_mask=2） | 灯=CellarLamp:<PointLight2D#68400711247>
+[check] PASS 锅在楼上的地窖里 (278,-193)，带 [E] 酿造交互区 | 位置=(278.0, -193.0) 交互区=true
+[check] PASS 锅找到了光照导演（夜里用夜景贴图） | 节点=Lighting:<Node#68367156813>
+[check] PASS 地窖整块上盖着一层阴影（铺满 world y<=0） | 节点=CellarShade:<Polygon2D#67914171910> 顶点=4 z=1
+[check] PASS 阴影由 cellar_shade.gd 按玩家位置收放 | 脚本=(res://scripts/cellar_shade.gd):<GDScript#-9223371969477474756>
+[check] PASS 玩家在店堂里的时候地窖是暗的 | alpha=0.50
+[check] PASS 玩家走进地窖后阴影收掉 | alpha=0.01
+[check] PASS 店堂整块上盖着一层反向阴影（铺满 world y>=0） | 节点=TavernShade:<Polygon2D#67930949127> 顶点=4 z=1 invert=true
+[check] PASS 反向阴影用同一个 cellar_shade.gd（invert=true） | 脚本=(res://scripts/cellar_shade.gd):<GDScript#-9223371969477474756> invert=true
+[check] PASS 玩家在店堂里时店堂不压暗（暗的是地窖） | alpha=0.02
+[check] PASS 玩家走进地窖后店堂压暗 | alpha=0.49
+[check] PASS 站远处门是关着的；走到门前门虚掉露出楼梯 | 远处 openness=0.00 / 门前 openness=1.00
+[check] PASS 站在门前门没被踩响（门板只是画，不带碰撞） | 场景=World
+[check] PASS 从店堂一路往北走，穿门进了地窖（不切场景） | 起点=(126.0, 96.0) 终点=(126.0, -152.6111) 场景=World
+[check] PASS 地窖地板在楼上门洞正上方（x 没跑偏） | 落点 x=126.0
+[check] PASS 人已经越过了酒馆北墙那条线（y<76） | y=-152.6 墙线=76
+[check] PASS 上楼之后仍算「自家屋檐下」（in_tavern） | in_tavern=true
+[check] PASS 从地窖原路往南走，回到店堂地板（不切场景） | 终点=(126.0, 98.47227) 场景=World
+[check] PASS 走回来还是同一个 world 场景（全程零次 change_scene） | 场景=World
+[verify_passage] done FAIL=0

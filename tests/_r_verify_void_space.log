@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS dark_space.tscn 可加载 | ps=true
+[check] PASS 是位置场景（Node2D），不是 CanvasLayer 覆盖层 | type=Node2D
+[check] PASS 有无缝灰底背景（Sprite2D z=-10 且带贴图） | bg=true tex=true z=-10
+[check] PASS 有 Sorted 排序层（NPC 挂这儿，y_sort 打开） | sorted=true ysort=true
+[check] PASS 有玩家且进了 player 组（导演要靠它定站位/朝向） | player=true
+[check] PASS 有跟随相机（map_rect 罩住整片地面） | cam=true rect=[P: (0.0, 0.0), S: (1280.0, 768.0)]
+[check] PASS 有 HUD/UIRoot 注入点（对话框挂这儿） | ui=true
+[check] PASS 第二章含 ch2_void_nymph 幕 | idx=11
+[check] PASS 这一幕 place=dark_space | place=dark_space
+[check] PASS 进入灰空间即播出宁芙 / 林格这一幕 | beat=ch2_void_nymph panel=true
+[check] PASS 宁芙与林格都已入场 | nymph=true ringe=true
+[check] PASS 主角面朝二人（初始朝上） | facing=(0, -1)
+[check] PASS 主角↔宁芙 距离够短（<100） | d=85
+[check] PASS 宁芙↔林格 距离够短（<80） | d=56
+[check] PASS 幕播完自动跳回泉水 | scene=res://scenes/spring.tscn
+[check] PASS 回到泉水即播第 13 幕（泉边醒来） | beat=ch2_spring_wake panel=true
+[check] PASS 醒来落点在泉边（jump_spawn 生效） | pos=(300,400) d=0
+[void] PASS=17 FAIL=0

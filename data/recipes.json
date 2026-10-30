@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "note": "配方唯一数据源。minutes = 游戏内分钟；当前 30 现实秒 = 1 游戏小时，所以 30 分钟 = 15 现实秒。inputs 精确匹配（数量可多不可少），初级酒不设失败分支。",
+  "recipes": [
+    {
+      "id": "r_burnt_ale", "output": "wine_burnt_ale", "yield": 1, "tier": 1,
+      "minutes": 30,
+      "inputs": [
+        { "id": "burnt_malt", "count": 2 },
+        { "id": "snow_spring", "count": 1 }
+      ]
+    },
+    {
+      "id": "r_warm_ginger", "output": "wine_warm_ginger", "yield": 1, "tier": 1,
+      "minutes": 30,
+      "inputs": [
+        { "id": "ginger", "count": 1 },
+        { "id": "wild_berry", "count": 2 },
+        { "id": "barley", "count": 1 }
+      ]
+    },
+    {
+      "id": "r_rice_brew", "output": "wine_rice_brew", "yield": 1, "tier": 1,
+      "minutes": 30,
+      "inputs": [
+        { "id": "white_rice", "count": 2 },
+        { "id": "moon_river_spring", "count": 1 }
+      ]
+    },
+    {
+      "id": "r_friend_malt_tea", "output": "wine_friend_malt_tea", "yield": 1, "tier": 1,
+      "minutes": 30,
+      "inputs": [
+        { "id": "malt_tea", "count": 2 },
+        { "id": "honey", "count": 1 }
+      ]
+    },
+    {
+      "id": "r_river_ale", "output": "wine_river_ale", "yield": 1, "tier": 1,
+      "minutes": 30,
+      "inputs": [
+        { "id": "barley", "count": 2 },
+        { "id": "fish_mint", "count": 1 }
+      ]
+    }
+  ]
+}

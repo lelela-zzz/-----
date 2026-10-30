@@ -1,0 +1,1252 @@
+{
+  "source": "assets/spring/v1/scene_day_1x.png",
+  "size": [
+    768,
+    768
+  ],
+  "props": [
+    {
+      "name": "blk_000",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        0,
+        768,
+        24
+      ]
+    },
+    {
+      "name": "blk_001",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        24,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_002",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        96,
+        24,
+        264,
+        24
+      ]
+    },
+    {
+      "name": "blk_003",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        408,
+        24,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_004",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        600,
+        24,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_005",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        96,
+        48,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_006",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        216,
+        48,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_007",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        408,
+        48,
+        144,
+        24
+      ]
+    },
+    {
+      "name": "blk_008",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        600,
+        48,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_009",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        672,
+        48,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_010",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        96,
+        72,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_011",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        216,
+        72,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_012",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        384,
+        72,
+        144,
+        24
+      ]
+    },
+    {
+      "name": "blk_013",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        600,
+        72,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_014",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        96,
+        96,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_015",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        288,
+        96,
+        216,
+        24
+      ]
+    },
+    {
+      "name": "blk_016",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        600,
+        96,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_017",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        120,
+        672,
+        24
+      ]
+    },
+    {
+      "name": "blk_018",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        696,
+        120,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_019",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        24,
+        144,
+        264,
+        24
+      ]
+    },
+    {
+      "name": "blk_020",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        312,
+        144,
+        456,
+        24
+      ]
+    },
+    {
+      "name": "blk_021",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        48,
+        168,
+        720,
+        24
+      ]
+    },
+    {
+      "name": "blk_022",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        72,
+        192,
+        192,
+        24
+      ]
+    },
+    {
+      "name": "blk_023",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        288,
+        192,
+        192,
+        24
+      ]
+    },
+    {
+      "name": "blk_024",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        600,
+        192,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_025",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        216,
+        240,
+        24
+      ]
+    },
+    {
+      "name": "blk_026",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        288,
+        216,
+        216,
+        24
+      ]
+    },
+    {
+      "name": "blk_027",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        216,
+        216,
+        24
+      ]
+    },
+    {
+      "name": "blk_028",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        240,
+        240,
+        24
+      ]
+    },
+    {
+      "name": "blk_029",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        264,
+        240,
+        264,
+        24
+      ]
+    },
+    {
+      "name": "blk_030",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        240,
+        216,
+        24
+      ]
+    },
+    {
+      "name": "blk_031",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        264,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_032",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        144,
+        264,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_033",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        264,
+        264,
+        264,
+        24
+      ]
+    },
+    {
+      "name": "blk_034",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        576,
+        264,
+        192,
+        24
+      ]
+    },
+    {
+      "name": "blk_035",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        288,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_036",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        144,
+        288,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_037",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        240,
+        288,
+        312,
+        24
+      ]
+    },
+    {
+      "name": "blk_038",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        624,
+        288,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_039",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        696,
+        288,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_040",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        312,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_041",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        240,
+        312,
+        312,
+        24
+      ]
+    },
+    {
+      "name": "blk_042",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        576,
+        312,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_043",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        312,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_044",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        48,
+        336,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_045",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        264,
+        336,
+        264,
+        24
+      ]
+    },
+    {
+      "name": "blk_046",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        576,
+        336,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_047",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        360,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_048",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        72,
+        360,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_049",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        182,
+        360,
+        58,
+        24
+      ]
+    },
+    {
+      "name": "blk_050",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        312,
+        360,
+        192,
+        24
+      ]
+    },
+    {
+      "name": "blk_051",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        360,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_052",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        384,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_053",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        120,
+        384,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_054",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        360,
+        384,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_055",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        384,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_056",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        384,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_057",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        24,
+        408,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_058",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        360,
+        408,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_059",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        408,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_060",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        696,
+        408,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_061",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        24,
+        432,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_062",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        192,
+        432,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_063",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        408,
+        432,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_064",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        432,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_065",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        432,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_066",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        168,
+        456,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_067",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        456,
+        456,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_068",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        456,
+        72,
+        44
+      ]
+    },
+    {
+      "name": "blk_069",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        456,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_070",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        72,
+        480,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_071",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        168,
+        480,
+        144,
+        24
+      ]
+    },
+    {
+      "name": "blk_072",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        408,
+        480,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_073",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        48,
+        504,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_074",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        192,
+        504,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_075",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        48,
+        528,
+        144,
+        24
+      ]
+    },
+    {
+      "name": "blk_076",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        216,
+        528,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_078",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        48,
+        552,
+        144,
+        24
+      ]
+    },
+    {
+      "name": "blk_079",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        288,
+        552,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_081",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        72,
+        576,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_082",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        288,
+        576,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_083",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        600,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_084",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        192,
+        600,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_085",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        312,
+        600,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_087",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        624,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_088",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        288,
+        624,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_090",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        648,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_091",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        144,
+        648,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_092",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        240,
+        648,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_093",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        455,
+        648,
+        41,
+        24
+      ]
+    },
+    {
+      "name": "blk_094",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        576,
+        648,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_095",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        48,
+        672,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_096",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        144,
+        672,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_097",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        216,
+        672,
+        144,
+        24
+      ]
+    },
+    {
+      "name": "blk_098",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        454,
+        672,
+        47,
+        24
+      ]
+    },
+    {
+      "name": "blk_099",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        672,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_100",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        672,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_101",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        24,
+        696,
+        144,
+        24
+      ]
+    },
+    {
+      "name": "blk_102",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        240,
+        696,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_103",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        459,
+        696,
+        30,
+        24
+      ]
+    },
+    {
+      "name": "blk_104",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        528,
+        696,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_105",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        696,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_106",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        720,
+        168,
+        24
+      ]
+    },
+    {
+      "name": "blk_107",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        504,
+        720,
+        72,
+        24
+      ]
+    },
+    {
+      "name": "blk_108",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        720,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_109",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        744,
+        240,
+        24
+      ]
+    },
+    {
+      "name": "blk_110",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        480,
+        744,
+        96,
+        24
+      ]
+    },
+    {
+      "name": "blk_111",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        720,
+        744,
+        48,
+        24
+      ]
+    },
+    {
+      "name": "blk_113",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        464,
+        46,
+        56
+      ]
+    },
+    {
+      "name": "blk_115",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        580,
+        96,
+        44
+      ]
+    },
+    {
+      "name": "blk_116",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        552,
+        624,
+        120,
+        24
+      ]
+    },
+    {
+      "name": "blk_117",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        494,
+        502,
+        180,
+        10
+      ]
+    },
+    {
+      "name": "blk_118",
+      "label": "障碍",
+      "has_sprite": false,
+      "collision_rect": [
+        494,
+        567,
+        180,
+        10
+      ]
+    }
+  ]
+}

@@ -1,0 +1,405 @@
+{
+  "source": "assets/dragon_lair/v1/scene_1x.png",
+  "size": [
+    960,
+    960
+  ],
+  "props": [
+    {
+      "name": "blk_000",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        0,
+        960,
+        96
+      ]
+    },
+    {
+      "name": "blk_001",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        96,
+        256,
+        32
+      ]
+    },
+    {
+      "name": "blk_002",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        704,
+        96,
+        256,
+        32
+      ]
+    },
+    {
+      "name": "blk_003",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        128,
+        192,
+        32
+      ]
+    },
+    {
+      "name": "blk_004",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        768,
+        128,
+        192,
+        32
+      ]
+    },
+    {
+      "name": "blk_005",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        160,
+        160,
+        32
+      ]
+    },
+    {
+      "name": "blk_006",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        800,
+        160,
+        160,
+        32
+      ]
+    },
+    {
+      "name": "blk_007",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        192,
+        128,
+        64
+      ]
+    },
+    {
+      "name": "blk_008",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        256,
+        192,
+        352,
+        96
+      ]
+    },
+    {
+      "name": "blk_009",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        832,
+        192,
+        128,
+        64
+      ]
+    },
+    {
+      "name": "blk_010",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        256,
+        96,
+        192
+      ]
+    },
+    {
+      "name": "blk_011",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        864,
+        256,
+        96,
+        192
+      ]
+    },
+    {
+      "name": "blk_012",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        192,
+        288,
+        416,
+        128
+      ]
+    },
+    {
+      "name": "blk_013",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        192,
+        416,
+        192,
+        96
+      ]
+    },
+    {
+      "name": "blk_014",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        544,
+        416,
+        64,
+        96
+      ]
+    },
+    {
+      "name": "blk_015",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        448,
+        64,
+        32
+      ]
+    },
+    {
+      "name": "blk_016",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        896,
+        448,
+        64,
+        32
+      ]
+    },
+    {
+      "name": "blk_017",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        480,
+        96,
+        192
+      ]
+    },
+    {
+      "name": "blk_018",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        864,
+        480,
+        96,
+        224
+      ]
+    },
+    {
+      "name": "blk_019",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        192,
+        512,
+        224,
+        32
+      ]
+    },
+    {
+      "name": "blk_020",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        576,
+        512,
+        32,
+        96
+      ]
+    },
+    {
+      "name": "blk_021",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        256,
+        544,
+        160,
+        64
+      ]
+    },
+    {
+      "name": "blk_022",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        672,
+        128,
+        96
+      ]
+    },
+    {
+      "name": "blk_023",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        832,
+        704,
+        128,
+        64
+      ]
+    },
+    {
+      "name": "blk_024",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        640,
+        736,
+        128,
+        32
+      ]
+    },
+    {
+      "name": "blk_025",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        768,
+        192,
+        32
+      ]
+    },
+    {
+      "name": "blk_026",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        640,
+        768,
+        320,
+        32
+      ]
+    },
+    {
+      "name": "blk_027",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        800,
+        224,
+        32
+      ]
+    },
+    {
+      "name": "blk_028",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        640,
+        800,
+        96,
+        32
+      ]
+    },
+    {
+      "name": "blk_029",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        768,
+        800,
+        192,
+        32
+      ]
+    },
+    {
+      "name": "blk_030",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        832,
+        288,
+        32
+      ]
+    },
+    {
+      "name": "blk_031",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        608,
+        832,
+        352,
+        32
+      ]
+    },
+    {
+      "name": "blk_032",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        864,
+        512,
+        32
+      ]
+    },
+    {
+      "name": "blk_033",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        544,
+        864,
+        416,
+        32
+      ]
+    },
+    {
+      "name": "blk_034",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        896,
+        832,
+        32
+      ]
+    },
+    {
+      "name": "blk_035",
+      "label": "岩壁",
+      "has_sprite": false,
+      "collision_rect": [
+        0,
+        928,
+        800,
+        32
+      ]
+    }
+  ]
+}

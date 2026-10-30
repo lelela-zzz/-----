@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/customer.gd" id="1_cust"]
+[ext_resource type="Script" path="res://scripts/character_animator.gd" id="2_anim"]
+
+[node name="Customer" type="Node2D"]
+script = ExtResource("1_cust")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+centered = false
+light_mask = 2
+script = ExtResource("2_anim")
+rows = 5

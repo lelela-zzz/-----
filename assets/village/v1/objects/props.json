@@ -1,0 +1,729 @@
+{
+ "source": "assets/village/v1/scene_day_1x.png",
+ "size": [
+  866,
+  866
+ ],
+ "props": [
+  {
+   "name": "v00_tower",
+   "label": "法师塔",
+   "has_sprite": true,
+   "collision_rect": [
+    48,
+    215,
+    132,
+    119
+   ],
+   "file": "res://assets/village/v1/objects/v00_tower.png",
+   "sprite_rect": [
+    40,
+    0,
+    146,
+    342
+   ],
+   "sort_y": 338
+  },
+  {
+   "name": "v01_redhouse",
+   "label": "红顶小屋",
+   "has_sprite": true,
+   "collision_rect": [
+    267,
+    50,
+    134,
+    81
+   ],
+   "file": "res://assets/village/v1/objects/v01_redhouse.png",
+   "sprite_rect": [
+    260,
+    0,
+    144,
+    131
+   ],
+   "sort_y": 130
+  },
+  {
+   "name": "v02_greenhouse_n",
+   "label": "北绿顶大屋",
+   "has_sprite": true,
+   "collision_rect": [
+    549,
+    136,
+    167,
+    150
+   ],
+   "file": "res://assets/village/v1/objects/v02_greenhouse_n.png",
+   "sprite_rect": [
+    549,
+    36,
+    167,
+    253
+   ],
+   "sort_y": 285
+  },
+  {
+   "name": "v03_bluehouse",
+   "label": "蓝顶纹章屋",
+   "has_sprite": true,
+   "collision_rect": [
+    26,
+    507,
+    160,
+    155
+   ],
+   "file": "res://assets/village/v1/objects/v03_bluehouse.png",
+   "sprite_rect": [
+    0,
+    378,
+    197,
+    287
+   ],
+   "sort_y": 661
+  },
+  {
+   "name": "v04_tavern",
+   "label": "炉火镇酒馆",
+   "has_sprite": true,
+   "collision_rect": [
+    553,
+    515,
+    152,
+    134
+   ],
+   "file": "res://assets/village/v1/objects/v04_tavern.png",
+   "sprite_rect": [
+    546,
+    388,
+    171,
+    269
+   ],
+   "sort_y": 648
+  },
+  {
+   "name": "v05_stall_a",
+   "label": "市场木棚西",
+   "has_sprite": true,
+   "collision_rect": [
+    263,
+    262,
+    72,
+    52
+   ],
+   "file": "res://assets/village/v1/objects/v05_stall_a.png",
+   "sprite_rect": [
+    256,
+    184,
+    85,
+    137
+   ],
+   "sort_y": 313
+  },
+  {
+   "name": "v06_stall_b",
+   "label": "市场木棚东",
+   "has_sprite": true,
+   "collision_rect": [
+    396,
+    262,
+    74,
+    49
+   ],
+   "file": "res://assets/village/v1/objects/v06_stall_b.png",
+   "sprite_rect": [
+    390,
+    190,
+    77,
+    129
+   ],
+   "sort_y": 310
+  },
+  {
+   "name": "v07_shelfstall",
+   "label": "货架摊",
+   "has_sprite": true,
+   "collision_rect": [
+    268,
+    492,
+    58,
+    49
+   ],
+   "file": "res://assets/village/v1/objects/v07_shelfstall.png",
+   "sprite_rect": [
+    254,
+    396,
+    87,
+    153
+   ],
+   "sort_y": 540
+  },
+  {
+   "name": "v08_well",
+   "label": "水井",
+   "has_sprite": true,
+   "collision_rect": [
+    406,
+    460,
+    68,
+    36
+   ],
+   "file": "res://assets/village/v1/objects/v08_well.png",
+   "sprite_rect": [
+    400,
+    388,
+    77,
+    111
+   ],
+   "sort_y": 495
+  },
+  {
+   "name": "v09_greentable",
+   "label": "绿桌面炉台",
+   "has_sprite": true,
+   "collision_rect": [
+    339,
+    496,
+    49,
+    45
+   ],
+   "file": "res://assets/village/v1/objects/v09_greentable.png",
+   "sprite_rect": [
+    336,
+    480,
+    56,
+    61
+   ],
+   "sort_y": 540
+  },
+  {
+   "name": "v10_canopystall",
+   "label": "米色布篷摊",
+   "has_sprite": true,
+   "collision_rect": [
+    490,
+    768,
+    84,
+    76
+   ],
+   "file": "res://assets/village/v1/objects/v10_canopystall.png",
+   "sprite_rect": [
+    486,
+    719,
+    94,
+    125
+   ],
+   "sort_y": 843
+  },
+  {
+   "name": "v11_tree_tl",
+   "label": "树·左上角",
+   "has_sprite": true,
+   "collision_rect": [
+    31,
+    83,
+    16,
+    26
+   ],
+   "file": "res://assets/village/v1/objects/v11_tree_tl.png",
+   "sprite_rect": [
+    0,
+    0,
+    61,
+    69
+   ],
+   "sort_y": 104
+  },
+  {
+   "name": "v12_tree_lm",
+   "label": "树·左中",
+   "has_sprite": true,
+   "collision_rect": [
+    19,
+    269,
+    16,
+    28
+   ],
+   "file": "res://assets/village/v1/objects/v12_tree_lm.png",
+   "sprite_rect": [
+    0,
+    146,
+    45,
+    68
+   ],
+   "sort_y": 289
+  },
+  {
+   "name": "v13_tree_n1",
+   "label": "树·北屋左",
+   "has_sprite": true,
+   "collision_rect": [
+    516,
+    78,
+    22,
+    28
+   ],
+   "file": "res://assets/village/v1/objects/v13_tree_n1.png",
+   "sprite_rect": [
+    475,
+    5,
+    95,
+    97
+   ],
+   "sort_y": 100
+  },
+  {
+   "name": "v14_tree_n2",
+   "label": "树·北屋右",
+   "has_sprite": true,
+   "collision_rect": [
+    692,
+    86,
+    14,
+    12
+   ],
+   "file": "res://assets/village/v1/objects/v14_tree_n2.png",
+   "sprite_rect": [
+    634,
+    12,
+    85,
+    87
+   ],
+   "sort_y": 97
+  },
+  {
+   "name": "v15_tree_shoren",
+   "label": "树·北码头",
+   "has_sprite": true,
+   "collision_rect": [
+    698,
+    110,
+    16,
+    31
+   ],
+   "file": "res://assets/village/v1/objects/v15_tree_shoren.png",
+   "sprite_rect": [
+    652,
+    4,
+    99,
+    138
+   ],
+   "sort_y": 140
+  },
+  {
+   "name": "v16_tree_shores",
+   "label": "树·南码头",
+   "has_sprite": true,
+   "collision_rect": [
+    697,
+    816,
+    13,
+    38
+   ],
+   "file": "res://assets/village/v1/objects/v16_tree_shores.png",
+   "sprite_rect": [
+    664,
+    726,
+    87,
+    128
+   ],
+   "sort_y": 853
+  },
+  {
+   "name": "v17_tree_bl1",
+   "label": "树·左下西",
+   "has_sprite": true,
+   "collision_rect": [
+    26,
+    818,
+    16,
+    25
+   ],
+   "file": "res://assets/village/v1/objects/v17_tree_bl1.png",
+   "sprite_rect": [
+    0,
+    732,
+    81,
+    111
+   ],
+   "sort_y": 842
+  },
+  {
+   "name": "v18_tree_bl2",
+   "label": "树·左下东",
+   "has_sprite": true,
+   "collision_rect": [
+    128,
+    824,
+    28,
+    27
+   ],
+   "file": "res://assets/village/v1/objects/v18_tree_bl2.png",
+   "sprite_rect": [
+    91,
+    728,
+    100,
+    123
+   ],
+   "sort_y": 850
+  },
+  {
+   "name": "v20_market_booth",
+   "label": "市场大摊位",
+   "has_sprite": true,
+   "collision_rect": [
+    272,
+    670,
+    124,
+    78
+   ],
+   "file": "res://assets/village/v1/objects/v20_market_booth.png",
+   "sprite_rect": [
+    263,
+    595,
+    146,
+    174
+   ],
+   "sort_y": 747
+  },
+  {
+   "name": "w_water_n1",
+   "label": "水域·北1",
+   "has_sprite": false,
+   "collision_rect": [
+    765,
+    0,
+    101,
+    147
+   ]
+  },
+  {
+   "name": "w_water_n2",
+   "label": "水域·北2",
+   "has_sprite": false,
+   "collision_rect": [
+    765,
+    220,
+    101,
+    130
+   ]
+  },
+  {
+   "name": "w_water_n3",
+   "label": "水域·中1",
+   "has_sprite": false,
+   "collision_rect": [
+    765,
+    403,
+    101,
+    100
+   ]
+  },
+  {
+   "name": "w_water_s1",
+   "label": "水域·中2",
+   "has_sprite": false,
+   "collision_rect": [
+    765,
+    572,
+    101,
+    127
+   ]
+  },
+  {
+   "name": "w_water_s2",
+   "label": "水域·南",
+   "has_sprite": false,
+   "collision_rect": [
+    765,
+    769,
+    101,
+    97
+   ]
+  },
+  {
+   "name": "w_boat1",
+   "label": "船·北1",
+   "has_sprite": false,
+   "collision_rect": [
+    806,
+    128,
+    47,
+    99
+   ]
+  },
+  {
+   "name": "w_boat2",
+   "label": "船·北2",
+   "has_sprite": false,
+   "collision_rect": [
+    806,
+    320,
+    47,
+    99
+   ]
+  },
+  {
+   "name": "w_boat3",
+   "label": "船·南1",
+   "has_sprite": false,
+   "collision_rect": [
+    806,
+    480,
+    48,
+    96
+   ]
+  },
+  {
+   "name": "w_boat4",
+   "label": "船·南2",
+   "has_sprite": false,
+   "collision_rect": [
+    806,
+    680,
+    48,
+    104
+   ]
+  },
+  {
+   "name": "w_parapet_e1",
+   "label": "护墙·东1",
+   "has_sprite": false,
+   "collision_rect": [
+    747,
+    0,
+    14,
+    147
+   ]
+  },
+  {
+   "name": "w_parapet_e2",
+   "label": "护墙·东2",
+   "has_sprite": false,
+   "collision_rect": [
+    747,
+    220,
+    14,
+    130
+   ]
+  },
+  {
+   "name": "w_parapet_e3",
+   "label": "护墙·东3",
+   "has_sprite": false,
+   "collision_rect": [
+    747,
+    403,
+    14,
+    100
+   ]
+  },
+  {
+   "name": "w_parapet_e4",
+   "label": "护墙·东4",
+   "has_sprite": false,
+   "collision_rect": [
+    747,
+    572,
+    14,
+    127
+   ]
+  },
+  {
+   "name": "w_parapet_e5",
+   "label": "护墙·东5",
+   "has_sprite": false,
+   "collision_rect": [
+    747,
+    769,
+    14,
+    97
+   ]
+  },
+  {
+   "name": "w_fence_w1",
+   "label": "围栏·横段*",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    783,
+    84,
+    34
+   ]
+  },
+  {
+   "name": "w_fence_w3",
+   "label": "围栏·纵段*",
+   "has_sprite": false,
+   "collision_rect": [
+    0,
+    817,
+    34,
+    49
+   ]
+  },
+  {
+   "name": "w_trough",
+   "label": "石槽水池*",
+   "has_sprite": true,
+   "collision_rect": [
+    273,
+    800,
+    127,
+    66
+   ],
+   "sprite_rect": [
+    226,
+    790,
+    174,
+    76
+   ],
+   "sort_y": 865,
+   "file": "res://assets/village/v1/objects/w_trough.png"
+  },
+  {
+   "name": "w_crates",
+   "label": "市场货箱堆",
+   "has_sprite": true,
+   "collision_rect": [
+    568,
+    753,
+    100,
+    101
+   ],
+   "sprite_rect": [
+    568,
+    753,
+    100,
+    101
+   ],
+   "sort_y": 853,
+   "file": "res://assets/village/v1/objects/w_crates.png"
+  },
+  {
+   "name": "w_wheel",
+   "label": "大木轮",
+   "has_sprite": true,
+   "collision_rect": [
+    475,
+    816,
+    35,
+    38
+   ],
+   "sprite_rect": [
+    475,
+    816,
+    35,
+    38
+   ],
+   "sort_y": 853,
+   "file": "res://assets/village/v1/objects/w_wheel.png"
+  },
+  {
+   "name": "w_barrels_gn",
+   "label": "酒桶·北屋*",
+   "has_sprite": false,
+   "collision_rect": [
+    688,
+    252,
+    24,
+    29
+   ]
+  },
+  {
+   "name": "w_planter_gn",
+   "label": "花槽·北屋*",
+   "has_sprite": false,
+   "collision_rect": [
+    543,
+    261,
+    16,
+    19
+   ]
+  },
+  {
+   "name": "w_planter_tavern",
+   "label": "花槽·酒馆西",
+   "has_sprite": false,
+   "collision_rect": [
+    543,
+    648,
+    42,
+    36
+   ]
+  },
+  {
+   "name": "w_planter_tavern_e",
+   "label": "花坛·酒馆东南",
+   "has_sprite": false,
+   "collision_rect": [
+    690,
+    641,
+    47,
+    36
+   ]
+  },
+  {
+   "name": "w_flower_bl1",
+   "label": "花坛·蓝屋西",
+   "has_sprite": false,
+   "collision_rect": [
+    8,
+    655,
+    68,
+    26
+   ]
+  },
+  {
+   "name": "w_flower_bl2",
+   "label": "花坛·蓝屋东",
+   "has_sprite": false,
+   "collision_rect": [
+    132,
+    655,
+    44,
+    26
+   ]
+  },
+  {
+   "name": "w_barrel_bl",
+   "label": "木桶·蓝屋",
+   "has_sprite": false,
+   "collision_rect": [
+    163,
+    634,
+    26,
+    28
+   ]
+  },
+  {
+   "name": "w_sign_n",
+   "label": "路牌·北",
+   "has_sprite": false,
+   "collision_rect": [
+    567,
+    79,
+    26,
+    22
+   ]
+  },
+  {
+   "name": "w_flower_well",
+   "label": "花坛·井南",
+   "has_sprite": true,
+   "collision_rect": [
+    407,
+    497,
+    64,
+    46
+   ],
+   "file": "res://assets/village/v1/objects/w_flower_well.png",
+   "sprite_rect": [
+    407,
+    497,
+    64,
+    46
+   ],
+   "sort_y": 542
+  }
+ ]
+}

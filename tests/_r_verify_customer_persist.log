@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 酒馆里没有下地窖的传送门（上楼是同一张图，走过去就行） | Doors/Cellar=<Object#null>
+[check] PASS 地窖就在 world 里（CellarBackground 挂上了） | 节点=CellarBackground:<Sprite2D#69843551724>
+[check] PASS （前置）能摆出一位顾客 | spawn=Customer_explorer_lucy:<Node2D#93633644409>
+[check] PASS 上楼看锅不会触发快照（场景没换） | 快照 0 条 / 在场 1
+[check] PASS （前置）一位排队、一位坐上凳子 | 卖得 28 铜 / simon state=3 seated=true
+[check] PASS 走到门口街上（world 销毁）时把两位顾客存进快照 | 快照 2 条
+[check] PASS 从街上回店里两位顾客都回来了 | 在场 2
+[check] PASS 回来的人状态照旧（还坐着、已买杯数没丢） | state=3 seated=true drinks=1(期望 1)
+[check] PASS 快照是一次性的（用过就清空，不会重复摆人） | 残留 0 条
+[check] PASS 出门去集市 → 不存快照（店里散场） | 快照 0 条
+[check] PASS 从集市回来：店里重新来客（不是刚才那批） | 在场 0
+[check] PASS （前置）再出门时又存了 2 条快照 | 快照 2 条
+[check] PASS 离开期间跨了天：顾客不恢复（等不及走了） | 在场 0
+[persist] PASS=13 FAIL=0

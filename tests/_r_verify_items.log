@@ -1,0 +1,35 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[items] ── 数据层 ──
+   [check] ItemDB 校验零错误: PASS
+   [check] 物品总数 = 26: PASS
+   [check] 素材 20 / 酒 6（含剧情赠礼的雷司令）: PASS
+   [check] 26 张图标全部可加载: PASS
+   [check] 配方 5 条: PASS
+   [check] 每条配方 2~3 味料（暖身姜酒按剧情三味）: PASS
+   [check] 每条配方 30 游戏分钟（=15 现实秒）: PASS
+   [check] 配方产出都是酒: PASS
+   [check] 集市上架 9 种原料（清单里标「月痕河镇·集市」的）: PASS
+   [check] 上架原料都有正价: PASS
+[items] ── 产地 ──
+   [check] 集市牌子上是「月痕河镇·集市」: PASS
+   [check] 雪山泉已从集市下架（改矿道入口）: PASS
+   [check] 月痕河泉已从集市下架（改河岸）: PASS
+   [check] 白葡萄已上集市（清单标集市）: PASS
+   [check] 矿道入口出 3 种：雪山泉/冷泉水/铁皮菇: PASS
+   [check] 河岸出 2 种：月痕河泉/夜雾花: PASS
+   [check] 每个物品都写了 obtain: PASS
+   [check] 产地文字：雪山泉 = 黑松山脉·矿道入口: PASS
+   [check] 产地文字：酒 = 自己酿: PASS
+   [check] 产地文字：未定 = 待定: PASS
+   [check] 待定产地共 6 种（清单里没写）: PASS
+   [check] 采集点共 2 处（矿道入口 / 河岸）: PASS
+[items] ── 库存 ──
+   [check] 加 3 份大麦: PASS
+   [check] 扣 2 份成功: PASS
+   [check] 扣超额失败且不扣: PASS
+   [check] 扣到 0 后不留空壳: PASS
+   [check] 花钱成功: PASS
+   [check] 钱不够不扣: PASS
+[items] 结论：PASS 28 / FAIL 0
+[items] 总判定: PASS

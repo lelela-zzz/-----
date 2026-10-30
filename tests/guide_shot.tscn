@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://guideshot0001"]
+
+[ext_resource type="Script" path="res://tests/guide_shot.gd" id="1_gs"]
+[node name="Root" type="Node"]
+script = ExtResource("1_gs")

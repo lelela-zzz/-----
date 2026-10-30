@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ba2b56hiricfc"]
+
+[ext_resource type="Script" path="res://tests/verify_clock.gd" id="1_clk"]
+
+[node name="Root" type="Node"]
+script = ExtResource("1_clk")

@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>炉火镇 · 序章剧情（现行版）</title>
+<style>
+  :root{
+    --paper:#f4ede0; --card:#fbf7ee; --ink:#2b2320; --ink2:#5a4d43;
+    --line:#d9cbb4; --accent:#8c4a2f; --accent2:#3f6b5a; --hl:#e8dcc4;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:40px 20px 70px;
+    background:
+      radial-gradient(circle at 20% 0%, #fbf6ea 0%, transparent 55%),
+      linear-gradient(160deg,#efe6d5,#f6f0e4 40%,#ece1cd);
+    color:var(--ink);
+    font-family:"Songti SC","SimSun","Noto Serif CJK SC",serif;
+    line-height:1.85;
+  }
+  .wrap{max-width:860px;margin:0 auto}
+
+  header{border-bottom:3px double var(--line);padding-bottom:18px;margin-bottom:26px}
+  .kicker{font-family:"Microsoft YaHei",sans-serif;font-size:12px;letter-spacing:.28em;
+          color:var(--accent);text-transform:uppercase;margin-bottom:8px}
+  h1{font-size:31px;margin:0 0 10px;letter-spacing:.04em}
+  .sub{font-family:"Microsoft YaHei",sans-serif;font-size:13px;color:var(--ink2)}
+  .sub code{background:var(--hl);padding:1px 6px;border-radius:3px;font-size:12px}
+
+  h2{font-family:"Microsoft YaHei",sans-serif;font-size:16px;margin:38px 0 14px;
+     padding-left:11px;border-left:4px solid var(--accent);letter-spacing:.06em}
+  h2 small{font-weight:400;color:var(--ink2);font-size:12px;margin-left:8px;letter-spacing:0}
+
+  /* 序言页 */
+  .page{
+    background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:20px 24px;margin-bottom:14px;position:relative;
+    box-shadow:0 1px 0 #fff inset, 0 2px 6px rgba(90,70,40,.07);
+  }
+  .page .pn{
+    position:absolute;top:14px;right:18px;
+    font-family:"Microsoft YaHei",sans-serif;font-size:11px;letter-spacing:.2em;
+    color:#b3a189;
+  }
+  .page p{margin:0 0 12px;font-size:16px}
+  .page p:last-child{margin-bottom:0}
+
+  /* 阶段流程 */
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:0 0 6px}
+  .step{
+    flex:1 1 108px;background:var(--card);border:1px solid var(--line);border-radius:4px;
+    padding:10px 10px 11px;position:relative;min-width:104px;
+  }
+  .step .n{font-family:"Microsoft YaHei",sans-serif;font-size:10px;letter-spacing:.18em;color:#b3a189}
+  .step .t{font-weight:700;font-size:14px;margin:3px 0 5px;color:var(--accent)}
+  .step .d{font-family:"Microsoft YaHei",sans-serif;font-size:11.5px;color:var(--ink2);line-height:1.6}
+  .step.cur{background:#fdf6e6;border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+
+  /* 任务链 */
+  .quest{background:var(--card);border:1px solid var(--line);border-radius:4px;
+         padding:13px 16px;margin-bottom:10px}
+  .quest .qt{font-weight:700;font-size:15px;color:var(--accent2)}
+  .quest .qd{font-family:"Microsoft YaHei",sans-serif;font-size:12.5px;color:var(--ink2);margin:2px 0 7px}
+  .quest ul{margin:0;padding-left:20px;font-size:14.5px}
+  .quest li{margin:2px 0}
+
+  /* 台词 */
+  .say{border-left:3px solid var(--line);padding:2px 0 2px 16px;margin:0 0 20px}
+  .say .ctx{font-family:"Microsoft YaHei",sans-serif;font-size:12px;color:var(--accent);
+            letter-spacing:.04em;margin-bottom:6px}
+  .say .who{font-family:"Microsoft YaHei",sans-serif;font-size:12px;color:#8b7a68;margin-bottom:4px}
+  .say .l{font-size:16px;margin:3px 0}
+  .say .l::before{content:"「";color:#c0ae94}
+  .say .l::after{content:"」";color:#c0ae94}
+  .key{font-family:ui-monospace,Consolas,monospace;font-size:11px;color:#a2917c;
+       background:var(--hl);padding:0 5px;border-radius:3px}
+  .badge{font-family:"Microsoft YaHei",sans-serif;font-size:11px;padding:1px 7px;
+         border-radius:9px;margin-left:6px;letter-spacing:.04em}
+  .badge.off{background:#efe0d8;color:#a4573a;border:1px solid #dcbfae}
+  .badge.on{background:#e2ece5;color:#3f6b5a;border:1px solid #b9d2c4}
+  .say.off{opacity:.62}
+  .say.off .ctx{color:#a4573a}
+  .booktitle{font-size:17px;color:var(--accent);letter-spacing:.12em;
+             margin:-2px 0 14px;font-weight:700}
+  .booktitle span{font-family:"Microsoft YaHei",sans-serif;font-size:12px;color:var(--ink2);
+                  letter-spacing:0;font-weight:400;margin-left:8px}
+
+  /* 清单 */
+  table{width:100%;border-collapse:collapse;font-size:14px;background:var(--card);
+        border:1px solid var(--line)}
+  th,td{padding:8px 12px;border-bottom:1px solid var(--line);text-align:left}
+  th{font-family:"Microsoft YaHei",sans-serif;font-size:12px;letter-spacing:.1em;
+     color:var(--ink2);background:var(--hl)}
+  td.num{font-family:"Microsoft YaHei",sans-serif;color:var(--accent);font-weight:700}
+  tr:last-child td{border-bottom:none}
+
+  footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);
+         font-family:"Microsoft YaHei",sans-serif;font-size:12px;color:#8b7a68;line-height:1.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="kicker">Prologue Script · 现行版</div>
+    <h1>炉火镇 · 序章剧情</h1>
+    <div class="sub">
+      唯一数据源 <code>data/story_prologue.json</code> ·
+      播放器 <code>scripts/story.gd</code>（autoload <code>Story</code>）·
+      本页由该 JSON 原样整理，改剧情只动 JSON，不改代码
+    </div>
+  </header>
+
+  <h2>一、序言卡 <small>黑底卷轴，逐页按 E 翻（共 5 页）</small></h2>
+
+  <div class="booktitle">序言 · 欢迎来到剑与魔法的世界<span>卡片书名（intro_title）</span></div>
+
+  <div class="page">
+    <div class="pn">PAGE 1 / 5</div>
+    <p>传说，龙族以凌驾凡尘的力量和崇高骄傲的心性，统治了整个魔法大陆。</p>
+    <p>其他种族畏惧其令敌人不战而惧之威，只能低声亲附，承受龙族毫不自知的残暴肆虐的荼毒。</p>
+  </div>
+
+  <div class="page">
+    <div class="pn">PAGE 2 / 5</div>
+    <p>后来，各种族勇士——术士、战士、游侠……一同纺织战争的策略，所有人奔赴龙的王朝。</p>
+    <p>这场战争持续了三天三夜。龙的王朝只剩下吞吐着爆焰的龙的帝王「特蕾西亚」，而所有参加讨伐的勇士无一例外战死。</p>
+  </div>
+
+  <div class="page">
+    <div class="pn">PAGE 3 / 5</div>
+    <p>龙的帝王的血无可遏止地沸腾了。她用沉黑的羽翼遮蔽光明，周身散发的「青色怒火」将世界上的一切燃烧殆尽……</p>
+    <p>一位出自草根的骑士林格，身披残破的铠甲，手持一柄被岁月侵蚀的银剑，明知前路必死，向这位暴君宣战……</p>
+  </div>
+
+  <div class="page">
+    <div class="pn">PAGE 4 / 5</div>
+    <p>黑松山脉的余烬未冷之时，龙和骑士在这场战斗后都消失了，一切与他们有关的记录都随着山脉被芜平而佚失。</p>
+    <p>幸存下来的人们为了纪念这位骑士，在黑松山脉建立起了英雄城市蒙德，一时繁荣兴起。</p>
+  </div>
+
+  <div class="page">
+    <div class="pn">PAGE 5 / 5</div>
+    <p>你不是上述的英雄，而是在魔法传承断代的和平时期的普通商人。</p>
+    <p>你在邂逅「丰收的神明」萃歌后经历无数机遇和契机，收获了形形色色的人的支持与信赖。</p>
+    <p>而这是你和萃歌决定经营一家酒馆、过上安稳生活的故事……</p>
+  </div>
+
+  <h2>二、阶段流程 <small>一次游戏只走一遍，走完停在 OPEN</small></h2>
+  <div class="flow">
+    <div class="step"><div class="n">STAGE 0</div><div class="t">NONE</div><div class="d">刚启动，等第一次进酒馆</div></div>
+    <div class="step"><div class="n">STAGE 1</div><div class="t">PROLOGUE</div><div class="d">序言卡 → 萃歌开场自动对话</div></div>
+    <div class="step"><div class="n">STAGE 2</div><div class="t">GO_MARKET</div><div class="d">走出酒馆，去找凯瑟琳</div></div>
+    <div class="step"><div class="n">STAGE 3</div><div class="t">BUY</div><div class="d">采购四样材料（库存即进度）</div></div>
+    <div class="step"><div class="n">STAGE 4</div><div class="t">RETURN</div><div class="d">回店触发萃歌第二段</div></div>
+    <div class="step"><div class="n">STAGE 5</div><div class="t">BREW</div><div class="d">酿出两款招牌酒</div></div>
+    <div class="step"><div class="n">STAGE 6</div><div class="t">OPEN</div><div class="d">开门营业，顾客开始进店</div></div>
+  </div>
+
+  <h2>三、任务链 <small>Q 键大清单里的四段</small></h2>
+
+  <div class="quest">
+    <div class="qt">去集市进一批酿酒材料</div>
+    <div class="qd">开张头一天，材料得备足。</div>
+    <ul>
+      <li>走出酒馆，前往卢迪克集市</li>
+      <li>和集市管理员凯瑟琳搭上话</li>
+    </ul>
+  </div>
+
+  <div class="quest">
+    <div class="qt">采购酿酒材料</div>
+    <div class="qd">凯瑟琳的摊位就在集市南边，先聊两句再挑货。</div>
+    <ul>
+      <li>生姜 4 / 野莓 6 / 大麦 6 / 鱼腥草 4</li>
+    </ul>
+  </div>
+
+  <div class="quest">
+    <div class="qt">把材料带回酒馆</div>
+    <div class="qd">萃歌在店里等着开锅。</div>
+    <ul>
+      <li>回银辉酒馆，和萃歌说话</li>
+    </ul>
+  </div>
+
+  <div class="quest">
+    <div class="qt">试试魔法酿造机</div>
+    <div class="qd">魔法酿酒机刻着旧王朝大炼金师的符文。</div>
+    <ul>
+      <li>酿一瓶暖身姜酒</li>
+      <li>酿一瓶河鲜淡啤</li>
+    </ul>
+  </div>
+
+  <h2>四、台词本 <small>按触发时机顺序 · 全部已接入</small></h2>
+
+  <div class="say">
+    <div class="ctx">序言卡关闭后 · 萃歌自动开口（开张头一天，酒馆内） <span class="key">cuige_open</span><span class="badge on">已接入</span></div>
+    <div class="who">萃歌</div>
+    <div class="l">拜登，今天是咱的酒馆开张的头天。</div>
+    <div class="l">得亏之前的巫妖很慷慨地把魔法酿造机卖给我们。</div>
+    <div class="l">不过，酿酒的材料有点不够了。</div>
+    <div class="l">你先去找集市管理员凯瑟琳，她会卖给我们需要的材料。</div>
+    <div class="l">不要让咱等太久。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">还没出门 / 还没买齐时再找萃歌说话 <span class="key">cuige_wait</span><span class="badge on">已接入</span></div>
+    <div class="who">萃歌</div>
+    <div class="l">还没出门啊？凯瑟琳的摊位就在集市南边。</div>
+    <div class="l">按 M 打开地图，选「卢迪克集市」就能直接过去。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">和凯瑟琳搭上话 · 弹「集市管理处」菜单 <span class="key">village 专用台词</span><span class="badge on">已接入</span></div>
+    <div class="who">凯瑟琳</div>
+    <div class="l">拜登？来得正好，今早的货刚摆开。</div>
+    <div class="l">生姜、野莓、麦子、草药都在架上，要哪样自己挑。</div>
+    <div class="l">……别一回扛太多，山路滑。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">菜单里选「接取任务」（暂无委托） <span class="key">catherine_no_quest</span><span class="badge on">已接入</span></div>
+    <div class="who">凯瑟琳</div>
+    <div class="l">暂时没有新的委托。</div>
+    <div class="l">等集市的科考队有动静，我会第一个来找你。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">材料买齐后回到酒馆 · 萃歌第二段 <span class="key">cuige_return</span><span class="badge on">已接入</span></div>
+    <div class="who">萃歌</div>
+    <div class="l">哦，拜登，你回来了也不说一声。</div>
+    <div class="l">终于回来了，这些酿酒的材料可真够沉啊。</div>
+    <div class="l">你快去试试魔法酿造机，要有客人要来了。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">酿造阶段（材料已带回、还没酿完）找萃歌说话 <span class="key">cuige_wait_brew</span><span class="badge on">已接入</span></div>
+    <div class="who">萃歌</div>
+    <div class="l">酿造机在锅上等着呢。</div>
+    <div class="l">先酿一瓶暖身姜酒，再酿一瓶河鲜淡啤，客人的招牌就齐了。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">开张之后找萃歌说话 <span class="key">cuige_open_done</span><span class="badge on">已接入</span></div>
+    <div class="who">萃歌</div>
+    <div class="l">酒香都飘出街了。</div>
+    <div class="l">招呼好客人，咱们的招牌就算立住了。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">进入 OPEN 阶段的全屏提示条（5 秒） <span class="key">rush_notice</span><span class="badge on">已接入</span></div>
+    <div class="who">旁白</div>
+    <div class="l">过了一会，很多顾客涌进店里……</div>
+  </div>
+
+  <h2>四之二、常规搭话 <small>玩家自己按 E 时说的（<code>npcs.json</code>）</small></h2>
+
+  <div class="say">
+    <div class="ctx">萃歌 · 酒馆站桩 <span class="key">tavern_cuige.lines</span></div>
+    <div class="who">萃歌</div>
+    <div class="l">开张头一天，手脚都麻利点。</div>
+    <div class="l">材料不够就去集市找凯瑟琳，她给你留了货。</div>
+  </div>
+
+  <div class="say">
+    <div class="ctx">凯瑟琳 · 酒馆里（站桩 / 当顾客） <span class="key">market_catherine.lines</span></div>
+    <div class="who">凯瑟琳</div>
+    <div class="l">集市收了摊我才得空进来。</div>
+    <div class="l">要买料明早来，我给你留好的。</div>
+  </div>
+
+  <h2>五、数值清单</h2>
+
+  <table>
+    <thead>
+      <tr><th>用途</th><th>条目</th><th>数量 / 目标</th></tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="4">首单采购<br><span style="font-size:12px;color:#8b7a68">共 44 铜</span></td><td>生姜</td><td class="num">4</td></tr>
+      <tr><td>野莓</td><td class="num">6</td></tr>
+      <tr><td>大麦</td><td class="num">6</td></tr>
+      <tr><td>鱼腥草</td><td class="num">4</td></tr>
+      <tr><td rowspan="2">开张酿酒<br><span style="font-size:12px;color:#8b7a68">两款各 1 瓶</span></td><td>暖身姜酒</td><td class="num">1</td></tr>
+      <tr><td>河鲜淡啤</td><td class="num">1</td></tr>
+    </tbody>
+  </table>
+
+  <footer>
+    数据源：<code>data/story_prologue.json</code>（序言页 / 台词 / 采购清单 / 酒单）<br>
+    阶段与任务由 <code>scripts/story.gd</code> 按 Stage 推进；任务文案在 <code>QuestLog</code> 里注册<br>
+    <strong>萃歌的阶段提示：</strong>由 <code>Story._refresh_cuige_lines()</code> 按当前 Stage 取
+    <code>cuige_wait</code>（GO_MARKET / BUY）→ <code>cuige_wait_brew</code>（RETURN / BREW）→
+    <code>cuige_open_done</code>（OPEN）；未开张时退回 <code>npcs.json</code> 常驻台词。
+    自动台词播完会自动换回来，不会重播。<br>
+    本页仅为阅读用的整理稿，不参与游戏运行；改剧情请直接改 JSON
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 矿道入口 -> 雪山（场景切换） | scene=res://scenes/snow_mountain.tscn
+[check] PASS 到达雪山落点在 (250,475) 附近 | pos=(250.0, 475.0)
+[check] PASS 雪山 -> 矿道入口（场景切换） | scene=res://scenes/mine_entrance.tscn
+[check] PASS 回到矿道入口落点在 (500,962) 附近 | pos=(500.0, 962.0)
+[verify_snow_door] done FAIL=0

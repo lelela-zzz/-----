@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS world 有 HUD | /root/VerifyQuestIcon/World/HUD
+[check] PASS 追踪器头部有笔记本图标按钮 | btn=true icon_tex=true
+[check] PASS 笔记本贴图已加载(64x64) | 64x64
+[check] PASS 点笔记本图标弹出任务清单面板 | 面板数 0 → 1
+[check] PASS 模态开着时再点不重复开 | 面板数 1（应不变）
+[check] PASS 弹出的是 QuestPanel 且进 modal_ui 组 | Control
+[check] PASS 无任务时不长卡片（高度=图标底板） | h=50.0 角标=false
+[check] PASS 有任务时亮起角标并显示剩余段数 | 角标=true 文本=1
+[check] PASS 有任务时高度不变（不再长出追踪卡） | h=50.0 → 50.0
+[check] PASS 有任务时描边亮起 | rim=true
+[check] PASS 任务做完：角标与描边一起消失 | 角标=false 描边=false
+[quest_icon] PASS=11 FAIL=0

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/day_report_panel.gd" id="1_rep"]
+
+[node name="DayReportPanel" type="Control"]
+script = ExtResource("1_rep")

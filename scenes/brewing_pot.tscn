@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/brewing_pot.gd" id="1_pot"]
+[ext_resource type="Texture2D" path="res://assets/items/pot/pot_empty.png" id="2_tex"]
+[ext_resource type="Script" path="res://scripts/interact_zone.gd" id="3_zone"]
+[ext_resource type="PackedScene" path="res://scenes/ui/brewing_panel.tscn" id="4_panel"]
+
+[sub_resource type="RectangleShape2D" id="Shape_body"]
+size = Vector2(54, 74)
+
+[sub_resource type="RectangleShape2D" id="Shape_zone"]
+size = Vector2(92, 80)
+
+[node name="BrewingPot" type="Node2D"]
+script = ExtResource("1_pot")
+lighting_path = NodePath("../../Lighting")
+
+[node name="Base" type="Sprite2D" parent="."]
+centered = false
+texture = ExtResource("2_tex")
+
+[node name="Fade" type="Sprite2D" parent="."]
+centered = false
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("2_tex")
+
+[node name="Body" type="StaticBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Body"]
+position = Vector2(30, -36)
+shape = SubResource("Shape_body")
+
+[node name="Zone" type="Area2D" parent="."]
+position = Vector2(0, -16)
+script = ExtResource("3_zone")
+prompt_text = "酿造"
+panel_scene = ExtResource("4_panel")
+prompt_offset = Vector2(0, -66)
+ui_layer_path = NodePath("../../../HUD")
+
+[node name="Shape" type="CollisionShape2D" parent="Zone"]
+shape = SubResource("Shape_zone")

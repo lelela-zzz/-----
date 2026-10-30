@@ -1,0 +1,516 @@
+{
+  "version": 1,
+  "note": "第三章「龙王传说」幕数据。文本源：剧情总.docx 第三章（原稿）。龙巢不在 map_graph 里，靠 SCRIPTED_JUMP_PLACES 由导演切场景；决战那刀用 whiteout 盖白幕三秒。",
+  "chapter": "ch3",
+  "title": "第三章 · 龙王传说",
+  "unlock": "第二章完结 + 累计营业额 ≥ 400",
+  "beats": [
+    {
+      "id": "ch3_tavern_chiss",
+      "place": "world",
+      "trigger": "营业额达标后，奇斯带着一封沾泥的密函踏进酒馆",
+      "dest": {
+        "scene": "res://scenes/world.tscn",
+        "node": "Sorted/Npc_beat_broker_chiss",
+        "pos": [
+          330,
+          225
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "奇斯",
+          "role": "情报贩子",
+          "text": "拜登老板，生意兴隆。你还记得……龙……对吧？"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "新店，别搞。上次在泉水我已经经历了够多了。龙，真是总让我遇到一些危险的事情啊。你这次来最好是为我带来符文的消息。"
+        },
+        {
+          "speaker": "奇斯",
+          "role": "情报贩子",
+          "text": "这你怕什么，上次不也平安回来了吗。当然，我的老伙计——你所知的符文和贤者之石有千丝万缕的联系。"
+        },
+        {
+          "speaker": "奇斯",
+          "role": "情报贩子",
+          "text": "传说，有一个超古代生物，企图利用炼金的技艺追求究极的进化。千年之前的龙的皇帝为世界带来终焉之时，他利用来自神迹的炼成阵，在黑松山脉收集死于非难的人类灵魂所流露的怨恨、愤怒和仇恨，凝聚成完整的贤者之石。"
+        },
+        {
+          "speaker": "奇斯",
+          "role": "情报贩子",
+          "text": "而将其加以符文炼成，就可以将生命升华，将人性重塑。我想龙的皇帝和人类骑士的消失和他有关。而这个超古代生物，他要苏醒了。"
+        },
+        {
+          "speaker": "奇斯",
+          "role": "情报贩子",
+          "text": "前段时间你不是认识了一个国家炼金术士嘛。这是他希望转交与你的信，你郑重考虑他的邀约吧。符文代表灵魂的升华，而贤者之石代表的正是灵魂。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（密函上的字迹很急：爱德华的弟弟阿尔冯斯已经找到符文与贤者之石的线索——最后的符文，就在黑松山脉的矿井里。）"
+        }
+      ],
+      "npc": "broker_chiss",
+      "spawn": [
+        330,
+        225
+      ],
+      "facing": "left",
+      "next": "ch3_tavern_simon"
+    },
+    {
+      "id": "ch3_tavern_simon",
+      "place": "world",
+      "trigger": "看完密函，西蒙来讨一杯焦麦烈啤",
+      "dest": {
+        "scene": "res://scenes/world.tscn",
+        "node": "Sorted/Npc_beat_miner_simon",
+        "pos": [
+          345,
+          240
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "西蒙",
+          "role": "矿工少年",
+          "text": "拜登先生，来一杯焦麦烈啤。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（琥珀色的酒液在杯壁挂出一层细密的泡沫，麦香混着焦糖的苦甜气息弥漫开来。）"
+        },
+        {
+          "speaker": "西蒙",
+          "role": "矿工少年",
+          "text": "你们的酒越做越好喝了。我的「螺岩」却迟迟没有行踪，我也要加把劲了。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "西蒙，带我去你们的矿井。"
+        },
+        {
+          "speaker": "西蒙",
+          "role": "矿工少年",
+          "text": "我不过问老板的想法，和上次的历险一样吧。远离了「螺旋王」的黑夜让我整个人都生锈了……我们走吧。"
+        }
+      ],
+      "npc": "miner_simon",
+      "spawn": [
+        345,
+        240
+      ],
+      "facing": "left",
+      "next": "ch3_mine_entrance"
+    },
+    {
+      "id": "ch3_mine_entrance",
+      "place": "mine_entrance",
+      "trigger": "跟上西蒙，走到矿道入口",
+      "dest": {
+        "scene": "res://scenes/mine_entrance.tscn",
+        "node": "Sorted/Npc_beat_miner_simon",
+        "pos": [
+          875,
+          953
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "西蒙",
+          "role": "矿工少年",
+          "text": "来这边。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（矿道口的风裹挟着一股弥漫多年的煤腥味，井架上那盏早已褪色的信号灯在风里吱呀作响。他把矿灯别在腰间，回头冲你招了招手。）"
+        }
+      ],
+      "npc": "miner_simon",
+      "spawn": [
+        875,
+        953
+      ],
+      "facing": "up",
+      "next": "ch3_mine_slime"
+    },
+    {
+      "id": "ch3_mine_slime",
+      "place": "mine",
+      "trigger": "下到矿井深处，史莱姆堵住了坑道",
+      "dest": {
+        "scene": "res://scenes/mine.tscn",
+        "node": "Sorted/Npc_beat_miner_simon",
+        "pos": [
+          235,
+          872
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（矿道深处的黑暗比记忆中更稠，矿灯的光只能劈开身前不足三步的距离。空气里除了铁锈与湿土，还多了一种腐朽的腥臭。）"
+        },
+        {
+          "speaker": "西蒙",
+          "role": "矿工少年",
+          "text": "该死，这帮家伙又来了。"
+        },
+        {
+          "speaker": "西蒙",
+          "role": "矿工少年",
+          "text": "拜登老板，多加小心。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（你把由绯色符文炼成的酒液泼向史莱姆——它们在狭窄的矿道里横冲直撞，撞上岩壁便炸开一团混杂着姜辣与蒸汽的白雾。）"
+        },
+        {
+          "speaker": "西蒙",
+          "role": "矿工少年",
+          "text": "这是……由魔法创建的一个传送门。恕我只能在外等候。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（裂隙缓缓扩张，露出一团缓慢旋转的、泛着紫与绯色微光的漩涡。）此行至此，已经不能再回头了。"
+        }
+      ],
+      "npc": "miner_simon",
+      "spawn": [
+        235,
+        872
+      ],
+      "facing": "left",
+      "next": "ch3_to_lair",
+      "rift": true
+    },
+    {
+      "id": "ch3_to_lair",
+      "place": "travel",
+      "trigger": "踏进裂隙里的传送门",
+      "next": "ch3_lair_edward",
+      "entries": [
+        {
+          "speaker": "",
+          "role": "",
+          "text": "你踏进那团旋转的漩涡。水声、风声、矿灯的黄光一并被抽走，只剩胸腔深处共振的轰鸣。"
+        }
+      ],
+      "dest": {
+        "scene": "res://scenes/mine.tscn",
+        "node": "Doors/LairGate",
+        "pos": [
+          300,
+          872
+        ]
+      }
+    },
+    {
+      "id": "ch3_lair_edward",
+      "place": "dragon_lair",
+      "jump_spawn": [
+        480,
+        700
+      ],
+      "trigger": "穿过漩涡，落进龙巢：爱德华已在此等候",
+      "entries": [
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（穿过漩涡的瞬间，耳畔的水声与矿道的风声被一并抽离，取而代之的是一种从胸腔深处共振出来的轰鸣。洞穴中央，一块通体漆黑的巨石上，一条龙正蜷伏着沉睡，鳞片是被青焰反复舔舐过后留下的焦黑。）"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "爱德华先生。我们果然会在这里相遇。"
+        },
+        {
+          "speaker": "爱德华",
+          "role": "钢之炼金术士",
+          "text": "拜登先生，卡兹要来了。"
+        },
+        {
+          "speaker": "爱德华",
+          "role": "钢之炼金术士",
+          "text": "这个上古的怪物手上有褐色符文。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（洞口的光被一道高挑而匀称的身影整个挡住。那人赤裸着上身，肌肤是一种久不见天日的苍白，那双眼睛里没有瞳孔，只有一种将万物视作草芥的漠然。）"
+        }
+      ],
+      "npc": "dwarf_war_edward",
+      "spawn": [
+        538,
+        484
+      ],
+      "facing": "left",
+      "extras": [
+        {
+          "npc": "ancient_kaz",
+          "spawn": [
+            402,
+            484
+          ],
+          "facing": "right"
+        }
+      ],
+      "next": "ch3_lair_awaken"
+    },
+    {
+      "id": "ch3_lair_awaken",
+      "place": "dragon_lair",
+      "trigger": "卡兹出手，巨龙睁眼，林格从传送门杀到",
+      "dest": {
+        "scene": "res://scenes/dragon_lair.tscn",
+        "node": "Sorted/Npc_beat_knight_ringe",
+        "pos": [
+          538,
+          526
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（卡兹将褐色符文牢牢攥进掌心，地面的岩石如潮水般翻涌，化作数条粗壮的石臂，死死缠住爱德华的双腿与义肢。就在他抬起手的刹那，一声足以碾碎耳膜的咆哮在洞窟里炸开。）"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（龙，苏醒了。那双紧闭了不知多少年的竖瞳猛然睁开，瞳孔深处燃着两簇青色的怒火。青焰奔涌而出，整座洞窟在刹那间被照得亮如白昼。）"
+        },
+        {
+          "speaker": "林格",
+          "role": "灭龙骑士",
+          "text": "吾辈前来的时机似乎刚刚好。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（传送门的漩涡被猛地撕开，一道身披残破铠甲的身影裹挟着风暴冲出，青色风刃自剑锋剥离，正正地挡在了巨龙与卡兹之间。）"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（卡兹立刻将贤者之石整个攥进掌心，那块暗红的石头软化、塌陷，顺着指缝渗进皮肉。他的肌肉开始不受控地隆起、撕裂又愈合——一个被强行催熟至顶点的终极生命。）"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "卡兹……他还是成为了究极生物吗。"
+        }
+      ],
+      "npc": "knight_ringe",
+      "spawn": [
+        538,
+        484
+      ],
+      "facing": "left",
+      "extras": [
+        {
+          "npc": "ancient_kaz",
+          "spawn": [
+            470,
+            424
+          ],
+          "facing": "down"
+        },
+        {
+          "npc": "dwarf_war_edward",
+          "spawn": [
+            402,
+            484
+          ],
+          "facing": "right"
+        }
+      ],
+      "next": "ch3_lair_holy"
+    },
+    {
+      "id": "ch3_lair_holy",
+      "place": "dragon_lair",
+      "trigger": "林格讨来两枚符文，举剑斩向新生灾龙",
+      "whiteout": true,
+      "dest": {
+        "scene": "res://scenes/dragon_lair.tscn",
+        "node": "Sorted/Npc_beat_knight_ringe",
+        "pos": [
+          538,
+          526
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "林格",
+          "role": "灭龙骑士",
+          "text": "冷静，拜登。我需要你手上的两枚符文。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（你握着两枚符文的掌心早已被汗浸透，可当林格转过身向你伸出手时，你竟没有半分犹豫，将绯色和缥色符文一并推向他摊开的掌心。）"
+        },
+        {
+          "speaker": "林格",
+          "role": "灭龙骑士",
+          "text": "我是旧时代的灭龙骑士，新时代并没有承载我的船只。刻蚀着神性的符文啊，正视这裹挟无数魂灵的新生灾龙，连着我的腐朽的身躯，斩灭一切的因果吧。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（圣剑劈落，金色的冲击波自剑锋炸开，化作一道贯穿洞窟的神光。那道金光落在卡兹膨胀的躯体之上，后者甚至连惨叫都未能发出，便在光芒中一寸寸地崩解、剥落、归于虚无。）"
+        }
+      ],
+      "npc": "knight_ringe",
+      "spawn": [
+        538,
+        484
+      ],
+      "facing": "up",
+      "extras": [
+        {
+          "npc": "dwarf_war_edward",
+          "spawn": [
+            402,
+            484
+          ],
+          "facing": "up"
+        }
+      ],
+      "next": "ch3_lair_after"
+    },
+    {
+      "id": "ch3_lair_after",
+      "place": "dragon_lair",
+      "trigger": "白光散去，你在石屑里醒来：林格与龙的皇帝做最后的告别",
+      "dest": {
+        "scene": "res://scenes/dragon_lair.tscn",
+        "node": "Sorted/Npc_beat_knight_ringe",
+        "pos": [
+          538,
+          526
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（你是被脸颊上冰冷的石屑硌醒的。穹顶被圣剑贯穿的孔洞正漏下一线灰白的天光，卡兹已然消失得干干净净。）"
+        },
+        {
+          "speaker": "林格",
+          "role": "灭龙骑士",
+          "text": "祂已经消失了，不会再回来了。这些符文你还需要吧。酒馆老板先生，我想拿些酒，和龙的皇帝叙叙旧。"
+        },
+        {
+          "speaker": "特蕾西亚",
+          "role": "龙的皇帝",
+          "text": "吾乃熔火千炎之劫，焚业的审判者，永燃之薪的执剑人，也已是旧时代的执政王。也许，现在还记得我的人，只有你还会回来找我说说话了。"
+        },
+        {
+          "speaker": "林格",
+          "role": "灭龙骑士",
+          "text": "你是我所认同的至强者。可惜，我们已经没有机会再战了。或许我们还能在此小酌。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（他们的轮廓自边缘开始变得透明，身躯被撕裂成碎片，随即被卷上天空，化为漫天灰烬。没有哀嚎，没有巨响，时代的重量，就这样安静地落了地。）"
+        }
+      ],
+      "npc": "knight_ringe",
+      "spawn": [
+        538,
+        484
+      ],
+      "facing": "left",
+      "extras": [
+        {
+          "npc": "dragon_theresia",
+          "spawn": [
+            470,
+            424
+          ],
+          "facing": "down"
+        },
+        {
+          "npc": "dwarf_war_edward",
+          "spawn": [
+            402,
+            484
+          ],
+          "facing": "up"
+        }
+      ],
+      "next": "ch3_tavern_epilogue"
+    },
+    {
+      "id": "ch3_tavern_epilogue",
+      "place": "world",
+      "trigger": "回银辉酒馆收尾：符文交付厄里斯，众人各奔前程",
+      "dest": {
+        "scene": "res://scenes/world.tscn",
+        "node": "Sorted/Npc_tavern_cuige",
+        "pos": [
+          300,
+          250
+        ]
+      },
+      "entries": [
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（你带着身体虚弱的爱德华一同离开了龙巢，随后将四块符文与那台魔法酿酒机一并交付给厄里斯女神。哈特菲利亚在了解旧时代的结局后，便和「FAIRY TAIL」的成员们一同踏上了寻找龙的全新冒险旅程。）"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（西蒙找到了属于自己的「螺岩」，重新开启了追逐梦想的道路。而在故事的最后，你在酒馆送别了爱德华兄弟。）"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "一切……或许告一段落了吧。这个酒馆应该可以一直安稳地开下去吧。"
+        },
+        {
+          "speaker": "萃歌",
+          "role": "酒馆老板娘",
+          "text": "咱要不给孩子想个名字吧。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "名字……女儿的话，就叫缪莉。至于儿子的话，我们不生儿子。"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（萃歌叉着腰骂着你，伊织坐在吧台最老的位置，替每个回来的人留一盏灯，伊卡洛斯趴在屋顶上晒太阳，灰毛小姐在酒馆后院支起了酿酒桶。第一坛新酒酿好的那天，整个镇子都是麦芽的甜香……）"
+        },
+        {
+          "speaker": "拜登",
+          "role": "银辉酒馆老板",
+          "text": "（新的传说还在别处发生，但已经与你无关了。你学会了在打烊后擦最后一张桌子，在雨夜数屋檐滴水，在清晨被酒馆的喧闹吵醒——然后骂骂咧咧地下楼，看见所有人都冲你笑。）"
+        }
+      ],
+      "npc": "tavern_cuige",
+      "spawn": [
+        300,
+        250
+      ],
+      "facing": "down"
+    }
+  ]
+}

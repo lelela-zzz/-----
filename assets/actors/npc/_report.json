@@ -1,0 +1,78 @@
+{
+  "人类骑士_林格": {
+    "src": "character/人物行走/人类骑士_林格_行走图集.png",
+    "pixels_touched": 7
+  },
+  "半妖精_EMT": {
+    "src": "character/人物行走/半妖精_EMT_行走图集.png",
+    "pixels_touched": 0
+  },
+  "巫妖_维兹": {
+    "src": "character/人物行走/巫妖_维兹_行走图集.png",
+    "pixels_touched": 71
+  },
+  "情报贩子_奇斯": {
+    "src": "character/人物行走/情报贩子_奇斯_行走图集.png",
+    "pixels_touched": 232
+  },
+  "泉水精灵_宁芙": {
+    "src": "character/人物行走/泉水精灵_宁芙_行走图集.png",
+    "pixels_touched": 65
+  },
+  "流浪剑士_绯村": {
+    "src": "character/人物行走/流浪剑士_绯村_行走图集.png",
+    "pixels_touched": 461
+  },
+  "盗贼少年_俄莉斯": {
+    "src": "character/人物行走/盗贼少年_俄莉斯_行走图集.png",
+    "pixels_touched": 269
+  },
+  "矮人厨师_凯多": {
+    "src": "character/人物行走/矮人厨师_凯多-行走图集.png",
+    "pixels_touched": 168
+  },
+  "矮人战士_爱德华": {
+    "src": "character/人物行走/矮人战士_爱德华_行走图集.png",
+    "pixels_touched": 255
+  },
+  "矮人杂工_凯金": {
+    "src": "character/人物行走/矮人杂工_凯金_行走图集.png",
+    "pixels_touched": 228
+  },
+  "矮人杂役_凯恩": {
+    "src": "character/人物行走/矮人杂役_凯恩_行走图集.png",
+    "pixels_touched": 98
+  },
+  "矿工少年_西蒙": {
+    "src": "character/人物行走/矿工少年_西蒙_行走图集.png",
+    "pixels_touched": 237
+  },
+  "调酒专家_伊织": {
+    "src": "character/人物行走/调酒专家_伊织_行走图集.png",
+    "pixels_touched": 208
+  },
+  "酿酒专家_灰毛小姐": {
+    "src": "character/人物行走/酿酒专家_灰毛小姐_行走图集.png",
+    "pixels_touched": 23
+  },
+  "钓鱼佬_佐佐木": {
+    "src": "character/人物行走/钓鱼佬_佐佐木_行走图集.png",
+    "pixels_touched": 22
+  },
+  "集市管理员_凯瑟琳": {
+    "src": "character/人物行走/集市管理员_凯瑟琳_行走图集.png",
+    "pixels_touched": 56
+  },
+  "雪山探险家_哈特菲利亚": {
+    "src": "character/人物行走/雪山探险家_哈特菲利亚_行走图集.png",
+    "pixels_touched": 10
+  },
+  "魔法接待员_伊卡洛斯": {
+    "src": "character/人物行走/魔法接待员_伊卡洛斯_行走图集.png",
+    "pixels_touched": 0
+  },
+  "龙人_特蕾西亚": {
+    "src": "character/人物行走/龙人_特蕾西亚_行走图集.png",
+    "pixels_touched": 64
+  }
+}

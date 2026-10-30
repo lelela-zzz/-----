@@ -1,0 +1,264 @@
+{
+  "version": 1,
+  "note": "物品唯一数据源。obtain 表示主要获取方式：market=集市购买 / mine=矿点采集 / gather=野外采集 / brew=自己酿 / todo=清单未定产地。map+spot 是具体地点，集市只卖 obtain=market 的货；其他产地留给对应地图的采集点。",
+  "items": [
+    {
+      "id": "burnt_malt",
+      "name": "焦麦",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/burnt_malt.png",
+      "price": 2,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "烘到发黑的麦粒，苦香压不住，一煮满屋子都是。"
+    },
+    {
+      "id": "ginger",
+      "name": "生姜",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/ginger.png",
+      "price": 3,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "集市上论把卖的老姜。寒气重的时候，人人怀里揣一块。"
+    },
+    {
+      "id": "white_rice",
+      "name": "白米",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/white_rice.png",
+      "price": 2,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "碾得干净的白米，煮粥酿酒都靠它出甜。"
+    },
+    {
+      "id": "barley",
+      "name": "大麦",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/barley.png",
+      "price": 1,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "最不出错的口粮麦，淡酒都靠它撑底。"
+    },
+    {
+      "id": "malt_tea",
+      "name": "麦茶",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/malt_tea.png",
+      "price": 1,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "炒麦煮的茶，不醉人。镇上的孩子都当酒喝。"
+    },
+    {
+      "id": "honey",
+      "name": "蜂蜜",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/honey.png",
+      "price": 4,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "蜂场收的蜜，稠得能拉丝。"
+    },
+    {
+      "id": "wild_berry",
+      "name": "野莓",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/wild_berry.png",
+      "price": 3,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "路边摘的野莓，酸得精神。"
+    },
+    {
+      "id": "fish_mint",
+      "name": "鱼腥草",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/fish_mint.png",
+      "price": 2,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "河边成片长，味冲。河鲜酒离不了它。"
+    },
+    {
+      "id": "snow_spring",
+      "name": "雪山泉",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/snow_spring.png",
+      "price": 3,
+      "obtain": "mine",
+      "map": "黑松山脉",
+      "spot": "矿道入口",
+      "desc": "矿道口流下来的雪水，冷得牙疼。"
+    },
+    {
+      "id": "moon_river_spring",
+      "name": "月痕河泉",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/moon_river_spring.png",
+      "price": 3,
+      "obtain": "gather",
+      "map": "月痕河",
+      "spot": "河岸",
+      "desc": "月痕河边舀的活水，水面总有一道亮痕。"
+    },
+    {
+      "id": "cold_spring",
+      "name": "冷泉水",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/cold_spring.png",
+      "price": 2,
+      "obtain": "mine",
+      "map": "黑松山脉",
+      "spot": "矿道入口",
+      "desc": "石缝里渗出来的凉水。酿酒太冷，冲淡了反倒清口。"
+    },
+    {
+      "id": "glow_algae",
+      "name": "夜光藻",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/glow_algae.png",
+      "price": 3,
+      "obtain": "todo",
+      "desc": "夜里泛蓝光的藻，晒干磨粉，据说能让酒在杯里发亮。"
+    },
+    {
+      "id": "night_mist_flower",
+      "name": "夜雾花",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/night_mist_flower.png",
+      "price": 4,
+      "obtain": "gather",
+      "map": "月痕河",
+      "spot": "河岸",
+      "desc": "只在起雾的夜里开，香气淡得像记不住的事。"
+    },
+    {
+      "id": "bubble_root",
+      "name": "气泡根",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/bubble_root.png",
+      "price": 3,
+      "obtain": "todo",
+      "desc": "嚼起来噼啪响的草根，放进酒里会自己冒泡。"
+    },
+    {
+      "id": "malt_syrup",
+      "name": "糖稀",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/malt_syrup.png",
+      "price": 2,
+      "obtain": "todo",
+      "desc": "熬麦芽熬出来的稠糖，收尾提味用。"
+    },
+    {
+      "id": "white_grape",
+      "name": "白葡萄",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/white_grape.png",
+      "price": 4,
+      "obtain": "market",
+      "map": "月痕河镇",
+      "spot": "集市",
+      "desc": "一串能甜半天的白葡萄。贵人喝的酒才用得起。"
+    },
+    {
+      "id": "wild_honey",
+      "name": "野蜂蜜",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/wild_honey.png",
+      "price": 5,
+      "obtain": "todo",
+      "desc": "从野蜂窝里取的蜜，颜色深、味更冲。"
+    },
+    {
+      "id": "iron_cap_mushroom",
+      "name": "铁皮菇",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/iron_cap_mushroom.png",
+      "price": 4,
+      "obtain": "mine",
+      "map": "黑松山脉",
+      "spot": "矿道入口",
+      "desc": "硬得像铁片的菇，炖不烂，只能拿来吊味。"
+    },
+    {
+      "id": "silver_fish_sauce",
+      "name": "银鳞鱼露",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/silver_fish_sauce.png",
+      "price": 6,
+      "obtain": "todo",
+      "desc": "银鳞鱼晒足日子滤出来的汁，鲜得有点冲。"
+    },
+    {
+      "id": "dragon_breath_crystal",
+      "name": "龙鳞·龙息晶",
+      "kind": "ingredient",
+      "icon": "res://assets/items/icons/dragon_breath_crystal.png",
+      "price": 25,
+      "obtain": "todo",
+      "desc": "贴着龙鳞长的晶体，碰一下手心发烫。没人舍得用它酿酒。"
+    },
+    {
+      "id": "wine_burnt_ale",
+      "name": "焦麦烈啤",
+      "kind": "wine",
+      "tier": 1,
+      "icon": "res://assets/items/wines/wine_burnt_ale.png",
+      "price": 16,
+      "obtain": "brew",
+      "desc": "一口下去像被火燎了喉咙。镇上干重活的人认这个。"
+    },
+    {
+      "id": "wine_warm_ginger",
+      "name": "暖身姜酒",
+      "kind": "wine",
+      "tier": 1,
+      "icon": "res://assets/items/wines/wine_warm_ginger.png",
+      "price": 20,
+      "obtain": "brew",
+      "desc": "姜味冲在前，甜在后。冬天必须温着喝。"
+    },
+    {
+      "id": "wine_rice_brew",
+      "name": "清口米酿",
+      "kind": "wine",
+      "tier": 1,
+      "icon": "res://assets/items/wines/wine_rice_brew.png",
+      "price": 16,
+      "obtain": "brew",
+      "desc": "米香干净，入口淡，配鱼最合适。"
+    },
+    {
+      "id": "wine_friend_malt_tea",
+      "name": "好友麦茶",
+      "kind": "wine",
+      "tier": 1,
+      "icon": "res://assets/items/wines/wine_friend_malt_tea.png",
+      "price": 13,
+      "obtain": "brew",
+      "desc": "其实不算酒。老客点一杯这个，就是想坐着说说话。"
+    },
+    {
+      "id": "wine_river_ale",
+      "name": "河鲜淡啤",
+      "kind": "wine",
+      "tier": 1,
+      "icon": "res://assets/items/wines/wine_river_ale.png",
+      "price": 9,
+      "obtain": "brew",
+      "desc": "鱼腥草吊出来的清苦，配河鲜刚好。"
+    }
+  ]
+}

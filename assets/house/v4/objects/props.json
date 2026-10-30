@@ -1,0 +1,465 @@
+{
+ "source": "assets/house/v4/scene_day_v15_1x.png",
+ "size": [
+  640,
+  384
+ ],
+ "props": [
+  {
+   "name": "prop_00_left_shelf",
+   "label": "左后墙酒架",
+   "file": "res://assets/house/v4/objects/prop_00_left_shelf.png",
+   "sprite_rect": [
+    4,
+    4,
+    64,
+    104
+   ],
+   "sort_y": 4,
+   "collision_rect": [
+    4,
+    4,
+    60,
+    92
+   ],
+   "wall": true,
+   "coverage": 0.905,
+   "has_sprite": true,
+   "z_index": -5
+  },
+  {
+   "name": "prop_01_bar_top",
+   "label": "吧台顶条",
+   "file": "res://assets/house/v4/objects/prop_01_bar_top.png",
+   "sprite_rect": [
+    56,
+    88,
+    220,
+    44
+   ],
+   "sort_y": 131,
+   "collision_rect": [
+    66,
+    114,
+    196,
+    18
+   ],
+   "wall": false,
+   "coverage": 0.694,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_02_bar_column",
+   "label": "吧台立柱",
+   "file": "res://assets/house/v4/objects/prop_02_bar_column.png",
+   "sprite_rect": [
+    56,
+    88,
+    48,
+    142
+   ],
+   "sort_y": 88,
+   "collision_rect": [
+    66,
+    114,
+    24,
+    116
+   ],
+   "wall": true,
+   "coverage": 0.594,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_03_bar_return",
+   "label": "吧台回折",
+   "file": "res://assets/house/v4/objects/prop_03_bar_return.png",
+   "sprite_rect": [
+    10,
+    186,
+    94,
+    48
+   ],
+   "sort_y": 186,
+   "collision_rect": [
+    14,
+    198,
+    76,
+    35
+   ],
+   "wall": true,
+   "coverage": 0.658,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_04_crates",
+   "label": "左侧箱桶堆",
+   "file": "res://assets/house/v4/objects/prop_04_crates.png",
+   "sprite_rect": [
+    16,
+    220,
+    64,
+    104
+   ],
+   "sort_y": 322,
+   "collision_rect": [
+    16,
+    220,
+    60,
+    104
+   ],
+   "wall": false,
+   "coverage": 0.765,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_05_hearth",
+   "label": "壁炉",
+   "file": "res://assets/house/v4/objects/prop_05_hearth.png",
+   "sprite_rect": [
+    282,
+    52,
+    78,
+    60
+   ],
+   "sort_y": 52,
+   "collision_rect": [
+    288,
+    58,
+    66,
+    48
+   ],
+   "wall": true,
+   "coverage": 0.668,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_06_barrels",
+   "label": "酒桶",
+   "file": "res://assets/house/v4/objects/prop_06_barrels.png",
+   "sprite_rect": [
+    350,
+    82,
+    96,
+    66
+   ],
+   "sort_y": 134,
+   "collision_rect": [
+    354,
+    96,
+    88,
+    39
+   ],
+   "wall": false,
+   "coverage": 0.536,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_07_right_shelf",
+   "label": "右背柜",
+   "file": "res://assets/house/v4/objects/prop_07_right_shelf.png",
+   "sprite_rect": [
+    476,
+    52,
+    128,
+    62
+   ],
+   "sort_y": 52,
+   "collision_rect": [
+    482,
+    58,
+    110,
+    50
+   ],
+   "wall": true,
+   "coverage": 0.882,
+   "has_sprite": false
+  },
+  {
+   "name": "prop_08_stairs",
+   "label": "楼梯",
+   "file": "res://assets/house/v4/objects/prop_08_stairs.png",
+   "sprite_rect": [
+    588,
+    0,
+    52,
+    178
+   ],
+   "sort_y": 0,
+   "collision_rect": [
+    577,
+    4,
+    12,
+    161
+   ],
+   "wall": true,
+   "coverage": 0.953,
+   "has_sprite": false
+  },
+  {
+   "name": "prop_09_long_table_1_bench",
+   "label": "长桌 1·凳",
+   "file": "res://assets/house/v4/objects/prop_09_long_table_1_bench.png",
+   "sprite_rect": [
+    118,
+    132,
+    90,
+    88
+   ],
+   "sort_y": 200,
+   "wall": false,
+   "no_collision": true,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_09_long_table_1_top",
+   "label": "长桌 1·桌面",
+   "file": "res://assets/house/v4/objects/prop_09_long_table_1_top.png",
+   "sprite_rect": [
+    118,
+    132,
+    90,
+    88
+   ],
+   "sort_y": 220,
+   "wall": false,
+   "collision_rect": [
+    126,
+    153,
+    65,
+    66
+   ],
+   "has_sprite": true
+  },
+  {
+   "name": "prop_10_long_table_2_bench",
+   "label": "长桌 2·凳",
+   "file": "res://assets/house/v4/objects/prop_10_long_table_2_bench.png",
+   "sprite_rect": [
+    204,
+    132,
+    90,
+    88
+   ],
+   "sort_y": 200,
+   "wall": false,
+   "no_collision": true,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_10_long_table_2_top",
+   "label": "长桌 2·桌面",
+   "file": "res://assets/house/v4/objects/prop_10_long_table_2_top.png",
+   "sprite_rect": [
+    204,
+    132,
+    90,
+    88
+   ],
+   "sort_y": 220,
+   "wall": false,
+   "collision_rect": [
+    214,
+    153,
+    65,
+    66
+   ],
+   "has_sprite": true
+  },
+  {
+   "name": "prop_11_long_table_3_bench",
+   "label": "长桌 3·凳",
+   "file": "res://assets/house/v4/objects/prop_11_long_table_3_bench.png",
+   "sprite_rect": [
+    118,
+    218,
+    90,
+    90
+   ],
+   "sort_y": 286,
+   "wall": false,
+   "no_collision": true,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_11_long_table_3_top",
+   "label": "长桌 3·桌面",
+   "file": "res://assets/house/v4/objects/prop_11_long_table_3_top.png",
+   "sprite_rect": [
+    118,
+    218,
+    90,
+    90
+   ],
+   "sort_y": 306,
+   "wall": false,
+   "collision_rect": [
+    126,
+    241,
+    65,
+    62
+   ],
+   "has_sprite": true
+  },
+  {
+   "name": "prop_12_long_table_4_bench",
+   "label": "长桌 4·凳",
+   "file": "res://assets/house/v4/objects/prop_12_long_table_4_bench.png",
+   "sprite_rect": [
+    204,
+    218,
+    90,
+    90
+   ],
+   "sort_y": 286,
+   "wall": false,
+   "no_collision": true,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_12_long_table_4_top",
+   "label": "长桌 4·桌面",
+   "file": "res://assets/house/v4/objects/prop_12_long_table_4_top.png",
+   "sprite_rect": [
+    204,
+    218,
+    90,
+    90
+   ],
+   "sort_y": 306,
+   "wall": false,
+   "collision_rect": [
+    214,
+    241,
+    65,
+    63
+   ],
+   "has_sprite": true
+  },
+  {
+   "name": "prop_13_round_table_1",
+   "label": "圆桌 1",
+   "file": "res://assets/house/v4/objects/prop_13_round_table_1.png",
+   "sprite_rect": [
+    376,
+    160,
+    100,
+    72
+   ],
+   "sort_y": 218,
+   "collision_rect": [
+    393,
+    184,
+    69,
+    35
+   ],
+   "wall": false,
+   "coverage": 0.285,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_14_round_table_2",
+   "label": "圆桌 2",
+   "file": "res://assets/house/v4/objects/prop_14_round_table_2.png",
+   "sprite_rect": [
+    484,
+    160,
+    92,
+    72
+   ],
+   "sort_y": 217,
+   "collision_rect": [
+    494,
+    184,
+    70,
+    34
+   ],
+   "wall": false,
+   "coverage": 0.287,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_15_round_table_3",
+   "label": "圆桌 3",
+   "file": "res://assets/house/v4/objects/prop_15_round_table_3.png",
+   "sprite_rect": [
+    380,
+    226,
+    112,
+    74
+   ],
+   "sort_y": 293,
+   "collision_rect": [
+    393,
+    258,
+    69,
+    36
+   ],
+   "wall": false,
+   "coverage": 0.248,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_16_round_table_4",
+   "label": "圆桌 4",
+   "file": "res://assets/house/v4/objects/prop_16_round_table_4.png",
+   "sprite_rect": [
+    486,
+    226,
+    96,
+    74
+   ],
+   "sort_y": 294,
+   "collision_rect": [
+    493,
+    257,
+    71,
+    38
+   ],
+   "wall": false,
+   "coverage": 0.284,
+   "has_sprite": true
+  },
+  {
+   "name": "prop_17_left_cabinet",
+   "label": "左墙高柜",
+   "file": "",
+   "sprite_rect": [
+    10,
+    96,
+    24,
+    102
+   ],
+   "sort_y": 96,
+   "collision_rect": [
+    10,
+    96,
+    31,
+    102
+   ],
+   "wall": true,
+   "has_sprite": false
+  },
+  {
+   "name": "door_foreground",
+   "label": "下方入口门前景",
+   "file": "",
+   "sprite_rect": [
+    298,
+    322,
+    69,
+    61
+   ],
+   "sort_y": 380,
+   "collision_rect": [
+    0,
+    0,
+    0,
+    0
+   ],
+   "wall": false,
+   "has_sprite": true,
+   "no_collision": true,
+   "alpha": 0.5
+  }
+ ]
+}

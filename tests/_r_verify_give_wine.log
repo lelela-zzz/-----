@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS  递酒句翻页 → 弹出选物窗
+[check] PASS  递酒窗是「只列酒 + 不收款」模式
+[check] PASS  选之前不扣库存
+[check] PASS  选完扣掉 1 瓶
+[check] PASS  白送不收钱
+[check] PASS  结果补进这一句（写着递上了）
+[check] PASS  选物窗已关闭
+[check] PASS  再按一次才翻到下一句
+[check] PASS  卖酒句翻页 → 弹出选物窗
+[check] PASS  卖酒窗是「收款」模式
+[check] PASS  卖完扣 1 瓶
+[check] PASS  卖完进账 20 铜
+[check] PASS  营业台账记了 1 瓶
+[check] PASS  结果补进这一句（写着收了钱）
+[check] PASS  只收道具的句子不弹选物窗
+[check] PASS  道具真的进了背包（雷司令 +1）
+[check] PASS  结果补进这一句（写着收到了）
+[check] PASS  身上没酒 → 不弹空窗
+[check] PASS  没东西可交时老实补一句提示
+[check] PASS  说完照样能翻页（不会卡住）
+[give_wine] PASS=20 FAIL=0

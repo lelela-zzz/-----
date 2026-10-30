@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 第一章 13 幕 | beats=13
+[check] PASS 每幕都有目的地 dest | 缺 dest：
+[check] PASS dest.scene 都是地图图里的已知图 | 
+[check] PASS dest.pos 都是合法坐标 | 
+[check] PASS dest.node 在场景里真的能解析 | 验了 13 幕；解析不到：
+[check] PASS 逐幕推进：上一幕所在地 → 本幕目的地 都可达 | 走不到： ｜ ch1_tavern_hartfilia:1跳 / ch1_chiss_rune:1跳 / ch1_catherine_injured:2跳 / ch1_mine_entrance_simon:1跳 / ch1_mine_edward:1跳 / ch1_return_tavern:4跳
+[ch1_guide] PASS=6 FAIL=0

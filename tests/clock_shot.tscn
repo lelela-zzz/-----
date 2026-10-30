@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bclock0shot01"]
+
+[ext_resource type="Script" path="res://tests/clock_shot.gd" id="1_clk"]
+
+[node name="Root" type="Node"]
+script = ExtResource("1_clk")

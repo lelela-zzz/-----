@@ -1,0 +1,98 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+  ✓ 曲目 tavern 文件存在
+  ✓ 曲目 tavern 能加载
+  ✓ 曲目 tavern 时长 >= 30s
+  ✓ 曲目 tavern 循环 = Forward
+  ✓ 曲目 town 文件存在
+  ✓ 曲目 town 能加载
+  ✓ 曲目 town 时长 >= 30s
+  ✓ 曲目 town 循环 = Forward
+  ✓ 曲目 mine 文件存在
+  ✓ 曲目 mine 能加载
+  ✓ 曲目 mine 时长 >= 30s
+  ✓ 曲目 mine 循环 = Forward
+  ✓ 曲目 spring 文件存在
+  ✓ 曲目 spring 能加载
+  ✓ 曲目 spring 时长 >= 30s
+  ✓ 曲目 spring 循环 = Forward
+  ✓ 曲目 snow 文件存在
+  ✓ 曲目 snow 能加载
+  ✓ 曲目 snow 时长 >= 30s
+  ✓ 曲目 snow 循环 = Forward
+  ✓ 曲目 lair 文件存在
+  ✓ 曲目 lair 能加载
+  ✓ 曲目 lair 时长 >= 30s
+  ✓ 曲目 lair 循环 = Forward
+  ✓ 曲目 dark 文件存在
+  ✓ 曲目 dark 能加载
+  ✓ 曲目 dark 时长 >= 30s
+  ✓ 曲目 dark 循环 = Forward
+  ✓ 登记了 world.tscn
+  ✓ 登记了 tavern_exterior.tscn
+  ✓ 登记了 village.tscn
+  ✓ 登记了 mine.tscn
+  ✓ 登记了 mine_entrance.tscn
+  ✓ 登记了 snow_mountain.tscn
+  ✓ 登记了 spring.tscn
+  ✓ 登记了 dragon_lair.tscn
+  ✓ 登记了 dark_space.tscn
+  ✓ 映射场景存在 title.tscn
+  ✓ 映射曲目存在 tavern
+  ✓ 映射场景存在 world.tscn
+  ✓ 映射曲目存在 tavern
+  ✓ 映射场景存在 tavern_exterior.tscn
+  ✓ 映射曲目存在 town
+  ✓ 映射场景存在 village.tscn
+  ✓ 映射曲目存在 town
+  ✓ 映射场景存在 mine.tscn
+  ✓ 映射曲目存在 mine
+  ✓ 映射场景存在 mine_entrance.tscn
+  ✓ 映射曲目存在 snow
+  ✓ 映射场景存在 snow_mountain.tscn
+  ✓ 映射曲目存在 snow
+  ✓ 映射场景存在 spring.tscn
+  ✓ 映射曲目存在 spring
+  ✓ 映射场景存在 dragon_lair.tscn
+  ✓ 映射曲目存在 lair
+  ✓ 映射场景存在 dark_space.tscn
+  ✓ 映射曲目存在 dark
+  ✓ 进 village.tscn 放 town
+  ✓ 进 village.tscn 有流在放
+  ✓ 进 tavern_exterior.tscn 放 town
+  ✓ 进 tavern_exterior.tscn 有流在放
+  ✓ 进 world.tscn 放 tavern
+  ✓ 进 world.tscn 有流在放
+  ✓ 进 mine.tscn 放 mine
+  ✓ 进 mine.tscn 有流在放
+  ✓ 进 mine_entrance.tscn 放 snow
+  ✓ 进 mine_entrance.tscn 有流在放
+  ✓ 进 snow_mountain.tscn 放 snow
+  ✓ 进 snow_mountain.tscn 有流在放
+  ✓ 进 spring.tscn 放 spring
+  ✓ 进 spring.tscn 有流在放
+  ✓ 进 dragon_lair.tscn 放 lair
+  ✓ 进 dragon_lair.tscn 有流在放
+  ✓ 进 dark_space.tscn 放 dark
+  ✓ 进 dark_space.tscn 有流在放
+  ✓ 覆盖层前 = 矿井曲
+  ✓ 黑房间在场 → 换黑房间曲
+  ✓ 黑房间撤掉 → 回矿井曲
+  ✓ 音量 70% 档位
+  ✓ 70% 有增益
+  ✓ 降一档 = 60%
+  ✓ 升一档 = 70%
+  ✓ 0% 静音
+  ✓ 音量写盘
+  ✓ 恢复默认音量
+  ✓ 真场景 world.tscn 自报路径一致
+  ✓ 真场景 world.tscn 放 tavern
+  ✓ 真场景 mine.tscn 自报路径一致
+  ✓ 真场景 mine.tscn 放 mine
+  ✓ 真场景 spring.tscn 自报路径一致
+  ✓ 真场景 spring.tscn 放 spring
+[music] PASS=91 FAIL=0
+WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 3 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,33 @@
+{
+  "tile": 32,
+  "note": "示例 manifest：演示 footprint / overhang_up / anchor 的写法。file 路径相对本文件所在目录。真实项目应对每件资产逐条登记。",
+  "assets": [
+    {
+      "file": "house/v2/sprites/table_down@1x.png",
+      "name": "长餐桌",
+      "footprint": { "w": 2, "h": 1 },
+      "overhang_up": 0,
+      "scale": 1,
+      "anchor": "bottom-left",
+      "layer": "furniture"
+    },
+    {
+      "file": "house/v2/sprites/shelf_down@1x.png",
+      "name": "壁挂置物架",
+      "footprint": { "w": 1, "h": 2 },
+      "overhang_up": 0,
+      "scale": 1,
+      "anchor": "bottom-left",
+      "layer": "wall_decor"
+    },
+    {
+      "file": "house/v2/sprites/house_down@1x.png",
+      "name": "木石民居",
+      "footprint": { "w": 12, "h": 7 },
+      "overhang_up": 4,
+      "scale": 1,
+      "anchor": "bottom-left",
+      "layer": "building"
+    }
+  ]
+}

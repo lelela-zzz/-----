@@ -1,0 +1,156 @@
+[gd_scene load_steps=20 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/cellar/v1/scene_day_1x.png" id="1_bg"]
+[ext_resource type="Script" path="res://scripts/map_bounds.gd" id="2_bounds"]
+[ext_resource type="Script" path="res://scripts/scene_bootstrap.gd" id="3_boot"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="4_player"]
+[ext_resource type="PackedScene" path="res://scenes/brewing_pot.tscn" id="5_pot"]
+[ext_resource type="Script" path="res://scripts/door_area.gd" id="6_door"]
+[ext_resource type="Script" path="res://scripts/game_clock.gd" id="7_clock"]
+[ext_resource type="Script" path="res://scripts/clock_hud.gd" id="8_hud"]
+[ext_resource type="Script" path="res://scripts/pixel_camera.gd" id="9_cam"]
+[ext_resource type="Script" path="res://scripts/lighting_director.gd" id="10_lighting"]
+[ext_resource type="Texture2D" path="res://assets/lighting/light_warm_radial_1x.png" id="11_radial"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_stairs"]
+size = Vector2(77, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crates_nw"]
+size = Vector2(60, 90)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_barrels_n"]
+size = Vector2(312, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shelf_e"]
+size = Vector2(58, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_barrels_s"]
+size = Vector2(274, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_crates_se"]
+size = Vector2(62, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_barrel_extra"]
+size = Vector2(48, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_niche_e"]
+size = Vector2(63, 106)
+
+[node name="Cellar" type="Node2D"]
+script = ExtResource("3_boot")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+centered = false
+texture = ExtResource("1_bg")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+script = ExtResource("2_bounds")
+walkable = Rect2(105, 55, 440, 425)
+
+[node name="Sorted" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Sorted" instance=ExtResource("4_player")]
+position = Vector2(185, 400)
+
+[node name="Camera" type="Camera2D" parent="Sorted/Player"]
+script = ExtResource("9_cam")
+map_rect = Rect2(0, 0, 640, 512)
+
+[node name="BrewingPot" parent="Sorted" instance=ExtResource("5_pot")]
+position = Vector2(300, 205)
+
+[node name="Blockers" type="StaticBody2D" parent="."]
+
+[node name="CratesNW" type="CollisionShape2D" parent="Blockers"]
+position = Vector2(133, 103)
+shape = SubResource("RectangleShape2D_crates_nw")
+
+[node name="BarrelsN" type="CollisionShape2D" parent="Blockers"]
+position = Vector2(328, 82)
+shape = SubResource("RectangleShape2D_barrels_n")
+
+[node name="ShelfE" type="CollisionShape2D" parent="Blockers"]
+position = Vector2(516, 225)
+shape = SubResource("RectangleShape2D_shelf_e")
+
+[node name="BarrelsS" type="CollisionShape2D" parent="Blockers"]
+position = Vector2(315, 456)
+shape = SubResource("RectangleShape2D_barrels_s")
+
+[node name="CratesSE" type="CollisionShape2D" parent="Blockers"]
+position = Vector2(486, 456)
+shape = SubResource("RectangleShape2D_crates_se")
+
+[node name="BarrelExtra" type="CollisionShape2D" parent="Blockers"]
+position = Vector2(459, 124)
+shape = SubResource("RectangleShape2D_barrel_extra")
+
+[node name="NicheE" type="CollisionShape2D" parent="Blockers"]
+position = Vector2(513.5, 375)
+shape = SubResource("RectangleShape2D_niche_e")
+
+[node name="Lighting" type="Node" parent="."]
+script = ExtResource("10_lighting")
+background_path = NodePath("../Background")
+ambient_target_path = NodePath("../Sorted/Player")
+hearth_light_path = NodePath("LampLight")
+bg_overrides = PackedStringArray("res://assets/cellar/v1/scene_night_1x.png", "res://assets/cellar/v1/scene_night_1x.png", "res://assets/cellar/v1/scene_night_1x.png", "res://assets/cellar/v1/scene_night_1x.png")
+phase = 3
+follow_clock = false
+debug_keys = false
+
+[node name="LampLight" type="PointLight2D" parent="Lighting"]
+position = Vector2(320, 236)
+color = Color(1, 0.66, 0.38, 1)
+energy = 1.3
+texture = ExtResource("11_radial")
+texture_scale = 1.9
+range_item_cull_mask = 2
+
+[node name="Clock" type="Node" parent="."]
+script = ExtResource("7_clock")
+
+[node name="Doors" type="Node2D" parent="."]
+
+[node name="Upstairs" type="Area2D" parent="Doors"]
+script = ExtResource("6_door")
+target_scene = "res://scenes/world.tscn"
+spawn_position = Vector2(124, 100)
+
+[node name="Shape" type="CollisionShape2D" parent="Doors/Upstairs"]
+position = Vector2(133, 450)
+shape = SubResource("RectangleShape2D_stairs")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="UIRoot" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 384.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+
+[node name="ClockPanel" type="Control" parent="HUD/UIRoot"]
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = 88.0
+script = ExtResource("8_hud")
+clock_path = NodePath("../../Clock")
+
+[node name="Digits" type="Label" parent="HUD/UIRoot/ClockPanel"]
+offset_top = 66.0
+offset_right = 64.0
+offset_bottom = 82.0
+theme_override_colors/font_color = Color(0.96, 0.9, 0.78, 1)
+theme_override_colors/font_outline_color = Color(0.1, 0.08, 0.06, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 10
+text = "08"
+horizontal_alignment = 1

@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
+
+[check] PASS 首单采购清单四味料齐全、且总价 ≤ 起始铜币 | 清单 4 项 / 总价 50 铜 / 起始 60 铜
+[check] PASS 暖身姜酒配方按剧情补了大麦（姜/莓/麦） | inputs=[{ "id": "ginger", "count": 1.0 }, { "id": "wild_berry", "count": 2.0 }, { "id": "barley", "count": 1.0 }]
+[check] PASS 萃歌的阶段提示台词全部接上（等出门 / 等开锅 / 开张收尾） | 常驻 2 句 / 
+[check] PASS 进酒馆即弹序言卡（卡里 6 页） | card=true / pages=6 / stage=1
+[check] PASS 序言收尾接萃歌开场自动对话 | speaker=萃歌
+[check] PASS 开场白说完 → 进入「去集市」任务 | stage=2 / has_q=true
+[check] PASS 追踪任务有两个步骤（出门 / 找凯瑟琳） | steps=2
+[check] PASS 开场白播完萃歌改说「还没出门」（不再重播独白） | lines=["还没出门啊？凯瑟琳的摊位就在集市南边。", "按 M 打开地图，选「卢迪克集市」就能直接过去。"]
+[check] PASS 序章期间顾客闸门关闭（不开张） | tavern_open=false / running=false
+[check] PASS 到村自动勾掉「走出酒馆」，凯瑟琳站在集市摊位旁 | step0=true / catherine=true
+[check] PASS 凯瑟琳聊完弹选项菜单（接任务置灰） | menu=true / options=2
+[check] PASS 聊完进入「采购酿酒材料」任务（四条计数步骤） | stage=3 / steps=4
+[check] PASS 材料凑齐 → 采购完成，转入「把材料带回酒馆」 | stage=4
+[check] PASS 回店触发萃歌第二段自动对话 | speaker=萃歌
+[check] PASS 第二段说完 → 进入「试试魔法酿造机」（两条酿造步骤） | stage=5
+[check] PASS 酿造阶段萃歌催去开锅（cuige_wait_brew 接上） | lines=["酿造机在锅上等着呢。", "先酿一瓶暖身姜酒，再酿一瓶河鲜淡啤，客人的招牌就齐了。"]
+[check] PASS 姜酒 + 淡啤入库 → 序章完成、酒馆开张 | stage=6 / open=true
+[check] PASS 开张即涌进一拨人（开场 rush = 2） | running=true / active=2 / rush_count=2
+[check] PASS 开张后萃歌改说「酒香都飘出街了」（收尾台词接上） | lines=["酒香都飘出街了。", "招呼好客人，咱们的招牌就算立住了。"]
+[prologue] PASS=19 FAIL=0

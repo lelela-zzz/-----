@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/dark_space/floor.png" id="1_bg"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2_player"]
+[ext_resource type="Script" path="res://scripts/pixel_camera.gd" id="3_cam"]
+
+[node name="DarkSpace" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -10
+centered = false
+texture = ExtResource("1_bg")
+position = Vector2(0, 0)
+scale = Vector2(1, 1)
+
+[node name="Sorted" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Sorted" instance=ExtResource("2_player")]
+position = Vector2(640, 500)
+facing = Vector2i(0, -1)
+
+[node name="Camera" type="Camera2D" parent="Sorted/Player"]
+script = ExtResource("3_cam")
+map_rect = Rect2(0, 0, 1280, 768)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+layer = 10
+
+[node name="UIRoot" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 384.0
+scale = Vector2(2, 2)
+mouse_filter = 2
