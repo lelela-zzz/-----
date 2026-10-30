@@ -348,7 +348,10 @@ func _story_visitors() -> Array[String]:
 	# 章节剧情进行中不安排：这会儿店里的位置要留给人家的戏，别塞个闲人进来
 	if ChapterStory != null and ChapterStory.is_active():
 		return out
-	for id: String in _candidates:
+	# 遍历**全部**角色定义（_all_defs），不是 _candidates —— 俄莉斯已列入
+	# NOT_CUSTOMER（不再当普通酒客），但她的支线还得照播（顺序闸：奇斯演完才轮到她）。
+	# 没挂支线的人（卡兹、老板娘等）会被 has_pending 天然过滤掉。
+	for id: String in _all_defs:
 		if not SideStory.has_pending(id):
 			continue
 		if _present(id) or _in_scene(id):

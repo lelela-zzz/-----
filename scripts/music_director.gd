@@ -216,7 +216,12 @@ func _stream_for(track: String) -> AudioStream:
 # ---- 音量 ------------------------------------------------------------------
 
 func set_volume(v: float) -> void:
-	_volume = clampf(v, 0.0, 1.0)
+	v = clampf(v, 0.0, 1.0)
+	# 值没变就别写盘：鼠标拖动音量条时这个函数会被高频调用，
+	# 每次都落一次 cfg 既费 IO 也可能把 SSD 磨出响声（而且毫无意义）。
+	if is_equal_approx(v, _volume):
+		return
+	_volume = v
 	_save_volume()
 	_apply_volume()
 

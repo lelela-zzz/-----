@@ -81,12 +81,19 @@ func bottom_bar(height: int, margin: int = 16, gap: int = 12) -> Rect2:
 			DESIGN_SIZE.x - float(margin) * 2.0, float(height))
 
 
+## 子类想嗅一下所有输入（不吞键）就覆盖这里。面板打开那一下，光标可能正压在某一行上，
+## Godot 会补发 mouse_entered —— 存档面板靠这个钩子判断"玩家到底动过鼠标没有"。
+func _on_any_input(_event: InputEvent) -> void:
+	pass
+
+
 ## 返回 true 表示这个键被用掉了（不再往下传）。
 func _on_key(_keycode: int) -> bool:
 	return false
 
 
 func _input(event: InputEvent) -> void:
+	_on_any_input(event)
 	var key: InputEventKey = event as InputEventKey
 	if key == null or not key.pressed or key.echo:
 		return

@@ -1,24 +1,30 @@
 extends Node
 ## 「睡觉中」过场验收：
-##  · 布局 —— 最上面「睡觉中」、床在字下面居中、钟表在右上角；
+##  · 布局 —— 最上面「睡觉中」、床在字下面居中、钟表在右上角、背景全黑；
 ##  · 动画 —— 指针真的在转、省略号在跳、播完发 finished 并自己销毁；
-##  · 接入 —— 有 UI 时宵禁跨天先演过场再跳时间；headless/无 UI 时退回同步瞬跳
-##    （38 套回归里那批「调完立刻断言 day+1」的用例就靠这条保命）。
+##  · 接入 —— headless/无 UI 时同步瞬跳（38 套回归的保命语义）；
+##  · 回店 —— 23:00 后回到酒馆：先旁白「累了一天了…」再进过场，最后才跨天；
+##  · 钉住 —— 不在酒馆熬到 23:00：时间挂起、day 不变，advance 也推不动。
 ##
 ## 跑法： "<godot>" --headless --path . res://tests/verify_sleep.tscn --quit-after 9000
 
-const TOTAL_SEC: float = SleepOverlay.FADE_IN_SEC + SleepOverlay.HOLD_SEC \
-		+ SleepOverlay.FADE_OUT_SEC
+const WORLD: String = "res://scenes/world.tscn"
+const VILLAGE: String = "res://scenes/village.tscn"
+## 旁白 + 过场的总等待（旁白 3.0 + 淡入 0.28 + 停留 2.0 + 淡出 0.32 + 余量）
+const ENTRANCE_WAIT: float = 3.0 + SleepOverlay.FADE_IN_SEC + SleepOverlay.HOLD_SEC \
+		+ SleepOverlay.FADE_OUT_SEC + 0.35
 
 var _pass: int = 0
 var _fail: int = 0
+var _scene: Node = null
 
 
 func _ready() -> void:
 	await get_tree().process_frame
 	await _check_layout_and_anim()
 	_check_headless_sync()
-	await _check_clock_drives_overlay()
+	await _check_entrance_sleep()
+	await _check_pinned_outside()
 	print("[sleep] PASS=%d FAIL=%d" % [_pass, _fail])
 	get_tree().quit(1 if _fail > 0 else 0)
 
@@ -41,6 +47,7 @@ func _check_layout_and_anim() -> void:
 	var title: Label = _find_label(ov, SleepOverlay.TITLE_TEXT)
 	var bed: TextureRect = _find_bed(ov)
 	var face: Control = _find_clock(ov)
+	var dim: ColorRect = _find_dim(ov)
 
 	_report("床在场景里", bed != null, "")
 	if title != null and bed != null and face != null:
@@ -60,6 +67,9 @@ func _check_layout_and_anim() -> void:
 		_report("钟表在右上角",
 				face.position.x >= 500.0 and face.position.y <= 40.0,
 				"clock=(%.0f,%.0f)" % [face.position.x, face.position.y])
+	_report("背景是完全遮死的暗色（alpha=1.0）",
+			dim != null and dim.color.a >= 0.999,
+			"dim=%s" % ("null" if dim == null else str(dim.color)))
 
 	ov.play()
 	await get_tree().create_timer(0.42).timeout
@@ -102,52 +112,119 @@ func _check_headless_sync() -> void:
 	clock.queue_free()
 
 
-# ---- 3. 有 UI 时：先演过场，演完才跳时间 ---------------------------------
+# ---- 3. 回店睡觉：旁白 → 过场 → 跨天 -------------------------------------
 
-func _check_clock_drives_overlay() -> void:
+func _check_entrance_sleep() -> void:
 	SleepOverlay.allow_in_headless = true
-	# day 是 static 共享的（跨场景不回退），上一段已经把它推到 2 —— 这里要重新起表。
-	GameClock.reset_day(1)
-	var scene: Node = Node.new()
-	var hud: CanvasLayer = CanvasLayer.new()
-	hud.name = "HUD"
-	var ui: Control = Control.new()
-	ui.name = "UIRoot"
-	ui.size = Vector2(640, 384)
-	hud.add_child(ui)
-	scene.add_child(hud)
-	get_tree().root.add_child(scene)
-	get_tree().current_scene = scene
+	GameClock.reset_day(1)    # day 是 static 共享的，先起表
+	await _mount(WORLD)
+	StoryDirector.force_disable = true
+	CustomerSpawner.force_disable = false
+
+	var clock: GameClock = get_tree().get_first_node_in_group("game_clock") as GameClock
+	_report("world 场景有时钟", clock != null, "")
+	if clock == null:
+		SleepOverlay.allow_in_headless = false
+		return
+
+	# 序章卡片是 UiPanel（modal 组），测试里没人按 E 翻页 → 会一直挂着，
+	# 把 _sleep_sequence 的「等 modal 让位」卡死。真实游戏里玩家随手就关了。
+	var ui: Node = UiStyle.ui_layer(clock)
+	for c: Node in (ui.get_children() if ui != null else []):
+		if c is PrologueCard:
+			(c as PrologueCard).queue_free()
 	await get_tree().process_frame
 
-	var clock: GameClock = GameClock.new()
-	clock.running = true          # 过场演完要把它原样恢复成 true
-	scene.add_child(clock)
+	# 模拟"23:00 后从村里走门回酒馆"：走门会经 SceneBootstrap.set_time 落时刻
+	clock.set_time(23, 0)
+	await get_tree().process_frame
 	await get_tree().process_frame
 
-	clock.call("_roll_over_curfew")
-	await get_tree().process_frame
+	_report("回店先弹旁白（累了一天了…）",
+			_has_label(ui, GameClock.NARRATION_TEXT), _labels(ui))
+	_report("旁白阶段时间还没跳（仍是第 1 天 23:00）",
+			clock.day == 1 and clock.hour == 23 and clock.minute == 0,
+			"day=%d %s" % [clock.day, clock.get_time_string()])
+
+	await get_tree().create_timer(GameClock.NARRATION_SEC + 0.4).timeout
 	var ov: SleepOverlay = _find_overlay(ui)
-	_report("宵禁跨天把「睡觉中」过场拉起来了", ov != null, "")
-	_report("过场没演完之前时间不跳（还停在第 1 天）", clock.day == 1,
-			"day=%d" % clock.day)
-	_report("过场期间时钟被掐停（running=false）", not clock.running, "")
+	_report("旁白之后过场接上（睡觉中）", ov != null, "")
+	_report("过场期间时钟被掐停", clock != null and not clock.running, "")
 
-	await get_tree().create_timer(TOTAL_SEC + 0.3).timeout
-	_report("过场演完 → 第 2 天 07:30",
-			clock.day == 2 and clock.hour == 7 and clock.minute == 30,
-			"day=%d %02d:%02d" % [clock.day, clock.hour, clock.minute])
-	_report("过场演完时钟恢复走时", clock.running, "")
+	await get_tree().create_timer(ENTRANCE_WAIT).timeout
+	# 分钟放宽：跨天完成到断言之间时钟已恢复走时，会多走几分钟 —— 起跳点必然是 07:30+
+	_report("睡完 → 第 2 天早晨（07:30 起跳）",
+			clock.day == 2 and clock.hour == 7 and clock.minute >= 30,
+			"day=%d %s" % [clock.day, clock.get_time_string()])
+	_report("睡完时钟恢复走时", clock.running, "")
 
 	SleepOverlay.allow_in_headless = false
-	get_tree().root.remove_child(scene)
-	scene.queue_free()
+	await _unmount()
+
+
+# ---- 4. 不在酒馆：23:00 钉住，推不动 --------------------------------------
+
+func _check_pinned_outside() -> void:
+	SleepOverlay.allow_in_headless = true
+	GameClock.reset_day(1)
+	await _mount(VILLAGE)
+
+	var clock: GameClock = get_tree().get_first_node_in_group("game_clock") as GameClock
+	_report("village 场景有时钟", clock != null, "")
+	if clock == null:
+		SleepOverlay.allow_in_headless = false
+		return
+
+	clock.running = false
+	clock.set_time(22, 59)
+	# 1 游戏分钟 = seconds_per_hour/60 现实秒 → 跨进 23:00
+	clock.advance(clock.seconds_per_hour / 60.0)
+	_report("村外熬到 23:00：day 不变（没人替你睡）", clock.day == 1,
+			"day=%d %s" % [clock.day, clock.get_time_string()])
+
+	# 再硬推一小时：应该被钉住，纹丝不动
+	clock.advance(30.0)
+	_report("23:00 后 advance 推不动（时间钉住）",
+			clock.hour == 23 and clock.minute == 0 and clock.day == 1,
+			"day=%d %s" % [clock.day, clock.get_time_string()])
+	_report("钉住时没拉过场（村外不睡）", _find_overlay(_top_ui()) == null, "")
+
+	SleepOverlay.allow_in_headless = false
+	await _unmount()
+
+
+# ---- 场景装卸 / 工具 -----------------------------------------------------
+
+func _mount(path: String) -> void:
+	if _scene != null and is_instance_valid(_scene):
+		get_tree().root.remove_child(_scene)
+		_scene.queue_free()
+		await get_tree().process_frame
+	_scene = (load(path) as PackedScene).instantiate()
+	get_tree().root.add_child(_scene)
+	get_tree().current_scene = _scene
+	await get_tree().process_frame
 	await get_tree().process_frame
 
 
-# ---- 工具 ---------------------------------------------------------------
+func _unmount() -> void:
+	if _scene != null and is_instance_valid(_scene):
+		get_tree().root.remove_child(_scene)
+		_scene.queue_free()
+		_scene = null
+		await get_tree().process_frame
+
+
+func _top_ui() -> Node:
+	var scene: Node = get_tree().current_scene
+	if scene == null:
+		return null
+	return scene.get_node_or_null("HUD/UIRoot")
+
 
 func _find_overlay(root: Node) -> SleepOverlay:
+	if root == null:
+		return null
 	for c: Node in root.get_children():
 		if c is SleepOverlay:
 			return c as SleepOverlay
@@ -165,6 +242,13 @@ func _find_clock(root: Node) -> Control:
 	for c: Node in root.get_children():
 		if c is SleepOverlay.ClockFace:
 			return c as Control
+	return null
+
+
+func _find_dim(root: Node) -> ColorRect:
+	for c: Node in root.get_children():
+		if c is ColorRect:
+			return c as ColorRect
 	return null
 
 

@@ -293,10 +293,11 @@ func _settle_trade(given_id: String, no_stock: bool = false) -> void:
 func _hand_over(id: String, pay: bool) -> Dictionary:
 	if pay:
 		var is_wine: bool = str((ItemDB.items.get(id, {}) as Dictionary).get("kind", "")) == "wine"
-		# 顾客（Customer）有自己的钱袋和偏好价，交给他卖才扣得对
+		# 顾客（Customer）有自己的钱袋和偏好价，交给他卖才扣得对。
+		# limit=false：剧情递酒不受"一人一天一瓶"限制 —— 那是叙事交付，不是生意。
 		if is_wine and trade_payer != null and is_instance_valid(trade_payer) \
 				and trade_payer.has_method("sell"):
-			var p: int = int(trade_payer.call("sell", id))
+			var p: int = int(trade_payer.call("sell", id, false))
 			return {"ok": p > 0, "price": p}
 		var price: int = ItemDB.price(id)
 		if not Inventory.remove(id, 1):

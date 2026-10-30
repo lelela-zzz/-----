@@ -18,7 +18,7 @@ extends CanvasLayer
 
 const DESIGN := Vector2(640, 384)
 const GLOW_TEX := "res://assets/lighting/dark_space_glow.png"
-const PLAYER_SHEET := "res://通用方法/walk_v5.png"
+const PLAYER_SHEET := "res://assets/hero/walk_v5.png"
 const ERIS_SHEET := "res://assets/actors/npc/盗贼少年_俄莉斯.png"
 
 ## 两人站位（对称于 x = 324 这条中线）。

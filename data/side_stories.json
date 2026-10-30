@@ -26,7 +26,7 @@
         "desc": "哈特菲利亚提到的那座沉睡的雪山，或许藏着龙与旧王朝的答案。",
         "steps": [
           "听哈特菲利亚讲完黑松山脉的异动",
-          "等通往雪山的道路开通（待开发）"
+          "等通往雪山的道路开通"
         ],
         "done_steps": [0]
       },
@@ -57,6 +57,7 @@
       "id": "eris_artifact_runes",
       "min_day": 2,
       "title": "神器的符文",
+      "after": "chiss_brewing_machine",
       "npc_id": "thief_eris",
       "npc_name": "俄莉斯",
       "npc_role": "厄里斯神",
@@ -83,7 +84,7 @@
         "title": "神器的符文",
         "desc": "魔法酿酒机上的符文并不完整，俄莉斯想回收它们。",
         "steps": [
-          "协助俄莉斯回收酿酒机上的符文（待开发）"
+          "协助俄莉斯回收酿酒机上的符文"
         ]
       }
     },
@@ -124,7 +125,7 @@
         "title": "遗失的螺岩",
         "desc": "西蒙在矿井里弄丢了他的螺岩。",
         "steps": [
-          "帮西蒙找回矿井里的螺岩（待开发）"
+          "帮西蒙找回矿井里的螺岩"
         ]
       }
     },
@@ -149,80 +150,7 @@
         "title": "贤者之石与异常寒冷",
         "desc": "爱德华怀疑黑松山脉的异象与贤者之石有关。",
         "steps": [
-          "调查黑松山脉的异常寒冷（待开发）"
-        ]
-      }
-    },
-    {
-      "id": "dwarves_dispatch",
-      "min_day": 5,
-      "title": "矮人三兄弟来应聘",
-      "npc_id": "dwarf_cook_kaito",
-      "npc_name": "凯多",
-      "npc_role": "矮人厨师",
-      "spawn": {
-        "pos": [320, 300],
-        "facing": "up"
-      },
-      "extras": [
-        {
-          "npc": "dwarf_serv_kain",
-          "offset": [-40, 22],
-          "facing": "right"
-        },
-        {
-          "npc": "dwarf_hand_kaijin",
-          "offset": [40, 22],
-          "facing": "left"
-        }
-      ],
-      "entries": [
-        {"speaker": "拜登", "role": "银辉酒馆老板", "text": "欢迎来到银辉酒馆，三位想喝些什么？"},
-        {"speaker": "凯多", "role": "矮人厨师", "text": "我要一瓶暖身姜酒。"},
-        {"speaker": "凯恩", "role": "矮人杂役", "text": "我要一瓶河鲜淡啤。"},
-        {"speaker": "凯金", "role": "矮人杂工", "text": "我要……不对，你们俩干嘛呢。我超威的，咱们是来应聘的。"},
-        {"speaker": "凯多", "role": "矮人厨师", "text": "对喔，还真是。"},
-        {"speaker": "凯恩", "role": "矮人杂役", "text": "我去，不早说。"},
-        {"speaker": "拜登", "role": "银辉酒馆老板", "text": "所以……三位是来……"},
-        {"speaker": "凯金", "role": "矮人杂工", "text": "我们是来找兼职的，老板。咱不要钱，只是想喝点酒，所以想找个酒馆的兼职。"},
-        {"speaker": "拜登", "role": "银辉酒馆老板", "text": "原来是这样。正好，我缺人手去找酿酒材料。我会不定时派你们外出去找材料，你们也不用在店里待着，有需要的话我会找你们。"},
-        {"speaker": "凯金", "role": "矮人杂工", "text": "好的好的，谢谢老板。"}
-      ],
-      "unlock": {
-        "flag": "dispatch_system",
-        "toast": "解锁：派遣系统（可派矮人外出采集，派遣界面待开发）"
-      },
-      "quest": {
-        "id": "side_dispatch",
-        "title": "矮人的兼职",
-        "desc": "三个矮人兄弟不要工钱，只想喝酒，愿意在酒馆帮忙跑腿采材料。",
-        "steps": [
-          "派遣系统开放后，派矮人外出采集（待开发）"
-        ]
-      }
-    },
-    {
-      "id": "sasaki_river_fish",
-      "min_day": 6,
-      "title": "月痕河的渔夫",
-      "npc_id": "fisher_sasaki",
-      "npc_name": "佐佐木",
-      "npc_role": "钓鱼佬",
-      "entries": [
-        {"speaker": "拜登", "role": "银辉酒馆老板", "text": "欢迎来到银辉酒馆。您要来些我店的新品酒吗？"},
-        {"speaker": "佐佐木", "role": "钓鱼佬", "text": "你好，拜登先生。只是感觉，和我记忆中的河鲜淡啤并不一样。我听说您在研究一些新的酒品，我想为贵店提供一些我们月痕河里的上好渔料。", "trade": {"receive": [{"id": "silver_fish_sauce", "count": 2}]}},
-        {"speaker": "拜登", "role": "银辉酒馆老板", "text": "如果你能顺手带些特产回来，那确实再好不过了。来，再酌一杯。", "trade": {"give": "wine", "pay": true}}
-      ],
-      "unlock": {
-        "flag": "moon_river_dispatch",
-        "toast": "解锁：月痕河·河岸派遣点（派遣界面待开发）"
-      },
-      "quest": {
-        "id": "side_moon_river",
-        "title": "月痕河的渔获",
-        "desc": "佐佐木想为酒馆提供月痕河的上好渔料。",
-        "steps": [
-          "解锁月痕河·河岸派遣点（待开发）"
+          "调查黑松山脉的异常寒冷"
         ]
       }
     },

@@ -1,0 +1,18 @@
+# Godot
+.godot/
+*.tmp
+
+# 系统杂项
+.DS_Store
+Thumbs.db
+NVIDIA Corporation/
+
+# 本地缓存 / 备份 / 归档
+.workbuddy/
+_archive/
+_backup_*/
+exports/
+*.log
+
+# 测试输出
+tests/_*.log

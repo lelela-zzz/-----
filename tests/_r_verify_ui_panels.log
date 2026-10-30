@@ -1,6 +1,6 @@
 Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
 
-[check] PASS  HUD 里有营业状态条 | node=@Control@39:<Control#97509181343>
+[check] PASS  HUD 里有营业状态条 | node=@Control@39:<Control#102877890473>
 [check] PASS  未开张时状态条提示挂招牌 | labels=["[T] 挂招牌", "07:30–18:00 可开始运营", "预计客流 4 人"]
 [check] PASS  状态条显示今日预计客流 | labels=["[T] 挂招牌", "07:30–18:00 可开始运营", "预计客流 4 人"]
 [check] PASS  身处酒馆（world）：状态条可见 | visible=true

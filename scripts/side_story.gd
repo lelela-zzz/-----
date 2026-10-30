@@ -129,10 +129,21 @@ func pending_for(npc_id: String) -> Dictionary:
 			continue
 		if not _chapter_ok(a):
 			continue
+		if not _after_ok(a):
+			continue
 		if not _day_ok(a):
 			continue
 		return a
 	return {}
+
+
+## 登场顺序闸（2026-10-30 用户要求）：支线写了 `after` 字段的，要等前置那段
+## **播完**才轮得到它 —— 奇斯先出现、奇斯离开后俄莉斯才能出现，就是靠这个串起来的。
+## 放在 pending_for 里统一把关：has_pending（进店候选 / [E] 交谈提示 / 感叹号）
+## 和 try_play（对话触发）全部自动受控，不用各处自己判。
+func _after_ok(a: Dictionary) -> bool:
+	var prev: String = str(a.get("after", ""))
+	return prev == "" or bool(_played.get(prev, false))
 
 
 ## 剧情天数（1 = 开张当天）。
@@ -234,6 +245,11 @@ func try_play(npc_id: String, npc_node: Node) -> bool:
 	var arc: Dictionary = pending_for(npc_id)
 	if arc.is_empty():
 		return false
+	# 支线开演 = 这位必定已被玩家认识。对话入口（Npc / Customer._open_dialogue）
+	# 各自会登记，但测试或以后的调用点可能**绕过对话直接播**，这里兜一道 ——
+	# 漏了的话准备清单的「认识 XX」就永远差这一格（2026-10-30 踩过）。
+	if Regulars != null:
+		Regulars.mark_known(npc_id)
 	var hud: Node = _hud()
 	if hud == null:
 		return false
@@ -268,6 +284,11 @@ func _on_arc_closed(arc: Dictionary, npc_node: Node) -> void:
 		_played[id] = true
 	if npc_node != null and is_instance_valid(npc_node):
 		npc_node.set("_talking", false)
+		# 剧情访客（顾客身份）聊完这段戏**直接请他走**：他来店里就是为了见这一面，
+		# 别让他留下来排队买酒（2026-10-30 用户要求）。
+		# has_method 鸭子判定：站桩 Npc 没有 _begin_leave，不受影响。
+		if npc_node.has_method("_begin_leave"):
+			npc_node.call_deferred("_begin_leave")
 	_apply_quest(arc)
 	_apply_unlock(arc)
 	# 这段戏演完了：这位访客退场、下一位登场（增删节点由 Story 负责）。

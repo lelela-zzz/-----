@@ -2,7 +2,7 @@ extends Node
 ## 设置面板（含音乐音量行）观感截图：
 ##   "<godot.exe>" --path . res://tests/bgm_shot.tscn --quit-after 9000
 ##
-## 只做两件事：进酒馆、按 F10 打开面板，选中"音乐音量"行拍一张。不改任何存盘设置。
+## 只做两件事：进酒馆、按 F6 打开面板，选中"音乐音量"行拍一张。不改任何存盘设置。
 
 const DIR: String = "res://tests/bgm_shots/"
 
@@ -25,7 +25,7 @@ func _ready() -> void:
 	print("[bgmshot] current_track=%s playing=%s db=%.1f" % [
 			Music.current_track(), Music.is_playing(), Music.volume_db_now()])
 
-	_push_key(KEY_F10)
+	_push_key(KEY_F6)
 	for i: int in 60:
 		await get_tree().process_frame
 		if _modal() != null:

@@ -32,3 +32,7 @@ Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
 [check] PASS 走完 16 幕 → 导演收尾 | active=false
 [check] PASS 收尾后不再追踪第二章 | tracked=
 [chapter2] PASS=31 FAIL=0
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

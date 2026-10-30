@@ -15,7 +15,10 @@ class_name SleepOverlay
 ## 播完（淡出结束）时发出。GameClock 收到后才真正跳时间。
 signal finished
 
-const DIM_ALPHA: float = 0.89          # 夜里睡觉，压得比「跑路中」更暗
+## 背景完全遮死（用户 2026-10-30 要求：睡觉时看不到背后的酒馆）。
+## 用暖黑而不是纯黑 —— 和 UI 的描边黑同族，淡入淡出时不发灰。
+const NIGHT_BG: Color = Color(0.043, 0.039, 0.031)
+const DIM_ALPHA: float = 1.0
 const FADE_IN_SEC: float = 0.28
 const HOLD_SEC: float = 2.00
 const FADE_OUT_SEC: float = 0.32
@@ -82,8 +85,7 @@ func _ready() -> void:
 	# 睡觉期间别让别的面板弹出来
 	add_to_group("modal_ui")
 
-	var dim: ColorRect = UiStyle.rect(
-			Color(UiStyle.INK.r, UiStyle.INK.g, UiStyle.INK.b, DIM_ALPHA))
+	var dim: ColorRect = UiStyle.rect(Color(NIGHT_BG.r, NIGHT_BG.g, NIGHT_BG.b, DIM_ALPHA))
 	dim.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	add_child(dim)
 

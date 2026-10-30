@@ -25,7 +25,7 @@ from collections import deque
 import numpy as np
 from PIL import Image
 
-SRC = "通用方法/walk_v5.png"
+SRC = "assets/hero/walk_v5.png"
 BAK_DIR = "_archive"
 TH = 16.0        # 比锚点亮多少才判定为白边
 MAX_D = 4        # 处理外沿层数（像素）

@@ -20,6 +20,8 @@ const QID: String = "ch3_dragon_king"
 var passed: int = 0
 var failed: int = 0
 var _scene: Node = null
+## 矿井碰撞框缓存（史莱姆落地判定用，第一次用到时才读 props.json）。
+var _mine_rects: Array = []
 
 
 func _ready() -> void:
@@ -148,7 +150,26 @@ func _run() -> void:
 	_report("矿井播第 4 幕（史莱姆 → 裂隙传送门）",
 			p3 != null and _beat_id() == "ch3_mine_slime",
 			"beat=%s panel=%s" % [_beat_id(), p3 != null])
+	# 这一幕除了台词，还得有史莱姆站场上（否则"这帮家伙又来了"就是纯画外音）
+	var slimes: Array = get_tree().get_nodes_in_group("slime")
+	_report("矿井幕摆出 2 只史莱姆", slimes.size() == 2, "n=%d" % slimes.size())
+	var bad_box: String = ""
+	for s: Node in slimes:
+		if not is_instance_valid(s):
+			continue
+		var sp: Vector2 = (s as Node2D).global_position
+		if _slime_box_blocked(sp):
+			bad_box += "%s@%s " % [s.name, sp.round()]
+	_report("两只史莱姆整只都落在地面上（没埋进岩壁）", bad_box == "", bad_box)
 	await _close_current(p3)
+	# 逐只崩解有 0.18s 错峰 + 0.18s 压扁动画，等它演完再看
+	for i: int in 40:
+		await get_tree().process_frame
+	var dead: int = 0
+	for s: Node in get_tree().get_nodes_in_group("slime"):
+		if is_instance_valid(s) and bool(s.call("is_dead")):
+			dead += 1
+	_report("泼酒后两只都变成粘液尸体", dead == 2, "dead=%d" % dead)
 	# 下一幕是 travel：打钩 + 开裂隙，但**不**替玩家换场景（要玩家自己踩门进去）。
 	await _tick()
 	_report("travel 结束后仍留在矿井（等玩家踩裂隙门）",
@@ -291,6 +312,20 @@ func _push_key(keycode: Key) -> void:
 func _tick() -> void:
 	await get_tree().process_frame
 	await get_tree().process_frame
+
+
+## 史莱姆的精灵框是否压到矿井岩壁（脚底为原点、身子往上长）。
+## 尺寸和 scripts/slime.gd 的 MOVE_HALF_W / MOVE_HEIGHT 一致。
+func _slime_box_blocked(p: Vector2) -> bool:
+	if _mine_rects.is_empty():
+		_mine_rects = MineSlimeSpawner.load_collision_rects(null)
+	var hw: float = MineSlimeSpawner.HALF_W
+	var hh: float = MineSlimeSpawner.HEIGHT
+	var box: Rect2 = Rect2(p.x - hw, p.y - hh, hw * 2.0, hh)
+	for entry: Variant in _mine_rects:
+		if box.intersects(entry as Rect2):
+			return true
+	return false
 
 
 func _report(name: String, ok: bool, detail: String = "") -> void:

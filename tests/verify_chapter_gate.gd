@@ -62,8 +62,9 @@ func _check_threshold() -> void:
 			is_equal_approx(Revenue.REVENUE_THRESHOLD_SNOW, 300.0),
 			"%s" % Revenue.REVENUE_THRESHOLD_SNOW)
 	var req: Array[String] = Regulars.required_for(CH)
-	var expect: Array[String] = ["broker_chiss", "ronin_himura", "thief_eris"]
-	_report("第一章待认识名单 = 奇斯/绯村/俄莉斯", req == expect, "%s" % str(req))
+	var expect: Array[String] = ["broker_chiss", "ronin_himura"]
+	_report("第一章待认识名单 = 奇斯/绯村（俄莉斯 2026-10-30 起不当酒客，已移出名单）",
+			req == expect, "%s" % str(req))
 	_report("名单不含当顾客也不算的老板娘",
 			not req.has("tavern_cuige"), "%s" % str(req))
 	_report("名单不含开局就熟的首发四人",
@@ -79,16 +80,17 @@ func _check_prep_created() -> void:
 	_report("开张后任务栏出现准备清单", QuestLog.has(QID), "has=%s" % QuestLog.has(QID))
 
 	var steps: Array = _steps(QID)
-	# 1 条营业额 + 3 条认识
-	_report("清单步骤数 = 1(营业额) + 3(认识)", steps.size() == 4,
+	# 1 条营业额 + 2 条对话（俄莉斯已移出名单）
+	_report("清单步骤数 = 1(营业额) + 2(对话)", steps.size() == 3,
 			"steps=%d" % steps.size())
 	if not steps.is_empty():
 		var first: Dictionary = steps[0] as Dictionary
 		_report("第 0 步是累计营业额，目标 300",
 				str(first["text"]) == "累计营业额" and int(first["need"]) == 300,
 				"text=%s need=%d" % [first["text"], first["need"]])
-	_report("清单里列出要认识的三个名字",
-			_has_step("认识 奇斯") and _has_step("认识 绯村") and _has_step("认识 俄莉斯"),
+	_report("清单里列出要对话的两个名字",
+			_has_step("跟 奇斯 对话") and _has_step("跟 绯村 对话")
+			and not _has_step("俄莉斯"),
 			"%s" % _step_texts(QID))
 
 
@@ -102,8 +104,8 @@ func _check_revenue_only() -> void:
 			Story._snow_revenue_day == 0,
 			"day_mark=%d" % Story._snow_revenue_day)
 	_report("清单里营业额那步已打勾", _step_done(QID, 0), "%s" % _step_texts(QID))
-	_report("但认识那几步还没勾",
-			not _step_done(QID, 1) and not _step_done(QID, 2) and not _step_done(QID, 3),
+	_report("但对话那几步还没勾",
+			not _step_done(QID, 1) and not _step_done(QID, 2),
 			"%s" % _step_texts(QID))
 
 

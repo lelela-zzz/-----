@@ -127,6 +127,7 @@ func set_progress(id: String, step_index: int, got: int) -> void:
 		return
 	s["got"] = v
 	s["done"] = v >= need
+	_retrack_if_stale()
 	changed.emit()
 
 
@@ -144,6 +145,7 @@ func set_step_done(id: String, step_index: int, done: bool) -> void:
 		return
 	s["got"] = v
 	s["done"] = done
+	_retrack_if_stale()
 	changed.emit()
 
 
@@ -156,11 +158,31 @@ func complete(id: String) -> void:
 		step["got"] = int(step["need"])
 		step["done"] = true
 	q["done"] = true
-	# 正追踪的任务做完了 → 自动取消追踪（它在任务栏里也消失了）
-	if _tracked_id == id:
-		_tracked_id = ""
-		tracked_changed.emit()
+	_retrack_if_stale()
 	changed.emit()
+
+
+## 追踪自动接力（2026-10-30 用户要求"所有指引与主线顺利串联"）：
+## 正被追踪的任务已经没有活儿了（步骤全勾 / 显式完成）→ 自动换到下一个
+## 还差活儿的任务，让追踪卡和罗盘箭头跨任务不断线 —— 玩家不用每做完一段
+## 都手动重新点一次追踪。幂等：追踪目标还有活儿时一个字都不动。
+## 注意不能用 complete 判定 —— 序章/章节任务很多是 set_step_done 逐勾走完的。
+func _retrack_if_stale() -> void:
+	if _tracked_id.is_empty():
+		return
+	var cur: Dictionary = _find(_tracked_id)
+	if not cur.is_empty() and _has_pending(cur):
+		return
+	var next_id: String = ""
+	for other: Dictionary in _quests:
+		if str(other["id"]) == _tracked_id:
+			continue
+		if _has_pending(other):
+			next_id = str(other["id"])
+			break
+	if next_id != _tracked_id:
+		_tracked_id = next_id
+		tracked_changed.emit()
 
 
 func quest(id: String) -> Dictionary:

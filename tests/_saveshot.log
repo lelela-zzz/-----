@@ -2,5 +2,7 @@ Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
 OpenGL API 3.3.0 NVIDIA 610.74 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce RTX 5060 Laptop GPU
 
 [WindowScale] 窗口 2240×1344（175%，fractional）
+[sleep_dbg] entrance check hour=16 curfew=23 sleeping=false ready=true tavern=true
+[sleep_dbg] entrance check hour=16 curfew=23 sleeping=false ready=true tavern=true
 [SaveGame] 已存入槽 1（第 4 天 16:40）
 [save_shot] done

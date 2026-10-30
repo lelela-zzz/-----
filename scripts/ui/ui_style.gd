@@ -34,6 +34,9 @@ const FIRE: Color = Color(0.909804, 0.588235, 0.235294)
 const FIRE_CORE: Color = Color(0.964706, 0.815686, 0.541176)
 ## 货币
 const GOLD: Color = Color(0.788235, 0.635294, 0.152941)
+## 亮黄 —— "这里有东西可互动"的提示（头顶感叹号）。
+## 比 GOLD 亮、比 FIRE_CORE 更纯黄，不偏橙红（用户 2026-10-30 明确要黄色）。
+const YELLOW: Color = Color(1.0, 0.847059, 0.156863)
 
 const BODY_SIZE: int = 12
 const TITLE_SIZE: int = 24

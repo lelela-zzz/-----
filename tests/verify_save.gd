@@ -45,6 +45,26 @@ func _ready() -> void:
 		_report("提示条贴在任务书下面（8,62）", hint.position == Vector2(8, 62),
 				str(hint.position))
 
+	# ---- 1b) 设置提示条：在存档条下面，点一下要能开设置面板 ----
+	var shint: Control = _find_settings_hint(hud)
+	_report("HUD 有设置提示条", shint != null, "hint=%s" % shint)
+	if shint != null:
+		_report("设置条写着「[F6] 设置」", _labels_text(shint).contains("[F6] 设置"),
+				_labels_text(shint))
+		_report("设置条在存档条正下方", shint.position.y > hint.position.y
+				and absf(shint.position.x - hint.position.x) < 0.5,
+				"%s vs %s" % [shint.position, hint.position])
+		var cev: InputEventMouseButton = InputEventMouseButton.new()
+		cev.button_index = MOUSE_BUTTON_LEFT
+		cev.pressed = true
+		cev.position = shint.size * 0.5
+		shint._gui_input(cev)
+		await _wait(4)
+		_report("点设置条打开设置面板", _modal(UiPanel) != null, "modal=%s" % _modal(UiPanel))
+		_push_key(KEY_ESCAPE)
+		await _wait(4)
+		_report("Esc 关掉设置面板", _modal(UiPanel) == null, "")
+
 	# ---- 2) 造一份"一眼能认出来"的状态 ----
 	var clock: GameClock = get_tree().get_first_node_in_group("game_clock") as GameClock
 	clock.day = 3
@@ -178,6 +198,52 @@ func _ready() -> void:
 		await _wait(3)
 		_report("Esc 关掉读取面板", _modal(SavePanel) == null, "")
 
+	# ---- 7) 「继续游戏」端到端：真能进游戏，钱对得上 ----
+	_push_key(KEY_W)                          # 读取存档 → 继续游戏
+	await get_tree().process_frame
+	_report("回到「继续游戏」", int(title.get("_index")) == 0,
+			"index=%s" % title.get("_index"))
+	var money_before: int = int(SaveGame.meta_of(1).get("money", -1))
+	_push_key(KEY_E)
+	await get_tree().create_timer(1.2).timeout     # 淡出 0.55s + 切场景
+	await _wait(20)
+	var now_scene: Node = get_tree().current_scene
+	_report("继续游戏真的进了酒馆",
+			now_scene != null and now_scene.scene_file_path.ends_with("world.tscn"),
+			now_scene.scene_file_path if now_scene != null else "n/a")
+	_report("继续游戏后铜币与存档一致", Inventory.copper == money_before,
+			"%d vs %d" % [Inventory.copper, money_before])
+
+	# ---- 8) 删档：同样要按两次；删完「继续游戏」指针要清掉 ----
+	_push_key(KEY_F5)
+	await _wait(5)
+	_report("回到游戏里还能开存档面板", _modal(SavePanel) != null, "")
+	_push_key(KEY_X)                          # 第一次：上膛
+	await _wait(4)
+	_report("第一次 X 不删（等确认）", SaveGame.has_slot(1), "")
+	_push_key(KEY_X)                          # 第二次：真删
+	await _wait(6)
+	_report("第二次 X 删掉了 1 号槽", not SaveGame.has_slot(1), "")
+	_report("删档后 meta 为空", SaveGame.meta_of(1).is_empty(), str(SaveGame.meta_of(1)))
+	_report("删档后「继续游戏」指针清空", SaveGame.last_slot() == 0,
+			str(SaveGame.last_slot()))
+	_report("删档后没有任何档可读", not SaveGame.any_slot(), "")
+	_push_key(KEY_X)                          # 空档位再按：不动作、不报错
+	await _wait(3)
+	_report("空档位按 X 不会出事", not SaveGame.has_slot(1), "")
+	_push_key(KEY_ESCAPE)
+	await _wait(3)
+
+	# ---- 9) 删光档位后，标题界面的两行立刻变灰 ----
+	get_tree().change_scene_to_file(TITLE)
+	await _wait(70)
+	var title2: Node = get_tree().current_scene
+	var items2: Array = title2.get("_items") as Array
+	_report("没档了 → 「继续游戏」置灰", items2.size() > 0
+			and not bool(items2[0].get("enabled")), "")
+	_report("没档了 → 默认落回「开始游戏」", int(title2.get("_index")) == 2,
+			"index=%s" % title2.get("_index"))
+
 	_clear_saves()
 	_finish()
 
@@ -185,13 +251,7 @@ func _ready() -> void:
 # ---- 工具 ------------------------------------------------------------------
 
 func _clear_saves() -> void:
-	for i: int in range(1, SaveGame.SLOT_COUNT + 1):
-		var path: String = ProjectSettings.globalize_path(SaveGame.slot_path(i))
-		if FileAccess.file_exists(path):
-			DirAccess.remove_absolute(path)
-	var last: String = ProjectSettings.globalize_path(SaveGame.LAST_PATH)
-	if FileAccess.file_exists(last):
-		DirAccess.remove_absolute(last)
+	SaveGame.clear_all_slots()
 
 
 func _player() -> Player:
@@ -203,6 +263,15 @@ func _find_hint(root: Node) -> Control:
 		return null
 	for n: Node in root.get_children():
 		if n is SaveHint:
+			return n as Control
+	return null
+
+
+func _find_settings_hint(root: Node) -> Control:
+	if root == null:
+		return null
+	for n: Node in root.get_children():
+		if n is SettingsHint:
 			return n as Control
 	return null
 

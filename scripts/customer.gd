@@ -49,6 +49,11 @@ var _leg: int = 0
 var _queue_pos: Vector2 = Vector2.ZERO
 var _slot_index: int = -1
 var _sold_count: int = 0
+## 头顶感叹号：这位身上还挂着没播的支线（= "有话要说"）。
+## 第一次相遇就亮着、聊完那一段自动灭 —— 不用玩家靠近也能远远看见。
+var _mark: Label = null
+var _mark_y: float = 0.0          # 浮动基准高度（相对脚底）
+var _mark_phase: float = 0.0      # 各自相位，别让一屋子人同步上下跳
 var _budget_left: int = 0
 var _waited: float = 0.0
 var _seated: bool = false
@@ -110,22 +115,61 @@ func _build_prompt() -> void:
 	_prompt.visible = false
 	add_child(_prompt)
 
+	# 头顶感叹号：**常驻**（不像 [E] 要靠近才出），远远就能看出"这人可以聊"。
+	# 画得比 [E] 提示再高一截，两个不打架。
+	_mark = UiStyle.outlined_label("!", UiStyle.YELLOW, UiStyle.TITLE_SIZE)
+	_mark.size = Vector2(60, 28)
+	# 贴着头顶（-24 而不是 -40：2026-10-30 用户嫌"离头顶太远"）
+	_mark_y = -foot_in_cell.y * sprite_scale - 24.0
+	_mark.position = Vector2(-30, _mark_y)
+	_mark.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_mark.z_index = 201
+	_mark.visible = false
+	add_child(_mark)
+	_mark_phase = randf() * TAU
+
+
+## 感叹号：身上还有没播的支线就亮着；开始对话 / 这段聊完了 / 正离场 → 收起。
+## "第一次相遇"就是这么来的 —— 聊完 has_pending 变 false，它自然不再出现。
+func _update_mark() -> void:
+	if _mark == null:
+		return
+	var wants: bool = SideStory != null and SideStory.has_pending(npc_id)
+	# 玩家走近、[E] 提示已经冒出来 → 感叹号让位，别两个提示叠在一起
+	var prompt_on: bool = _prompt != null and _prompt.visible
+	_mark.visible = wants and not _talking and state != State.LEAVING and not prompt_on
+	if not _mark.visible:
+		return
+	# 轻轻上下浮动 2px，别太大 —— 像素游戏里幅度大了像在抽搐
+	var t: float = float(Time.get_ticks_msec()) / 1000.0
+	_mark.position.y = _mark_y + sin(t * 3.0 + _mark_phase) * 2.0
+
 
 ## 是否正站在吧台前等卖酒。
 ## 「最近的人抢 E」仲裁要用（Npc 基类里通过 has_method 鸭子判定，
 ## 避免 Npc → Customer 的反向引用造成 class_name 循环依赖）。
 func wants_service() -> bool:
+	# 坐下的剧情访客也享受"优先被搭话"的偏置，否则旁边的站桩 NPC 会把 E 抢走。
+	if state == State.SITTING and SideStory != null and SideStory.has_pending(npc_id):
+		return true
 	return state == State.QUEUED
 
 
 func _update_prompt() -> void:
-	if _prompt == null:
-		return
-	if SideStory != null:
-		# 有未播支线时提示"交谈"，否则照旧"卖酒"
-		_prompt.text = "[E] 交谈" if SideStory.has_pending(npc_id) else "[E] 卖酒"
-	_prompt.visible = (not _talking) and state == State.QUEUED \
-			and _player != null and _in_range() and _is_nearest()
+	# 先算 [E] 提示，再算感叹号 —— 后者要看前者是不是已经亮着（亮着就让位）。
+	if _prompt != null:
+		var has_story: bool = SideStory != null and SideStory.has_pending(npc_id)
+		if SideStory != null:
+			# 有未播支线时提示"交谈"，否则照旧"卖酒"
+			_prompt.text = "[E] 交谈" if has_story else "[E] 卖酒"
+		# 排队时当然能卖酒。**有未播支线的访客则是全程能聊**：走位途中、站定、
+		# 坐下了都行（2026-10-30 用户要求"确保全过程内都能对话"）——
+		# 不然玩家看着他走过来、走过去，却点不动才叫怪。只有离场途中不算。
+		var can_talk: bool = state == State.QUEUED \
+				or (has_story and state != State.LEAVING)
+		_prompt.visible = (not _talking) and can_talk \
+				and _player != null and _in_range() and _is_nearest()
+	_update_mark()
 
 
 # ---- 行走 ---------------------------------------------------------------
@@ -134,6 +178,9 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.TALKING:
 			_face_player()
+			# 这条分支不走下面的 _update_prompt，感叹号得自己收一下，
+			# 否则说话时会顶在对话框上方不消失。
+			_update_mark()
 			return
 		State.QUEUED:
 			# 正在播支线时冻结耐心，别让顾客说到一半就走人
@@ -142,7 +189,13 @@ func _physics_process(delta: float) -> void:
 				if _waited >= patience:
 					_begin_leave()
 			_idle_at_counter()
-		State.WALKING, State.LEAVING:
+		State.WALKING:
+			# 半路被拦住聊天就原地站住（否则会一边说话一边往前走），并转身面向玩家
+			if _talking:
+				_face_player()
+			else:
+				_walk(delta)
+		State.LEAVING:
 			_walk(delta)
 		State.SITTING:
 			if _seated:
@@ -355,8 +408,15 @@ func can_afford(price: int) -> bool:
 
 
 ## 卖 1 瓶：扣库存、加钱、记账。返回实收铜币（0 = 没卖成）。
-func sell(item_id: String) -> int:
+##
+## **一人一天只买一瓶**（limit=true，营业售卖走默认）：同一位已经买过
+## （_sold_count >= 1）就拒绝再买 —— 防止玩家把一整壶烈酒全倒给同一个人刷钱。
+## 剧情交易的递酒传 limit=false：那是叙事里的一次性交付，不是生意；
+## 但它同样计入 _sold_count，所以"剧情里收过他一瓶、营业里他今天就不再买"。
+func sell(item_id: String, limit: bool = true) -> int:
 	if not accepts(item_id):
+		return 0
+	if limit and _sold_count >= 1:
 		return 0
 	var price: int = price_for(item_id)
 	if not can_afford(price):
@@ -448,9 +508,20 @@ func leave_line() -> String:
 # ---- 交互：换成卖酒面板 --------------------------------------------------
 
 func _open_dialogue() -> void:
-	if _talking or state != State.QUEUED:
+	if _talking:
 		return
-	# 序章之后：有未播支线就先播剧情（播完仍留在队列里，可继续卖酒）
+	# 平时只有站在吧台前（QUEUED）才谈交易；但**身上还有未播支线的访客全程能聊**
+	# （走位中 / 站定 / 坐下都行），否则他一路走过来却点不动，支线就永远播不出来。
+	var has_story: bool = SideStory != null and SideStory.has_pending(npc_id)
+	if state == State.LEAVING:
+		return
+	if not has_story and state != State.QUEUED:
+		return
+	# 对话打开了就算"认识"——必须**所有分支之前**登记：
+	# 之前只有 Npc._open_dialogue 登记、Customer 这边漏了，结果跟访客聊完天
+	# 准备清单的「认识 XX」永远不打勾；他身上支线还挂着没播成，就一遍遍再来。
+	Regulars.mark_known(npc_id)
+	# 有未播支线就先播剧情（播完直接离场，见 SideStory._on_arc_closed）
 	if SideStory != null and SideStory.try_play(npc_id, self):
 		return
 	var layer: Node = _ui_layer()

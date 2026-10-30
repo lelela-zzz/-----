@@ -8,6 +8,10 @@ extends UiPanel
 ##  · 出价由 **顾客** 算（Customer.price_for），面板只负责显示和调用；
 ##  · 所以以后加"某人只喝烈酒""某人出价高 40%"，只改 data/npcs.json 的
 ##    customer.wine_pref，这里一行都不用动。
+##
+## **一人一天只买一瓶**（2026-10-30）：卖出一瓶后这单就结束了 —— 面板把买后台词
+## 留在屏上片刻，然后自动收摊，顾客自己去落座（Customer._on_panel_closed）。
+## 真正的判定在 Customer.sell(limit) 里，这里只负责友好提示和收摊节奏。
 
 const FRAME: Rect2 = Rect2(88, 60, 464, 272)
 const ROW_TOP: int = 74
@@ -24,6 +28,8 @@ var _indicator: Label = null
 var _rows: Array[Node] = []
 var _message: Label = null
 var _message_frames: int = 0
+## 卖出后自动收摊的倒计时（帧）。0 = 不倒计时。
+var _close_in: int = 0
 var _empty: Label = null
 var _money: Label = null
 
@@ -185,6 +191,11 @@ func _process(_delta: float) -> void:
 		_message_frames -= 1
 		if _message_frames == 0:
 			_message.text = ""
+	# 这单成了：让"买后台词"被读到，然后自己收摊（顾客去落座，不用再按 Esc）
+	if _close_in > 0:
+		_close_in -= 1
+		if _close_in == 0:
+			close()
 
 
 func _on_copper_changed(value: int) -> void:
@@ -216,7 +227,14 @@ func _move(step: int) -> void:
 
 
 func _sell() -> void:
-	if customer == null or _items.is_empty():
+	if customer == null:
+		return
+	# 一人一天只买一瓶：已经买过的这位不再接第二单（正常流程走不到 ——
+	# 卖出后面板会自动收摊；这里是保险，比如剧情递酒先收过他一瓶）
+	if customer.sold_count() > 0:
+		_say("他今天一瓶就满足了", UiStyle.METAL_DARK)
+		return
+	if _items.is_empty():
 		_say("他没什么想买的", UiStyle.METAL_DARK)
 		return
 	var id: String = _items[_window.index]
@@ -231,6 +249,7 @@ func _sell() -> void:
 	_say(("卖出 %s，+%d 铜" % [ItemDB.item_name(id), gained])
 			+ ("  「%s」" % line if line != "" else ""), UiStyle.LINEN)
 	_rebuild()
+	_close_in = 55   # ≈0.9s：读完买后台词再收摊
 
 
 func _say(text: String, color: Color) -> void:

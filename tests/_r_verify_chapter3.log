@@ -16,6 +16,9 @@ Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
 [check] PASS 矿道入口播第 3 幕（西蒙：来这边） | beat=ch3_mine_entrance panel=true
 [check] PASS 下一幕=矿井（等玩家下矿） | beat=ch3_mine_slime
 [check] PASS 矿井播第 4 幕（史莱姆 → 裂隙传送门） | beat=ch3_mine_slime panel=true
+[check] PASS 矿井幕摆出 2 只史莱姆 | n=2
+[check] PASS 两只史莱姆整只都落在地面上（没埋进岩壁） | 
+[check] PASS 泼酒后两只都变成粘液尸体 | dead=2
 [check] PASS travel 结束后仍留在矿井（等玩家踩裂隙门） | scene=res://scenes/mine.tscn
 [check] PASS 裂隙门已打开（Chapter3Story.is_rift_open） | open=true
 [check] PASS 矿井里有裂隙门 Doors/LairGate，且已启用监听 | gate=true monitoring=true
@@ -33,7 +36,7 @@ Godot Engine v4.7.2.stable.steam.ed1daf0bf - https://godotengine.org
 [check] PASS 走完 10 幕 → 导演收尾 | active=false
 [check] PASS 终章标记 game_finished | finished=true
 [check] PASS 收尾后不再追踪第三章 | tracked=
-[chapter3] PASS=33 FAIL=0
+[chapter3] PASS=36 FAIL=0
 WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
    at: cleanup (core/object/object.cpp:2536)
 ERROR: 2 resources still in use at exit (run with --verbose for details).

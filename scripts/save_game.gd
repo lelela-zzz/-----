@@ -21,6 +21,8 @@ extends Node
 
 ## 存档写好了（面板据此收摊 / 弹提示）
 signal saved(slot: int)
+## 存档删掉了（标题界面据此把「继续 / 读取」重新判一遍）
+signal deleted(slot: int)
 ## 即将读档切场景
 signal loading(slot: int)
 
@@ -119,7 +121,7 @@ func place_of(meta: Dictionary) -> String:
 	var path: String = str(meta.get("scene", ""))
 	var key: String = path.get_file().get_basename()
 	match key:
-		"world": return "炉火镇酒馆"
+		"world": return "龙与粗麦酒酒馆"
 		"village": return "卢迪克集市"
 		"tavern_exterior": return "酒馆门前"
 		"mine": return "矿道"
@@ -183,6 +185,40 @@ func remember_last(slot: int) -> void:
 	var cfg: ConfigFile = ConfigFile.new()
 	cfg.set_value(LAST_SECTION, LAST_KEY, slot)
 	cfg.save(LAST_PATH)
+
+
+## 删一格。删的正好是"上次游玩"指的那格时，把指针一起清掉 ——
+## 否则「继续游戏」会指着一个不存在的槽（虽然 last_slot() 会兜回 0，
+## 但把脏指针留在盘上，以后排查问题会多绕一圈）。
+func delete_slot(slot: int) -> bool:
+	if not is_valid_slot(slot):
+		return false
+	var path: String = ProjectSettings.globalize_path(slot_path(slot))
+	if not FileAccess.file_exists(path):
+		return false
+	var err: int = DirAccess.remove_absolute(path)
+	if err != OK:
+		push_warning("[SaveGame] 删 %s 失败（err=%d）" % [path, err])
+		return false
+	var cfg: ConfigFile = ConfigFile.new()
+	if cfg.load(LAST_PATH) == OK and int(cfg.get_value(LAST_SECTION, LAST_KEY, 0)) == slot:
+		DirAccess.remove_absolute(ProjectSettings.globalize_path(LAST_PATH))
+	deleted.emit(slot)
+	print("[SaveGame] 已删除槽 %d" % slot)
+	return true
+
+
+## 清空全部槽位（测试 / 验收 / "重新开始"用）。返回删掉的个数。
+func clear_all_slots() -> int:
+	var n: int = 0
+	for i: int in range(1, SLOT_COUNT + 1):
+		if delete_slot(i):
+			n += 1
+	# 没有槽了，指针也没有意义
+	var last: String = ProjectSettings.globalize_path(LAST_PATH)
+	if FileAccess.file_exists(last):
+		DirAccess.remove_absolute(last)
+	return n
 
 
 ## 装箱：全部状态拍一张快照。

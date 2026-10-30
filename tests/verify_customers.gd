@@ -214,9 +214,11 @@ func _check_trade() -> void:
 	for i in 8:
 		await get_tree().physics_frame
 
+	# 按文本找 [E] 提示：顾客身上还挂着头顶感叹号（也是 Label），
+	# 不能"取最后一个 Label"。
 	var prompt: Label = null
 	for child: Node in cust.get_children():
-		if child is Label:
+		if child is Label and (child as Label).text.contains("[E]"):
 			prompt = child as Label
 	_report("走近出现 [E] 卖酒 提示",
 			prompt != null and prompt.visible and prompt.text == "[E] 卖酒",
@@ -245,6 +247,15 @@ func _check_trade() -> void:
 			"库存 %d / 铜 %d→%d / 已购 %d"
 					% [Inventory.count("wine_warm_ginger"), copper0, Inventory.copper,
 					cust.sold_count()])
+
+	# 一人一天只买一瓶：第二瓶直接被拒，库存与铜币都不动
+	var copper1: int = Inventory.copper
+	var second: int = cust.sell("wine_warm_ginger")
+	_report("同一人第二瓶被拒（一人一天只买一瓶）",
+			second == 0 and Inventory.count("wine_warm_ginger") == 1
+					and Inventory.copper == copper1,
+			"实收=%d / 库存=%d / 铜=%d" % [second,
+			Inventory.count("wine_warm_ginger"), Inventory.copper])
 
 
 # ---- 4. 偏好预留接口 -----------------------------------------------------

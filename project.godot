@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="炉火镇"
+config/name="龙与粗麦酒"
 config/description="像素风酒馆模拟经营 · 基础模块（移动 / 背景 / 光照）"
 run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.7", "GL Compatibility")

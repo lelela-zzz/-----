@@ -55,11 +55,6 @@ const MINE_SLIME_SPAWNS: Array = [
 ]
 ## 台词推进到第几句开始"姜酒杀死史莱姆"（0 基；第 3 句西蒙说姜酒消掉了一整片）。
 const SLIME_KILL_ENTRY: int = 3
-## 摆放时用的**精灵框**尺寸（脚底 = 原点，身子往上是正的）。
-## 关键：判定"会不会埋进岩壁"必须用整个精灵框，不能用脚下那 13px 的小圆 ——
-## 否则就会出现"脚明明踩在地上、半个身子却插在石头里"的观感。
-const SLIME_HALF_W: float = 28.0
-const SLIME_HEIGHT: float = 58.0
 
 ## beat id → 任务步骤文案（未列出的幕不计入任务步）。
 const STEP_TEXT: Dictionary = {
@@ -654,73 +649,24 @@ func _spawn_mine_slimes() -> void:
 		_slime_nodes.append(s)
 
 
-## 读 props.json 里可阻挡的 collision_rect（跳过 no_collision 的纯装饰件）。
+## 读 props.json 里可阻挡的 collision_rect（实现见 MineSlimeSpawner，两个章节共用）。
 func _load_prop_collision_rects(sorted: Node) -> Array:
-	var path: String = "res://assets/mine/v1/objects/props.json"
-	if sorted != null:
-		var p: Variant = sorted.get("props_path")
-		if p is String and str(p) != "":
-			path = str(p)
-	var out: Array = []
-	var f: FileAccess = FileAccess.open(path, FileAccess.READ)
-	if f == null:
-		return out
-	var parsed: Variant = JSON.parse_string(f.get_as_text())
-	f.close()
-	if typeof(parsed) != TYPE_DICTIONARY:
-		return out
-	for entry: Variant in (parsed as Dictionary).get("props", []):
-		if not (entry is Dictionary):
-			continue
-		var d: Dictionary = entry as Dictionary
-		if bool(d.get("no_collision", false)):
-			continue
-		var cr: Variant = d.get("collision_rect", null)
-		if cr is Array and (cr as Array).size() >= 4:
-			var a: Array = cr as Array
-			out.append(Rect2(float(a[0]), float(a[1]), float(a[2]), float(a[3])))
-	return out
+	return MineSlimeSpawner.load_collision_rects(sorted)
 
 
 func _walkable_bounds(scene: Node) -> Rect2:
-	var st: Node = scene.get_node_or_null("Static")
-	if st != null:
-		var w: Variant = st.get("walkable")
-		if w is Rect2 and (w as Rect2).size.x > 0.0:
-			return w as Rect2
-	return Rect2(8, 8, 1008, 1008)
+	return MineSlimeSpawner.walkable_bounds(scene)
 
 
 ## 该点放不放得下一只**整只**史莱姆：用精灵框（脚底为原点、身子往上长）去判，
 ## 不是脚下那 13px 的小圆 —— 只测小圆就会出现"脚在地上、身子埋进岩壁"。
 func _point_blocked(rects: Array, bounds: Rect2, p: Vector2) -> bool:
-	var l: float = p.x - SLIME_HALF_W
-	var r: float = p.x + SLIME_HALF_W
-	var t: float = p.y - SLIME_HEIGHT
-	var b: float = p.y
-	if bounds.size.x > 0.0:
-		if l < bounds.position.x or r > bounds.end.x \
-				or t < bounds.position.y or b > bounds.end.y:
-			return true
-	for entry: Variant in rects:
-		var rr: Rect2 = entry as Rect2
-		if l < rr.end.x and r > rr.position.x and t < rr.end.y and b > rr.position.y:
-			return true
-	return false
+	return MineSlimeSpawner.box_blocked(rects, bounds, p)
 
 
 ## 投放点若压在碰撞箱里，就螺旋外扩找最近空地（避免出生即卡死）。
 func _free_spawn(rects: Array, bounds: Rect2, p: Vector2) -> Vector2:
-	if not _point_blocked(rects, bounds, p):
-		return p
-	for ring: int in range(1, 8):
-		var rad: float = float(ring) * 16.0
-		for k: int in 16:
-			var ang: float = TAU * float(k) / 16.0
-			var q: Vector2 = p + Vector2(cos(ang), sin(ang)) * rad
-			if not _point_blocked(rects, bounds, q):
-				return q
-	return p
+	return MineSlimeSpawner.free_point(rects, bounds, p)
 
 
 ## 本场景里是否已经有有效史莱姆（避免一幕里重复投放）。

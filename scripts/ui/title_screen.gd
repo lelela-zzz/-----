@@ -28,7 +28,7 @@ const WORLD_SCENE: String = "res://scenes/world.tscn"
 const DESIGN: Vector2 = Vector2(1280, 768)
 
 ## 版式常数（全部写在这，改布局不用翻代码）
-const TITLE_TEXT: String = "炉火镇"
+const TITLE_TEXT: String = "龙与粗麦酒"
 const SUBTITLE_TEXT: String = "HEARTHVALE"
 const TAGLINE_TEXT: String = "一间酒馆，一镇长夜"
 const FOOTER_TEXT: String = "W / S 选择      E / Enter 确认"
@@ -71,6 +71,10 @@ const DEFAULT_INDEX_NO_SAVE: int = 2
 var _items: Array = []
 var _index: int = 0
 var _busy: bool = false
+## 玩家动过鼠标没有。刚进这一屏时如果光标正好停在某一项上，Godot 会补发一次
+## mouse_entered，把默认选中项顶掉（键盘玩家会莫名其妙停在第 3 项）——
+## 所以鼠标真正动过之前，忽略悬停。
+var _mouse_moved: bool = false
 
 var _ui: Control = null
 var _overlay: CanvasLayer = null
@@ -139,7 +143,8 @@ class TitleMenuItem extends Control:
 		if note != "":
 			# 紧跟标题后面，而不是右对齐到行尾 —— 行尾那一截已经压到建筑的亮面上，
 			# 小字会糊在窗光里。
-			_note = UiStyle.label(note, DISABLED_INK, 24)
+			# 可用行的小字也用暗亚麻：用灰行的颜色会让人以为这行也点不动
+			_note = UiStyle.label(note, DISABLED_INK if not usable else UiStyle.LINEN_DARK, 24)
 			_note.size = Vector2(box.x, box.y)
 			_note.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 			_note.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
@@ -148,6 +153,27 @@ class TitleMenuItem extends Control:
 			add_child(_note)
 
 		mouse_entered.connect(func() -> void: hovered.emit(index))
+
+
+	## 状态变了（存档被删 / 新存了一档）时重刷这一行：可用性和右侧小字一起改。
+	## 小字原本可能不存在 —— 所以这里允许"事后长出来"（在存档面板里删光档位后，
+	## 「继续游戏」会从小字"第 3 天…"变成"暂无存档"）。
+	func set_enabled(on: bool, note_text: String) -> void:
+		enabled = on
+		note = note_text
+		if _note == null and note_text != "":
+			_note = UiStyle.label("", DISABLED_INK, 24)
+			_note.size = Vector2(size.x, size.y)
+			_note.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+			add_child(_note)
+		if _note != null:
+			_note.text = note_text
+			_note.visible = note_text != ""
+			_note.position = Vector2(
+					44.0 + UiStyle.text_width(caption, 36) + (16.0 if _focused else 0.0), 0)
+			_note.add_theme_color_override("font_color",
+					DISABLED_INK if not on else UiStyle.LINEN_DARK)
+		set_focused(_focused)
 
 
 	func set_focused(on: bool) -> void:
@@ -161,7 +187,9 @@ class TitleMenuItem extends Control:
 		_mark.queue_redraw()
 		var ink: Color = DISABLED_INK
 		if enabled:
-			ink = UiStyle.FIRE_CORE if on else UiStyle.LINEN_DARK
+			# 可用行分两档：选中火心色、未选中比它暗一档但仍明显亮于"置灰行"
+			# （早先未选中用 LINEN_DARK，和灰行的观感太近，读起来像全都被禁了）
+			ink = UiStyle.FIRE_CORE if on else Color(0.72, 0.70, 0.64)
 		elif on:
 			# 灰行被选中：只比平时亮一点点，别装成"能点"
 			ink = Color(0.66, 0.64, 0.58, 1.0)
@@ -380,6 +408,21 @@ func _slot_count() -> int:
 	return n
 
 
+## 存档被删/新存之后重判两行菜单：可用性 + 小字（"第 3 天…" ↔ "暂无存档"）。
+## 玩家在"读取存档"面板里把最后一格删掉、关掉面板后必须立刻变灰 ——
+## 不重判的话这两行还亮着，按下去只会闪一下"暂无存档"。
+func _sync_menu_state() -> void:
+	for i: int in _items.size():
+		var def: Dictionary = MENU_ITEMS[i]
+		var needs_save: bool = bool(def.get("needs_save", false))
+		var usable: bool = (not needs_save) or _has_save()
+		(_items[i] as TitleMenuItem).set_enabled(
+				usable, _note_for(str(def["action"]), usable))
+	# 档被删光了却还停在「继续游戏」上 → 挪到「开始游戏」，别让人对着灰行按 E
+	if not _has_save() and _index < DEFAULT_INDEX_NO_SAVE:
+		_select(DEFAULT_INDEX_NO_SAVE, false)
+
+
 ## 等宽像素字加字距：英文小标题按"字母 + 半角空格"排开，像招牌上的铜字。
 func _spaced(text: String) -> String:
 	var out: String = ""
@@ -424,7 +467,7 @@ func _select(index: int, wrap: bool = true) -> void:
 
 
 func _on_hover(index: int) -> void:
-	if _busy or _modal_open():
+	if _busy or _modal_open() or not _mouse_moved:
 		return
 	if index != _index:
 		_select(index, false)
@@ -445,6 +488,9 @@ func _modal_open() -> bool:
 
 
 func _input(event: InputEvent) -> void:
+	# 鼠标一动就解锁悬停选中（放在前面：面板开着时也要记这个状态）
+	if event is InputEventMouseMotion:
+		_mouse_moved = true
 	if _busy or _modal_open():
 		return
 	var key: InputEventKey = event as InputEventKey
@@ -517,6 +563,8 @@ func _load_game() -> void:
 	var panel: SavePanel = SAVE_PANEL_SCENE.instantiate() as SavePanel
 	panel.mode = "load"
 	panel.load_requested.connect(_on_load_requested)
+	# 面板里删了档 / 关掉面板 → 菜单重判一次（删光后两行要立刻变灰）
+	panel.closed.connect(_sync_menu_state)
 	layer.add_child(panel)
 
 

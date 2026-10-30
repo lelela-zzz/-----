@@ -94,6 +94,10 @@ func _refresh() -> void:
 		if story.stage != StoryDirector.Stage.OPEN:
 			line1 = "未开张"
 			line2 = "酒馆还没开门"
+		elif story.can_skip_day():
+			# 今天已经收过摊（或过了开张点）：给一条"别干等"的出路
+			line1 = "[T] 挂招牌" if why == "" else "未开张"
+			line2 = "[X] 睡到明天"
 		elif why == "":
 			line1 = "[T] 挂招牌"
 			line2 = "07:30–18:00 可开始运营"
@@ -113,14 +117,12 @@ func _refresh() -> void:
 				UiStyle.FIRE if open else UiStyle.LINEN_DARK)
 		_cached_detail = line2
 
-	# 今日预计客流：上限 = 已认识的候选数（每人每天最多来买一次）；
-	# 营业中再补一句"已来 M"，玩家一眼看出还有没有新面孔可等。
+	# 今日预计客流：**只在营业中显示** —— 打烊了 / 还没挂招牌，这行就收起来，
+	# 天都黑了再挂着"预计客流 N 人"没有任何信息量（2026-10-30 用户要求）。
 	var sp: CustomerSpawner = _spawner()
 	var crowd: String = ""
-	if sp != null:
-		crowd = "预计客流 %d 人" % sp.daily_customer_cap()
-		if open:
-			crowd += " · 已来 %d" % sp.arrived_today()
+	if open and sp != null:
+		crowd = "预计客流 %d 人 · 已来 %d" % [sp.daily_customer_cap(), sp.arrived_today()]
 	if crowd != _cached_crowd:
 		_crowd.text = crowd
 		_crowd.add_theme_color_override("font_color",

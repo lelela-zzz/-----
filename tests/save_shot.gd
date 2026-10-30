@@ -35,6 +35,9 @@ func _ready() -> void:
 	await _wait(6)
 
 	# 1) 存档面板（空档位）
+	# 拍之前把钟拨回 16:40：这一屏拖得久，游戏时计会一路往前走，
+	# 不拨的话截图上的"第 4 天"会漂到晚上。
+	clock.set_time(16, 40)
 	_push_key(KEY_F5)
 	await _wait(6)
 	await _shot("01_save_panel_empty.png")
@@ -54,31 +57,30 @@ func _ready() -> void:
 	_push_key(KEY_E)
 	await _wait(4)
 	await _shot("04_save_overwrite_arm.png")
+
+	# 5) 删除确认（X）：只上膛，不真删
+	_push_key(KEY_X)
+	await _wait(4)
+	await _shot("05_save_delete_arm.png")
 	_push_key(KEY_ESCAPE)
 	await _wait(4)
 
 	# ---- 标题界面 ----
 	get_tree().change_scene_to_file(TITLE)
 	await _wait(120)
-	await _shot("05_title_with_save.png")
+	await _shot("06_title_with_save.png")
 	_push_key(KEY_S)          # 继续游戏 → 读取存档
 	await _wait(4)
 	_push_key(KEY_E)
 	await _wait(8)
-	await _shot("06_load_panel.png")
+	await _shot("07_load_panel.png")
 
 	print("[save_shot] done")
 	get_tree().quit()
 
 
 func _clear_saves() -> void:
-	for i: int in range(1, SaveGame.SLOT_COUNT + 1):
-		var path: String = ProjectSettings.globalize_path(SaveGame.slot_path(i))
-		if FileAccess.file_exists(path):
-			DirAccess.remove_absolute(path)
-	var last: String = ProjectSettings.globalize_path(SaveGame.LAST_PATH)
-	if FileAccess.file_exists(last):
-		DirAccess.remove_absolute(last)
+	SaveGame.clear_all_slots()
 
 
 func _push_key(keycode: Key) -> void:

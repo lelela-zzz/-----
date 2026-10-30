@@ -21,8 +21,15 @@ const BASE_KNOWN: Array[String] = [
 ##   · 终章古龙卡兹是 BOSS，不摆成顾客
 ##   · 林格 / 宁芙 / 伊织 / 特蕾西亚（2026-10-30 用户点名去掉）
 ## （以后想改成数据驱动，可挪到 npcs.json 的 no_customer 字段，这里只管判定。）
+## 设定上不当酒客的角色（认识也不会来买酒）：
+##   · 老板娘萃歌自己不会来买酒
+##   · 终章古龙卡兹是 BOSS，不摆成顾客
+##   · 林格 / 宁芙 / 伊织 / 特蕾西亚（2026-10-30 用户点名去掉）
+##   · 俄莉斯（2026-10-30 追加）：剧情上不宜在经营里反复露脸，支线聊完即退场，
+##     之后不再作为普通客人进店 —— 但她的支线访客资格不受此影响（见
+##     CustomerSpawner._story_visitors 走 _all_defs，不走这份名单）。
 const NOT_CUSTOMER: Array[String] = [
-	"tavern_cuige", "ancient_kaz",
+	"tavern_cuige", "ancient_kaz", "thief_eris",
 	"knight_ringe", "spring_nymph", "bartender_iori", "dragon_theresia",
 ]
 
@@ -39,7 +46,9 @@ const NOT_CUSTOMER: Array[String] = [
 ## ⚠ 第三章没有新人登场（卡兹 / 特蕾西亚 / 林格 / 萃歌 都不当酒客），名单为空 =
 ## 那一章的认识条件自动满足，实际仍只看营业额。
 const CHAPTER_REQUIRED: Dictionary = {
-	"snow_logistics": ["broker_chiss", "ronin_himura", "thief_eris"],
+	# thief_eris（俄莉斯）不进名单：她已列入 NOT_CUSTOMER（不再当酒客），
+	# mark_known 对她直接忽略，「跟俄莉斯对话」这步永远打不了勾 —— 死锁。
+	"snow_logistics": ["broker_chiss", "ronin_himura"],
 	# brewer_greym（灰毛）不在名单里：他的 placement 挂在 world，而 world 的
 	# NpcSpawner 是关的（酒馆不站常驻人），序章根本没途径遇到 —— 列进去就是死锁。
 	# 要把他算进来，得先给他补一条支线或别的登场方式。

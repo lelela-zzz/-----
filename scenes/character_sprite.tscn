@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/character_animator.gd" id="1_anim"]
-[ext_resource type="Texture2D" path="res://通用方法/walk_v5.png" id="2_sheet"]
+[ext_resource type="Texture2D" path="res://assets/hero/walk_v5.png" id="2_sheet"]
 
 [node name="CharacterSprite" type="AnimatedSprite2D"]
 centered = false

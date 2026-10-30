@@ -28,8 +28,13 @@ var _rows: Array = []
 var _index: int = 0
 ## 已经按过一次 E 的格子（-1 = 没有）。存档模式下覆盖要按两次。
 var _armed: int = -1
+## 已经按过一次 X 的格子（-1 = 没有）。删除统一要按两次。
+var _armed_delete: int = -1
 var _status: Label = null
 var _hint: Label = null
+## 玩家动过鼠标没有。面板弹出的瞬间光标可能正压在 2 号槽上，Godot 会补发
+## mouse_entered 把焦点顶过去 —— 键盘玩家一按 E 就存错了格子。所以动过鼠标前忽略悬停。
+var _mouse_moved: bool = false
 
 
 func _build() -> void:
@@ -41,7 +46,7 @@ func _build() -> void:
 	title.position = Vector2(16, 8)
 	_frame.add_child(title)
 
-	var note_text: String = "三个存档位，覆盖需要再按一次" if mode == "save" \
+	var note_text: String = "覆盖与删除都要按两次" if mode == "save" \
 			else "选一格继续上次的进度"
 	var note: Label = UiStyle.label(note_text, UiStyle.LINEN_DARK)
 	# 右对齐到框内边：标题两字和四字宽度不同，左对齐会和标题叠字
@@ -74,8 +79,8 @@ func _build() -> void:
 
 func _hint_text() -> String:
 	if mode == "save":
-		return "[W/S] 选   [E] 存入   [Esc] 返回"
-	return "[W/S] 选   [E] 读取   [Esc] 返回"
+		return "[W/S] 选   [E] 存入   [X] 删除   [Esc] 返回"
+	return "[W/S] 选   [E] 读取   [X] 删除   [Esc] 返回"
 
 
 # ---- 刷新 ------------------------------------------------------------------
@@ -100,6 +105,7 @@ func _select(i: int) -> void:
 	var next: int = posmod(i, _rows.size())
 	if next != _index:
 		_armed = -1          # 换了格子，覆盖确认作废
+		_armed_delete = -1   # 删除确认同样作废
 	_index = next
 	for n: int in _rows.size():
 		(_rows[n] as SlotRow).set_focused(n == _index)
@@ -108,8 +114,13 @@ func _select(i: int) -> void:
 # ---- 交互 ------------------------------------------------------------------
 
 func _on_hover(index: int) -> void:
-	if index != _index:
+	if _mouse_moved and index != _index:
 		_select(index)
+
+
+func _on_any_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		_mouse_moved = true
 
 
 func _on_activate(index: int) -> void:
@@ -127,6 +138,9 @@ func _on_key(keycode: int) -> bool:
 			return true
 		KEY_E, KEY_ENTER, KEY_KP_ENTER, KEY_SPACE:
 			_act()
+			return true
+		KEY_X, KEY_DELETE:
+			_delete()
 			return true
 	return false
 
@@ -149,11 +163,13 @@ func _act() -> void:
 	if SaveGame.has_slot(slot) and _armed != slot:
 		# 第一次按：只上膛，不动盘
 		_armed = slot
+		_armed_delete = -1
 		_set_status("存档位 %d 已有记录，再按一次 E 覆盖" % slot, true)
 		(_rows[_index] as SlotRow).flash()
 		return
 	if SaveGame.save_to(slot):
 		_armed = -1
+		_armed_delete = -1
 		_refresh()
 		_set_status("已存入存档位 %d" % slot, true)
 		saved.emit(slot)
@@ -166,6 +182,27 @@ func _act() -> void:
 				Story.toast("已存档 · 存档位 %d" % slot)
 	else:
 		_set_status("存档失败（写入被拒）", true)
+
+
+## 删除一格（两种模式都能删：存档面板里清位、读取面板里清掉不想要的进度）。
+## 同样按两次：第一次只上膛 —— 删存档是不可逆的，多按一次键换一次后悔药。
+func _delete() -> void:
+	var slot: int = _index + 1
+	if not SaveGame.has_slot(slot):
+		_set_status("存档位 %d 是空的，没什么可删" % slot, true)
+		return
+	if _armed_delete != slot:
+		_armed_delete = slot
+		_armed = -1
+		_set_status("再按一次 X 删除存档位 %d（删了就找不回来）" % slot, true)
+		(_rows[_index] as SlotRow).flash()
+		return
+	if SaveGame.delete_slot(slot):
+		_armed_delete = -1
+		_refresh()
+		_set_status("已删除存档位 %d" % slot, true)
+		if Story != null and Story.has_method("toast"):
+			Story.toast("已删除 · 存档位 %d" % slot)
 
 
 # ---- 一行 ------------------------------------------------------------------

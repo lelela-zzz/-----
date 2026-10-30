@@ -11,10 +11,12 @@ extends Control
 ##   · 悬停：字变火心色 + 包边亮起（可点）
 ##   · 刚存过：整条闪一下火光（Story.toast 之外的第二重确认）
 
-const WIDTH: int = 138
-const HEIGHT: int = 22
+const WIDTH: int = 96
+const HEIGHT: int = 18
 const MARGIN_LEFT: int = 8
 const MARGIN_TOP: int = 62     # 任务书 8..58，往下让 4px
+## 设置条排在本条下面（SettingsHint 复用这两个值算自己的 y）
+const ROW_GAP: int = 4
 
 var _plate: Panel = null
 var _accent: ColorRect = null
@@ -48,8 +50,8 @@ func _build() -> void:
 	add_child(_accent)
 
 	_label = UiStyle.label("[F5] 存档", UiStyle.LINEN_DARK)
-	_label.position = Vector2(10, 5)
-	_label.size = Vector2(WIDTH - 12, 12)
+	_label.position = Vector2(9, 3)
+	_label.size = Vector2(WIDTH - 11, 12)
 	_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(_label)
 

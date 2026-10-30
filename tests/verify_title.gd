@@ -19,6 +19,9 @@ var _scene: Node = null
 
 func _ready() -> void:
 	StoryDirector.force_disable = true     # 切进世界后别放序章，专心测这一屏
+	# 这一屏的断言全按"没有任何存档"来写（两行存档位置灰），
+	# 所以先清档 —— 否则跑过 verify_save / save_shot 之后这里会红一片。
+	SaveGame.clear_all_slots()
 	await get_tree().process_frame
 
 	_scene = (load("res://scenes/title.tscn") as PackedScene).instantiate()
@@ -41,7 +44,7 @@ func _ready() -> void:
 
 	# ---- 2) 文案 ----
 	var texts: Array[String] = _labels(_scene)
-	_report("标题写着 炉火镇", _any_contains(texts, "炉火镇"), "labels=%s" % [texts])
+	_report("标题写着 龙与粗麦酒", _any_contains(texts, "龙与粗麦酒"), "labels=%s" % [texts])
 	for want: String in ["继续游戏", "读取存档", "开始游戏", "设置", "退出游戏"]:
 		_report("菜单项「%s」在" % want, _any_contains(texts, want),
 				"labels=%s" % [texts])

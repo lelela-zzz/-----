@@ -155,7 +155,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not get_tree().get_nodes_in_group("modal_ui").is_empty():
 		return
 	# 显示设置是系统级菜单：不受序章总闸控制，force_disable 的验收里也能开
-	if key.keycode == KEY_F10:
+	if key.keycode == KEY_F6:
 		_open_panel(SETTINGS_PANEL_SCENE)
 		return
 	# 存档（F5）。同样放在总闸之前：验收要靠它开存档面板，玩家在序章里也该能存。
@@ -170,6 +170,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_open_panel(MAP_PANEL_SCENE)
 	elif key.keycode == KEY_T:
 		toggle_business()
+	elif key.keycode == KEY_X:
+		# 结束经营后「睡到明天早上」：跳掉当天剩下的空等（见 _try_skip_day）
+		_try_skip_day()
 	elif key.keycode == KEY_R:
 		# 账簿（酒谱 + 库存）：价格阶梯第一次对玩家可见的地方
 		_open_panel(LEDGER_PANEL_SCENE)
@@ -215,6 +218,38 @@ func open_block_reason() -> String:
 	if now > OPEN_UNTIL_MIN:
 		return "天都黑了，明天白天再挂招牌吧。"
 	return ""
+
+
+# ---- 跳过当天（睡到明天早上）----------------------------------------------
+
+## 「再按一次确认」的窗口（现实秒）。跳掉一整天不可逆，误触代价太大 —— 双按确认。
+const SKIP_CONFIRM_SEC: float = 4.0
+var _skip_armed_at: int = -1_000_000
+
+
+## 现在能不能「睡到明天」：序章演完、招牌没挂着、人站在店里。
+## 只影响营业框要不要显示 [X] 提示和按 X 是否生效；真正跳天在 GameClock.skip_to_morning。
+func can_skip_day() -> bool:
+	if force_disable or stage != Stage.OPEN:
+		return false
+	if business_open:
+		return false
+	return in_tavern()
+
+
+## [X] 两段式：第一按武装确认（toast 提示），窗口内再按一次才真的睡。
+func _try_skip_day() -> void:
+	if not can_skip_day():
+		return
+	var now: int = Time.get_ticks_msec()
+	if now - _skip_armed_at > int(SKIP_CONFIRM_SEC * 1000.0):
+		_skip_armed_at = now
+		_toast("再按一次 [X]，直接睡到明天早上", 2.5)
+		return
+	_skip_armed_at = -1_000_000
+	var clock: GameClock = _clock()
+	if clock != null:
+		clock.skip_to_morning()
 
 
 func toggle_business() -> void:
@@ -497,19 +532,29 @@ func _ensure_prep(chapter: String) -> void:
 		QuestLog.add(qid, str(PREP_TITLE.get(chapter, "准备")), PREP_DESC)
 		QuestLog.add_step(qid, "累计营业额", maxi(1, _threshold_for(chapter)))
 		for id: String in Regulars.required_for(chapter):
-			QuestLog.add_step(qid, "认识 " + Regulars.display_name(id))
+			QuestLog.add_step(qid, "跟 " + Regulars.display_name(id) + " 对话")
 	_sync_prep(chapter)
 
 
 ## 把准备清单刷成真实进度（营业额 + 每个人认识没）。
+## 两件都办妥时把清单**正式结档**（complete）：它从"还差活儿"名单退场、
+## 触发 QuestLog 的追踪接力 —— 指引从准备阶段无缝交棒给章节主线。
 func _sync_prep(chapter: String) -> void:
 	var qid: String = str(PREP_QID.get(chapter, ""))
 	if qid.is_empty() or Regulars == null or not QuestLog.has(qid):
 		return
+	if QuestLog.is_complete(qid):
+		return
 	QuestLog.set_progress(qid, 0, int(round(Revenue.total)))
 	var req: Array[String] = Regulars.required_for(chapter)
+	var all_done: bool = true
 	for i: int in req.size():
-		QuestLog.set_step_done(qid, 1 + i, Regulars.is_known(req[i]))
+		var known: bool = Regulars.is_known(req[i])
+		QuestLog.set_step_done(qid, 1 + i, known)
+		all_done = all_done and known
+	if all_done and int(round(Revenue.total)) >= _threshold_for(chapter):
+		QuestLog.complete(qid)
+		_toast("万事俱备。消息很快就会传到该听见的人耳朵里。", 5.0)
 
 
 ## 第一章双条件都满足没：累计营业额够 **且** 该认识的人都认识了。
@@ -846,6 +891,7 @@ func _ensure_tracker() -> void:
 	var has_business: bool = false
 	var has_arrow: bool = false
 	var has_save_hint: bool = false
+	var has_settings_hint: bool = false
 	for child: Node in hud.get_children():
 		if child is QuestTracker:
 			has_tracker = true
@@ -855,6 +901,8 @@ func _ensure_tracker() -> void:
 			has_arrow = true
 		elif child is SaveHint:
 			has_save_hint = true
+		elif child is SettingsHint:
+			has_settings_hint = true
 	if not has_tracker:
 		hud.add_child(QuestTracker.new())
 	# 营业状态条（右上角）：招牌挂没挂 / 还剩多久打烊 / 今日进账
@@ -866,6 +914,9 @@ func _ensure_tracker() -> void:
 	# 存档提示条（左上角、任务书下面）：[F5] 存档，点它也能开
 	if not has_save_hint:
 		hud.add_child(SaveHint.new())
+	# 设置提示条（存档条下面）：[F6] 设置，点它也能开
+	if not has_settings_hint:
+		hud.add_child(SettingsHint.new())
 
 
 func _open_panel(scene_path: String) -> void:
@@ -883,7 +934,18 @@ func _open_panel(scene_path: String) -> void:
 func open_save_panel() -> void:
 	if not get_tree().get_nodes_in_group("modal_ui").is_empty():
 		return
+	# 上一档的"已存档"浮字会压在面板标题上，开面板前先收掉
+	if _toast_label != null and is_instance_valid(_toast_label):
+		_toast_label.queue_free()
+		_toast_label = null
 	_open_panel(SAVE_PANEL_SCENE)
+
+
+## 打开设置面板（F6 / 点左上角「[F6] 设置」都走这里）。
+func open_settings_panel() -> void:
+	if not get_tree().get_nodes_in_group("modal_ui").is_empty():
+		return
+	_open_panel(SETTINGS_PANEL_SCENE)
 
 
 func _toast(text: String, seconds: float = 3.5) -> void:

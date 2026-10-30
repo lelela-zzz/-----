@@ -49,7 +49,9 @@ func _ready() -> void:
 		var texts: Array[String] = _labels(hud_node)
 		_report("未开张时状态条提示挂招牌", _any_contains(texts, "[T] 挂招牌"),
 				"labels=%s" % [texts])
-		_report("状态条显示今日预计客流", _any_contains(texts, "预计客流"),
+		_report("未开张时不显示客流（用户 2026-10-30：只在营业中显示）",
+				not _any_contains(texts, "预计客流"), "labels=%s" % [texts])
+		_report("关门态提供 [X] 睡到明天", _any_contains(texts, "睡到明天"),
 				"labels=%s" % [texts])
 		_report("身处酒馆（world）：状态条可见",
 				(hud_node as Control).visible, "visible=%s" % (hud_node as Control).visible)

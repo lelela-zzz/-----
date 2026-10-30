@@ -1,5 +1,5 @@
 extends Control
-## 显示设置（F10 面板）验收：比例档 / 存读 / 面板交互 / 文案不越框。
+## 显示设置（F6 面板）验收：比例档 / 存读 / 面板交互 / 文案不越框。
 ##
 ## A 路线后渲染基准是 1280×768（逻辑 640×384 ×2），窗口用"显示比例"表达
 ## （100% = 1280×768，150% = 1920×1152）。
@@ -142,7 +142,7 @@ func _check_panel() -> void:
 	_report("面板列出三项设置",
 			_has(texts, "显示模式") and _has(texts, "窗口大小") and _has(texts, "全屏缩放"),
 			"%s" % str(texts))
-	_report("带操作提示", _has(texts, "[W/S] 选") and _has(texts, "[Esc] 返回"),
+	_report("带操作提示", _has(texts, "[W/S] 选") and _has(texts, "[E/Esc] 返回"),
 			"%s" % str(texts))
 	_report("初始选中第一行", panel.get("_index") == 0, str(panel.get("_index")))
 	_report("窗口化状态显示「窗口化」", _has(texts, "窗口化"), "%s" % str(texts))

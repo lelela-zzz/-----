@@ -28,6 +28,20 @@ const QID: String = "ch3_dragon_king"
 ## 解锁门槛：累计营业额达到这个数，奇斯才会带着密函上门。
 const UNLOCK_REVENUE: int = 400
 
+## ---- 矿井幕（ch3_mine_slime）的史莱姆演出 --------------------------------
+## 这一段的台词本来就写了"这帮家伙又来了 / 你把酒液泼向史莱姆"，但场上一个史莱姆
+## 都没有 → 纯画外音。这里补两只堵在裂隙门前的史莱姆当场景演出：
+## 对话到"泼酒"那句时它们崩解成粘液，尸体留在地上。
+const MINE_BEAT_ID: String = "ch3_mine_slime"
+const SLIME_SCENE: String = "res://scenes/slime.tscn"
+## 裂隙门前那条矿道里能站的地面只有 x≈190..340 / y≈880..930，
+## 这两点都按"整只精灵框"校验过（见 MineSlimeSpawner）。
+const CH3_SLIME_SPAWNS: Array = [
+	Vector2(258, 904), Vector2(326, 906),
+]
+## 台词推进到第几句开始"泼酒杀史莱姆"（0 基；第 4 句"你把酒液泼向史莱姆"）。
+const SLIME_KILL_ENTRY: int = 3
+
 ## beat id → 任务步骤文案（未列出的幕不计入任务步）。
 const STEP_TEXT: Dictionary = {
 	"ch3_tavern_chiss": "接下奇斯送来的密函",
@@ -96,6 +110,9 @@ var _whiteout: bool = false
 var auto_unlock: bool = true
 ## 矿井裂隙是否已开（ch3_mine_slime 播完置真）。RiftDoor 每帧问一次这个值。
 var _rift_open: bool = false
+## 矿井幕摆出来的史莱姆（尸体不随幕关闭释放，要留在地上）。
+var _slime_nodes: Array[Node] = []
+var _slimes_killed: bool = false
 
 
 func _ready() -> void:
@@ -172,6 +189,8 @@ func reset() -> void:
 	game_finished = false
 	_whiteout = false
 	_rift_open = false
+	_slimes_killed = false
+	_prune_slime_nodes()
 
 
 ## 无副作用地撤掉当前正在播的对话：只关面板，不标记完成、不推进 index。
@@ -184,6 +203,7 @@ func abort_current_beat() -> void:
 	_playing = false
 	_awaiting_talk = false
 	_clear_beat_npcs()
+	_prune_slime_nodes()
 
 
 ## 由外部（第一章结束 / 营业额解锁）调用。幂等。
@@ -238,6 +258,7 @@ func _recover_after_scene_change() -> void:
 		_panel = null
 		_playing = false
 	_prune_npc_nodes()
+	_prune_slime_nodes()
 	if not _awaiting_talk:
 		return
 	var b: Dictionary = current_beat()
@@ -393,6 +414,9 @@ func _play_beat(b: Dictionary) -> void:
 	_panel = panel
 	_playing = true
 	panel.closed.connect(_on_beat_closed)
+	# 矿井幕：台词到"泼酒"那句时让史莱姆崩解成尸体。
+	if str(b.get("id", "")) == MINE_BEAT_ID:
+		panel.connect("entry_shown", _on_dialogue_entry)
 	beat_changed.emit(_index)
 
 
@@ -422,6 +446,9 @@ func _spawn_beat_npc(b: Dictionary) -> void:
 	# 本幕人物到位后，把场景里其余正在游荡的常驻角色（老板娘等）一起站定，
 	# 免得剧情对话时她们自顾自走掉；幕关闭时再 resume_wander() 恢复。
 	_freeze_wanderers()
+	# 矿井幕：进场就在裂隙门前摆出堵路的史莱姆。
+	if str(b.get("id", "")) == MINE_BEAT_ID:
+		_spawn_slimes()
 
 
 ## 对话开始：本幕在场人物全部转向玩家（含被叫来的萃歌，免得她面朝外侧）。
@@ -532,6 +559,10 @@ func _on_beat_closed() -> void:
 	_playing = false
 	_panel = null
 	_awaiting_talk = false
+	# 矿井幕：万一玩家把整段对话快速跳过，这里兜底把史莱姆全部杀掉，
+	# 保证"离开这一幕时地上一片粘液"的结果一定成立。尸体不释放，留在场景里。
+	if str(current_beat().get("id", "")) == MINE_BEAT_ID:
+		_force_kill_slimes()
 	_clear_beat_npcs()
 	if _index < _beats.size():
 		var b: Dictionary = _beats[_index] as Dictionary
@@ -638,9 +669,90 @@ func _finish() -> void:
 	_done = true
 	game_finished = true
 	_clear_beat_npcs()
+	_prune_slime_nodes()
 	QuestLog.complete(QID)
 	_toast("第三章 · 龙王传说 —— 完", 6.0)
 	finished.emit()
+
+
+# ---- 矿井幕的史莱姆演出 ---------------------------------------------------
+
+## 在裂隙门前的矿道里摆两只存活态史莱姆（幂等：本场景已有就不重复摆）。
+func _spawn_slimes() -> void:
+	if _has_slimes():
+		return
+	var scene: Node = get_tree().current_scene
+	if scene == null:
+		return
+	var sorted: Node = scene.get_node_or_null("Sorted")
+	if sorted == null:
+		return
+	var ps: PackedScene = load(SLIME_SCENE) as PackedScene
+	if ps == null:
+		push_warning("[Chapter3Story] 找不到史莱姆场景 %s" % SLIME_SCENE)
+		return
+	var rects: Array = MineSlimeSpawner.load_collision_rects(sorted)
+	var bounds: Rect2 = MineSlimeSpawner.walkable_bounds(scene)
+	_slimes_killed = false
+	for i: int in CH3_SLIME_SPAWNS.size():
+		var s: Node2D = ps.instantiate() as Node2D
+		if s == null:
+			continue
+		s.name = "Slime_%d" % i
+		s.position = MineSlimeSpawner.free_point(rects, bounds, CH3_SLIME_SPAWNS[i] as Vector2)
+		sorted.add_child(s)
+		if s.has_method("configure_collision"):
+			s.call("configure_collision", rects, bounds)
+		_slime_nodes.append(s)
+
+
+func _has_slimes() -> bool:
+	for n: Node in _slime_nodes:
+		if is_instance_valid(n) and not n.is_queued_for_deletion():
+			return true
+	return false
+
+
+## 对话逐句回调：到"你把酒液泼向史莱姆"那一句时让它们崩解。
+func _on_dialogue_entry(index: int) -> void:
+	if str(current_beat().get("id", "")) != MINE_BEAT_ID:
+		return
+	if index >= SLIME_KILL_ENTRY and not _slimes_killed:
+		_slimes_killed = true
+		for i: int in _slime_nodes.size():
+			_kill_slime_after(_slime_nodes[i], float(i) * 0.18)
+
+
+func _kill_slime_after(s: Node, delay: float) -> void:
+	if delay <= 0.0:
+		_kill_slime(s)
+		return
+	await get_tree().create_timer(delay).timeout
+	# 切场景会把节点释放掉，延迟回调里必须先验一遍，否则 typed 参数传已释放
+	# 对象会报 "Object-derived class ... previously freed"。
+	if not is_instance_valid(s):
+		return
+	_kill_slime(s)
+
+
+func _kill_slime(s: Node) -> void:
+	if s != null and s.has_method("die"):
+		s.call("die")
+
+
+func _force_kill_slimes() -> void:
+	_slimes_killed = true
+	for n: Node in _slime_nodes:
+		if is_instance_valid(n):
+			_kill_slime(n)
+
+
+func _prune_slime_nodes() -> void:
+	var alive: Array[Node] = []
+	for n: Node in _slime_nodes:
+		if is_instance_valid(n):
+			alive.append(n)
+	_slime_nodes = alive
 
 
 func _scene_id() -> String:

@@ -41,7 +41,7 @@ func _ready() -> void:
 	# 设置面板（UI 也是 2× 渲染，字仍然锐利）
 	clock.set_time(12, 0)
 	await _wait(8)
-	_push_key(KEY_F10)
+	_push_key(KEY_F6)
 	await _wait(8)
 	await _shot("03_settings.png")
 
